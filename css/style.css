@@ -89,9 +89,9 @@ body.link-hover #cursorRing{width:58px;height:58px;opacity:.9}
 .hero-card:hover{border-color:var(--line2)}
 .id-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:2px}
 .pill-live{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:999px;padding:5px 12px;font-size:10px;color:var(--mut)}
-.id-avatar{font-family:var(--mono);font-weight:700;font-size:64px;line-height:1;width:120px;height:120px;display:grid;place-items:center;background:var(--fg);color:var(--bg);border-radius:28px;margin:20px 0 14px;letter-spacing:-4px;transition:transform .4s}
+.id-avatar{width:120px;height:120px;object-fit:cover;display:block;border-radius:28px;margin:20px 0 14px;border:1px solid var(--line2);filter:grayscale(1) contrast(1.05);transition:transform .4s}
 .hero-card:hover .id-avatar{transform:rotate(-6deg) scale(1.04)}
-.id-avatar.xl{font-size:84px;width:150px;height:150px}
+.id-avatar.xl{width:150px;height:150px}
 .id-name{font-size:22px;font-weight:700}
 .id-rows{margin-top:16px;border-top:1px dashed var(--line2);padding-top:6px}
 .id-rows div{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}

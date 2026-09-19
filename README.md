@@ -6,6 +6,7 @@ Portfolio site in black & white editorial style. No build step — ready for **G
 
 ```
 index.html      — hero · selected works · about · stack · journey · contact
+avatar.png      — avatar (hero ID card, about, favicon)
 css/style.css   — monochrome theme + animations + work covers
 js/main.js      — cursor, canvas network, typer, reveal, tilt, active nav
 404.html        — custom 404
