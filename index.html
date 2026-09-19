@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>kuranix® — AI Engineer & System Builder</title>
+<meta name="description" content="kuranix is an AI-focused software developer building custom AI systems, infrastructure, developer tools, web applications and Minecraft technologies. Creator of Cardinal and GHOST." />
+<meta property="og:title" content="kuranix® — AI Engineer & System Builder" />
+<meta property="og:description" content="Selected works: Cardinal — daemonless container runtime in Go. GHOST — custom AI/LLM platform. Minecraft systems. Developer tools." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='black'/><text x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='monospace'>k.</text></svg>" />
+</head>
+<body>
+
+<!-- ===== PRELOADER ===== -->
+<div id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-logo">kuranix<span class="blink">®</span></div>
+    <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
+    <div class="pre-meta"><span id="preCount">00</span><span id="preWord">loading system</span></div>
+  </div>
+</div>
+
+<!-- ===== OVERLAYS ===== -->
+<div class="noise" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+<div id="cursorDot" aria-hidden="true"></div>
+<div id="cursorRing" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header id="nav">
+  <a href="#top" class="logo magnetic" data-hover>kuranix<span>®</span></a>
+  <nav class="links" id="navLinks">
+    <a href="#work" data-hover><i>01</i>work</a>
+    <a href="#about" data-hover><i>02</i>about</a>
+    <a href="#stack" data-hover><i>03</i>stack</a>
+    <a href="#journey" data-hover><i>04</i>journey</a>
+    <a href="#contact" data-hover><i>05</i>contact</a>
+  </nav>
+  <div class="nav-right">
+    <button id="themeBtn" class="icon-btn magnetic" data-hover aria-label="Invert theme">◐</button>
+    <a class="btn btn-sm magnetic" href="https://github.com/kuranix" target="_blank" rel="noopener" data-hover>github ↗</a>
+    <button id="burger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-top reveal">
+        <span class="pill"><span class="dot"></span> portfolio ©2026 — available for collabs</span>
+        <span class="pill ghost-pill">AI · infra · web · minecraft</span>
+      </div>
+      <div class="hero-layout">
+        <div class="hero-main">
+          <h1 class="mega" id="scramble" data-text="KURANIX">KURANIX</h1>
+          <p class="hero-role">AI Engineer <em>&</em> <span class="outline-word">System Builder</span></p>
+          <p class="hero-sub"><span class="mono-dim">$</span> <span id="typer"></span><span class="caret">▌</span></p>
+          <p class="hero-desc reveal">
+            I design and build software systems — from a <b>daemonless container runtime in Go</b>
+            to a <b>custom AI/LLM platform</b>, developer tools and Minecraft systems.
+            AI-assisted development, human-owned architecture.
+          </p>
+          <div class="hero-cta reveal">
+            <a href="#work" class="btn btn-solid magnetic" data-hover>selected works ↓</a>
+            <a href="https://cardinal.work.gd/" target="_blank" rel="noopener" class="btn magnetic" data-hover>cardinal ↗</a>
+            <a href="https://github.com/kuranix" target="_blank" rel="noopener" class="btn magnetic" data-hover>github ↗</a>
+          </div>
+        </div>
+        <aside class="hero-card tilt reveal" data-hover>
+          <div class="id-head"><span class="mono">ID — 001</span><span class="pill-live"><span class="dot"></span> building</span></div>
+          <div class="id-avatar">k.</div>
+          <p class="id-name">kuranix</p>
+          <p class="muted">Creator of <b>Cardinal</b> &amp; <b>GHOST</b>.<br />AI · Infrastructure · Web · Minecraft.</p>
+          <div class="id-rows">
+            <div><span>focus</span><b>AI + systems</b></div>
+            <div><span>languages</span><b>py · js · java · go</b></div>
+            <div><span>base</span><b>github.com/kuranix</b></div>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-stats reveal">
+        <div><b>~5<small>MB</small></b><span>cardinal static binary</span></div>
+        <div><b data-count="18">0</b><span>runtime capabilities</span></div>
+        <div><b data-count="13">0</b><span>ghost components</span></div>
+        <div><b data-count="4">0</b><span>featured works</span></div>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <span>scroll — 001</span>
+      <span class="line"></span>
+      <span>selected works ↓ / kuranix® v4.0</span>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>CARDINAL ✕ GHOST ✕ AI SYSTEMS ✕ CONTAINER RUNTIME ✕ DEVTOOLS ✕ MINECRAFT ✕ OPEN SOURCE ✕&nbsp;</span>
+      <span>CARDINAL ✕ GHOST ✕ AI SYSTEMS ✕ CONTAINER RUNTIME ✕ DEVTOOLS ✕ MINECRAFT ✕ OPEN SOURCE ✕&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== SELECTED WORKS ===== -->
+  <section id="work" class="section">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <div><p class="kicker">// selected works</p><h2>Work<span>.</span></h2></div>
+      <p class="sec-desc">Four directions I push forward: container infrastructure, custom AI, Minecraft systems and tools for developers.</p>
+    </div>
+
+    <!-- CARDINAL — featured -->
+    <article class="work work-featured tilt reveal" data-hover>
+      <div class="work-cover cover-cardinal" aria-hidden="true">
+        <div class="term mini-term">
+          <div class="term-bar"><i></i><i></i><i></i><span>root@host: ~</span></div>
+          <pre><code><span class="g">$</span> cardinal run --image oci:alpine
+<span class="dim">▸ namespaces + overlayfs + cgroupsv2 [ok]</span>
+<span class="g">$</span> cardinal ps <span class="blink">▌</span></code></pre>
+        </div>
+        <div class="boxes"><span>runtime</span><span>net</span><span>vol</span><span>api</span></div>
+      </div>
+      <div class="work-body">
+        <p class="card-tag">featured — infrastructure · <b>Go</b> · ~5 MB static binary</p>
+        <h3>Cardinal</h3>
+        <p class="work-tagline">No daemon. No Docker. Just containers.</p>
+        <p class="muted">Custom container runtime: OCI images, namespaces, OverlayFS, cgroups v2, veth/bridge networking, iptables, seccomp, AppArmor, encrypted backups, volumes, cluster, FaaS, healthchecks, compose-like config, REST API, systemd supervisor, CLI.</p>
+        <div class="chips sm"><span>Ecosystem</span><span>Wings agent</span><span>Panel / Web</span><span>REST API</span></div>
+        <div class="work-links">
+          <a class="btn btn-solid btn-sm magnetic" data-hover href="https://cardinal.work.gd/" target="_blank" rel="noopener">live site ↗</a>
+          <a class="btn btn-sm magnetic" data-hover href="https://github.com/kuranix" target="_blank" rel="noopener">github ↗</a>
+        </div>
+      </div>
+      <span class="work-num">/01</span>
+    </article>
+
+    <!-- GHOST -->
+    <article class="work work-row reveal">
+      <div class="work-cover cover-ghost" aria-hidden="true">
+        <div class="tokens"><span>GHOST</span><span>BPE</span><span>attn</span><span>mem</span><span>tools</span><span>agent</span></div>
+        <div class="tokens t2" aria-hidden="true"><span>train</span><span>infer</span><span>eval</span><span>index</span><span>cli</span><span>LM</span></div>
+      </div>
+      <div class="work-body">
+        <p class="card-tag">ai / llm platform · experimental</p>
+        <h3>GHOST</h3>
+        <p class="work-tagline">My own AI system — the model is only one part.</p>
+        <p class="muted">Custom tokenizer &amp; BPE pipeline, Transformer architecture, language modeling, training, inference, evaluation, memory, tool use, agents, project indexing, experiment tracking, CLI.</p>
+        <div class="chips sm"><span>GHOST-LM</span><span>Tokenizer</span><span>Agent</span><span>CLI</span></div>
+      </div>
+      <span class="work-num">/02</span>
+    </article>
+
+    <div class="works-2">
+      <!-- MINECRAFT -->
+      <article class="work work-col tilt reveal" data-hover>
+        <div class="work-cover cover-mc" aria-hidden="true"><span class="mc-badge">⛏ Paper · Java</span></div>
+        <div class="work-body">
+          <p class="card-tag">minecraft systems</p>
+          <h3>Minecraft Platforms</h3>
+          <p class="muted">Paper plugins, custom items &amp; mechanics, server systems, admin tools, automation, resource packs — AI-assisted design for modern Java Edition.</p>
+          <div class="chips sm"><span>Paper</span><span>Custom Items</span><span>Automation</span></div>
+        </div>
+        <span class="work-num">/03</span>
+      </article>
+      <!-- DEVTOOLS -->
+      <article class="work work-col tilt reveal" data-hover>
+        <div class="work-cover cover-dev" aria-hidden="true">
+          <pre><code><span class="g">$</span> kx index ./project
+<span class="dim">▸ 1 204 files · graph ready</span>
+<span class="g">$</span> kx ship <span class="blink">▌</span></code></pre>
+        </div>
+        <div class="work-body">
+          <p class="card-tag">developer tools</p>
+          <h3>Devtools &amp; Bots</h3>
+          <p class="muted">CLI apps, project indexers, AI coding tools, automation, API integrations, Discord bots &amp; communities, config systems, testing &amp; eval.</p>
+          <div class="chips sm"><span>CLI</span><span>Indexers</span><span>Discord</span></div>
+        </div>
+        <span class="work-num">/04</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section alt">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <div><p class="kicker">// about</p><h2>Behind the builds<span>.</span></h2></div>
+    </div>
+    <div class="about-grid">
+      <div class="card about-photo reveal">
+        <div class="id-avatar xl">k.</div>
+        <p class="brand-big">kuranix — AI-focused software developer building custom AI systems, infrastructure, developer tools, web apps and Minecraft tech.</p>
+        <p class="muted">Creator of <b>Cardinal</b> — a daemonless container runtime — and <b>GHOST</b>, a custom AI platform. Focused on AI-assisted development, systems programming and open source.</p>
+        <div class="hero-cta"><a class="btn btn-sm magnetic" data-hover href="https://github.com/kuranix" target="_blank" rel="noopener">github.com/kuranix ↗</a></div>
+      </div>
+      <div class="reveal">
+        <p class="card-tag">what i can do for you</p>
+        <div class="services">
+          <div class="service tilt" data-hover><b>AI systems</b><span>Tokenizers, training &amp; inference pipelines, agents with memory and tools.</span><i>→</i></div>
+          <div class="service tilt" data-hover><b>Container infra</b><span>Runtimes, networking, volumes, backups, panels and automation.</span><i>→</i></div>
+          <div class="service tilt" data-hover><b>Backend &amp; APIs</b><span>Node.js / Python / Go services, REST, MySQL, dashboards, panels.</span><i>→</i></div>
+          <div class="service tilt" data-hover><b>Minecraft systems</b><span>Paper plugins, mechanics, server tooling, resource packs.</span><i>→</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STACK ===== -->
+  <section id="stack" class="section">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <div><p class="kicker">// capabilities</p><h2>Stack<span>.</span></h2></div>
+      <p class="sec-desc">Four primary languages, deep AI/ML and infrastructure layers. Dots show where I spend most time: ●●● core · ●● strong · ● working.</p>
+    </div>
+    <div class="stack-groups">
+      <div class="card stack-group reveal">
+        <p class="card-tag">languages</p>
+        <div class="lvl" data-hover><div><b>Python</b><span>AI · ML · automation · training · inference</span></div><i>●●●</i></div>
+        <div class="lvl" data-hover><div><b>Go</b><span>systems · infra · Cardinal runtime</span></div><i>●●●</i></div>
+        <div class="lvl" data-hover><div><b>JavaScript</b><span>web · backend · apps</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Java</b><span>minecraft · plugins · JVM</span></div><i>●●</i></div>
+      </div>
+      <div class="card stack-group reveal">
+        <p class="card-tag">ai / ml</p>
+        <div class="lvl" data-hover><div><b>Transformers · LLM · NLP</b><span>modeling &amp; language systems</span></div><i>●●●</i></div>
+        <div class="lvl" data-hover><div><b>BPE · Tokenizers</b><span>custom vocab pipelines</span></div><i>●●●</i></div>
+        <div class="lvl" data-hover><div><b>PyTorch</b><span>training · inference</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Agents · Tools · Memory</b><span>indexing · eval · tracking</span></div><i>●●</i></div>
+      </div>
+      <div class="card stack-group reveal">
+        <p class="card-tag">infrastructure</p>
+        <div class="lvl" data-hover><div><b>Containers · OCI</b><span>namespaces · overlayfs · cgroups v2</span></div><i>●●●</i></div>
+        <div class="lvl" data-hover><div><b>Networking</b><span>veth · bridge · iptables</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Hardening</b><span>seccomp · apparmor</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Linux · systemd · CLI</b><span>servers · automation · git</span></div><i>●●●</i></div>
+      </div>
+      <div class="card stack-group reveal">
+        <p class="card-tag">web · data · minecraft</p>
+        <div class="lvl" data-hover><div><b>Nuxt · Next.js · Node.js</b><span>sites · panels · REST APIs</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>MySQL · SQL · JSON · YAML</b><span>data &amp; config</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Paper · Plugins</b><span>items · mechanics · packs</span></div><i>●●</i></div>
+        <div class="lvl" data-hover><div><b>Discord · Bots</b><span>apis · communities</span></div><i>●</i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JOURNEY ===== -->
+  <section id="journey" class="section alt">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <div><p class="kicker">// journey</p><h2>Now &amp; next<span>.</span></h2></div>
+      <p class="sec-desc">No padded timelines — just the four fronts I'm actively building on, plus the principles behind them.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal" data-hover><span class="t-now">● now</span><div class="card"><h3>Cardinal — container runtime</h3><p class="muted">Daemonless runtime + ecosystem (Wings, Panel, API) in Go. Runtime depth: isolation, networking, storage, orchestration primitives.</p></div></div>
+      <div class="t-item reveal" data-hover><span class="t-now">● now</span><div class="card"><h3>GHOST — custom AI</h3><p class="muted">Own LLM stack: tokenizer → model → training → inference → agents with memory and tools, all behind one CLI.</p></div></div>
+      <div class="t-item reveal" data-hover><span class="t-next">○ ongoing</span><div class="card"><h3>Minecraft systems</h3><p class="muted">Plugins, mechanics and server tooling for modern Java Edition — designed and shipped with AI assistance.</p></div></div>
+      <div class="t-item reveal" data-hover><span class="t-next">○ ongoing</span><div class="card"><h3>Devtools &amp; open source</h3><p class="muted">CLIs, indexers, automation and public experiments on GitHub — build → publish → iterate.</p></div></div>
+    </div>
+    <div class="quote-card card reveal">
+      <p class="big-quote">“Build your own tools. Understand the systems. <u>Use AI to move faster.</u>”</p>
+      <div class="flow"><span>Research</span><i>→</i><span>Architecture</span><i>→</i><span>Development</span><i>→</i><span>Testing</span><i>→</i><span>Debugging</span><i>→</i><span>Iteration</span></div>
+    </div>
+    <div class="interests reveal">
+      <span data-hover>AI</span><span data-hover>LLMs</span><span data-hover>Agents</span><span data-hover>Systems Programming</span><span data-hover>Containers</span><span data-hover>Backend</span><span data-hover>Web</span><span data-hover>Minecraft</span><span data-hover>DevTools</span><span data-hover>Automation</span><span data-hover>Open Source</span><span data-hover>Cyberpunk Tech</span><span data-hover>Anime</span>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact-sec">
+    <p class="kicker reveal">// contact</p>
+    <h2 class="cta-mega reveal">LET'S<br /><span class="outline-word">BUILD</span> ↓</h2>
+    <p class="sec-desc reveal" style="margin:0 0 30px">Open for collaboration on AI, infrastructure, tooling, web and Minecraft.</p>
+    <div class="contact-grid">
+      <a class="soc tilt reveal" href="https://github.com/kuranix" target="_blank" rel="noopener" data-hover>
+        <span class="soc-top">01 / github <i>↗</i></span><b>github.com/kuranix</b><span class="muted">Cardinal · GHOST · tools · minecraft · infra</span>
+      </a>
+      <a class="soc tilt reveal" href="https://cardinal.work.gd/" target="_blank" rel="noopener" data-hover>
+        <span class="soc-top">02 / cardinal <i>↗</i></span><b>cardinal.work.gd</b><span class="muted">no daemon. no docker. just containers.</span>
+      </a>
+      <!-- ═══ EDIT ME: вставь свои ссылки вместо # ═══
+      <a class="soc" href="#" data-hover><span class="soc-top">03 / telegram <i>↗</i></span><b>@yourhandle</b><span class="muted">fastest reply</span></a>
+      <a class="soc" href="#" data-hover><span class="soc-top">04 / discord <i>↗</i></span><b>yourhandle</b><span class="muted">community / minecraft</span></a>
+      <a class="soc" href="mailto:you@mail.com" data-hover><span class="soc-top">05 / email <i>↗</i></span><b>you@mail.com</b><span class="muted">collabs & offers</span></a>
+      ═══════════════════════════════════════════ -->
+      <button class="soc tilt reveal" id="copyMail" data-hover>
+        <span class="soc-top">03 / bio <i>⧉</i></span><b id="bioShort">AI Engineer · Software Developer · AI-assisted Builder</b><span class="muted">click to copy one-line bio</span>
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 kuranix® — monochrome portfolio</span>
+    <span class="mono">cardinal · ghost · ai · infra · web · minecraft</span>
+    <button id="toTop" data-hover aria-label="Back to top">↑ top</button>
+  </footer>
+
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
