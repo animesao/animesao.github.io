@@ -5,7 +5,7 @@
   /* ---------- Preloader ---------- */
   const pre = $('#preloader'), preFill = $('#preFill'), preCount = $('#preCount');
   const preWord = $('#preWord');
-  const words = ['loading system', 'mounting containers', 'waking ghost', 'compiling portfolio'];
+  const words = ['loading system', 'linking cardinal', 'waking agents', 'compiling portfolio'];
   let wi = 0;
   const wTick = setInterval(() => {
     wi = (wi + 1) % words.length;
@@ -92,9 +92,9 @@
 
   /* ---------- Typer ---------- */
   const lines = [
-    'Cardinal — daemonless container runtime in Go.',
-    'GHOST — custom AI/LLM: tokenizer, training, agents.',
-    'Backend — Node.js · Python · Go · REST · MySQL.',
+    'Cardinal — my main ecosystem project.',
+    'AI-assisted development: agents, RAG, MCP, automation.',
+    'Web & backend — Nuxt · Next · Node · Python · MySQL.',
     'Minecraft — Paper plugins & server systems.'
   ];
   const typer = $('#typer'); let li = 0, ci = 0, del = false;
@@ -194,5 +194,5 @@
 
   /* ---------- Console easter egg ---------- */
   console.log('%ckuranix®', 'font-family:monospace;font-size:22px;font-weight:bold');
-  console.log('%cCARDINAL · GHOST · AI · INFRA · WEB · MINECRAFT', 'font-family:monospace;color:#888');
+  console.log('%cCARDINAL · AI-ASSISTED · WEB · MINECRAFT · DEVTOOLS', 'font-family:monospace;color:#888');
 })();

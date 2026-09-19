@@ -2,11 +2,15 @@
 
 Portfolio site in black & white editorial style. No build step — ready for **GitHub Pages**.
 
+Positioning: **Software Developer • AI-assisted Developer • AI Engineering**.
+Main project: **Cardinal** (`https://cardinal.work.gd/`). No own-LLM project — focus is practical AI engineering.
+
 ## Structure
 
 ```
 index.html      — hero · selected works · about · stack · journey · contact
 avatar.jpg      — avatar (hero ID card, about, favicon)
+avatar.png      — source avatar (kept, not used by site)
 css/style.css   — monochrome theme + animations + work covers
 js/main.js      — cursor, canvas network, typer, reveal, tilt, active nav
 404.html        — custom 404
@@ -15,11 +19,11 @@ js/main.js      — cursor, canvas network, typer, reveal, tilt, active nav
 
 ## Sections
 
-- **Hero** — identity card, typing lines, stats
-- **01 / Work** — 4 featured works: Cardinal (container runtime, Go), GHOST (custom AI/LLM), Minecraft systems, Devtools & bots — each with CSS-only cover art
+- **Hero** — identity card, typing lines, stats (Cardinal / 4 directions / AI-assisted)
+- **01 / Work** — 4 featured directions: Cardinal ecosystem, AI-powered software (RAG / agents / MCP / automation), Minecraft systems, Devtools & bots — each with CSS-only cover art
 - **02 / About** — bio + "what I can do for you" services
-- **03 / Stack** — languages · AI/ML · infrastructure · web/data/minecraft with focus dots
-- **04 / Journey** — current fronts timeline + philosophy quote
+- **03 / Stack** — languages (JS/Node, Python, Java, HTML/CSS/SQL) · AI engineering · web/backend · minecraft/community
+- **04 / Journey** — Cardinal now · AI-assisted now · Minecraft ongoing · Devtools & open source ongoing
 - **05 / Contact** — giant CTA + link cards
 
 ## Effects
