@@ -25,11 +25,11 @@
   /* ---------- Theme (B/W invert) ---------- */
   const root = document.documentElement;
   try {
-    if (localStorage.getItem('kx-theme')) root.dataset.theme = localStorage.getItem('kx-theme');
+    if (localStorage.getItem('as-theme')) root.dataset.theme = localStorage.getItem('as-theme');
   } catch (e) {}
   $('#themeBtn').addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
-    try { localStorage.setItem('kx-theme', root.dataset.theme); } catch (e) {}
+    try { localStorage.setItem('as-theme', root.dataset.theme); } catch (e) {}
   });
 
   /* ---------- Burger ---------- */
@@ -78,7 +78,7 @@
   });
 
   /* ---------- Scramble hero title ---------- */
-  const scr = $('#scramble'), chars = '█▓▒░<>/\\|01KURANIX#_';
+  const scr = $('#scramble'), chars = '█▓▒░<>/\\|01ANIMESAO#_';
   let si = 0;
   function scramble() {
     const target = scr.dataset.text; let out = '', frame = si / 3;
@@ -193,6 +193,6 @@
   })();
 
   /* ---------- Console easter egg ---------- */
-  console.log('%ckuranix®', 'font-family:monospace;font-size:22px;font-weight:bold');
+  console.log('%canimesao®', 'font-family:monospace;font-size:22px;font-weight:bold');
   console.log('%cCARDINAL · AI-ASSISTED · WEB · MINECRAFT · DEVTOOLS', 'font-family:monospace;color:#888');
 })();

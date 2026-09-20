@@ -1,4 +1,4 @@
-# kuranix® — monochrome portfolio
+# animesao® — monochrome portfolio
 
 Portfolio site in black & white editorial style. No build step — ready for **GitHub Pages**.
 
@@ -32,16 +32,16 @@ Preloader with rotating words · custom cursor + magnetic buttons · particle ne
 
 ## Publish on GitHub Pages (2 min)
 
-**Option A — user site `kuranix.github.io`:**
-1. Create repo named exactly `kuranix.github.io`
+**Option A — user site `animesao.github.io`:**
+1. Create repo named exactly `animesao.github.io`
 2. Upload all files to repo root (`index.html` must be in root)
 3. `Settings → Pages → Deploy from a branch → main / (root)`
-4. Open `https://kuranix.github.io`
+4. Open `https://animesao.github.io`
 
 **Option B — project site:**
 1. Create any repo, e.g. `portfolio`, upload files to root
 2. `Settings → Pages → Deploy from a branch → main / (root)`
-3. Open `https://kuranix.github.io/portfolio/`
+3. Open `https://animesao.github.io/portfolio/`
 
 Via terminal:
 ```bash
@@ -49,13 +49,13 @@ git init
 git add .
 git commit -m "feat: portfolio v4"
 git branch -M main
-git remote add origin https://github.com/kuranix/kuranix.github.io.git
+git remote add origin https://github.com/animesao/animesao.github.io.git
 git push -u origin main
 ```
 
 ## Links (already wired)
 
-- https://github.com/kuranix
+- https://github.com/animesao
 - https://cardinal.work.gd/
 
 ## Edit your links
