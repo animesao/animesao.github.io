@@ -1,5 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect x="2" y="2" width="28" height="28" rx="7" fill="#0E121B" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.6"/>
-  <path d="M16 8L22 22H18.5L16 16.5L13.5 22H10L16 8Z" fill="#38BDF8"/>
-  <circle cx="24" cy="24" r="2.5" fill="#10B981"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1b1e2a" />
+      <stop offset="100%" stop-color="#0d0e12" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="16" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="60%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="32" y1="20" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Dark Obsidian Container with Bevel -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+  <rect x="3" y="3" width="58" height="58" rx="13" stroke="rgba(245,158,11,0.2)" stroke-width="1" />
+
+  <!-- Outer Stylized Chevron / Monogram "A" -->
+  <path d="M32 12L49 46H40.5L32 29L23.5 46H15L32 12Z" fill="url(#amberGrad)" filter="url(#glow)" />
+
+  <!-- Inner Crimson Core Diamond (Cardinal Compass Node & Cross) -->
+  <polygon points="32,24 37,34 32,44 27,34" fill="url(#redGrad)" />
+  <circle cx="32" cy="34" r="2" fill="#ffffff" />
+
+  <!-- Subtle corner status indicator -->
+  <circle cx="51" cy="51" r="3" fill="#10b981" stroke="#0d0e12" stroke-width="1.5" />
 </svg>

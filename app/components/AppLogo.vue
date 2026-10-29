@@ -1,20 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
-const hasCustomLogo = ref(true)
+const logoSources = [
+  '/custom/logo.png',
+  '/custom/logo.jpg',
+  '/custom/logo.svg'
+]
+
+const currentSrcIndex = ref(0)
+const hasValidLogo = ref(true)
+
+const currentSrc = computed(() => {
+  return logoSources[currentSrcIndex.value] || ''
+})
 
 function onLogoError() {
-  hasCustomLogo.value = false
+  if (currentSrcIndex.value < logoSources.length - 1) {
+    currentSrcIndex.value++
+  } else {
+    hasValidLogo.value = false
+  }
 }
 </script>
 
 <template>
   <div class="inline-flex items-center gap-2.5 font-mono select-none group">
-    <div class="relative flex items-center justify-center w-7 h-7 rounded-lg border border-white/[0.12] bg-[#14161f] card-sheen transition-all duration-200 group-hover:border-amber-500/60 group-hover:bg-[#1b1e2a] overflow-hidden shadow-sm">
+    <div class="relative flex items-center justify-center w-8 h-8 rounded-lg border border-white/[0.12] bg-[#14161f] card-sheen transition-all duration-200 group-hover:border-amber-500/60 group-hover:bg-[#1b1e2a] overflow-hidden shadow-sm">
       <img
-        v-if="hasCustomLogo"
-        src="/custom/logo.svg"
-        alt="Logo"
+        v-if="hasValidLogo"
+        :src="currentSrc"
+        alt="animesao Logo"
         class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
         @error="onLogoError"
       >
