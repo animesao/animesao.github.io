@@ -18,17 +18,24 @@ useSeoMeta({
 
 <template>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16">
-    <!-- Header -->
-    <div class="space-y-4 border-b border-white/10 pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider">
-        {{ t('aboutPage.eyebrow') }}
+    <!-- Header with Avatar -->
+    <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8 border-b border-white/10 pb-8">
+      <AppAvatar
+        size="xl"
+        class="mt-1"
+      />
+
+      <div class="space-y-4 flex-1">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider">
+          {{ t('aboutPage.eyebrow') }}
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
+          {{ profileData.handle }}
+        </h1>
+        <p class="text-lg text-sky-400 font-mono">
+          {{ profileData.tagline[locale as 'ru' | 'en'] }}
+        </p>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
-        {{ profileData.handle }}
-      </h1>
-      <p class="text-lg text-sky-400 font-mono">
-        {{ profileData.tagline[locale as 'ru' | 'en'] }}
-      </p>
     </div>
 
     <!-- Introduction & Positioning -->
@@ -53,7 +60,7 @@ useSeoMeta({
     <section class="rounded-xl border border-white/10 bg-[#0d0f17] p-6 sm:p-8 space-y-4">
       <div class="flex items-center justify-between">
         <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">
-          {{ locale === 'ru' ? 'Основной проект' : 'Core Engineering Focus' }}
+          {{ locale === 'ru' ? 'Экосистема проектов' : 'Core Ecosystem' }}
         </span>
         <NuxtLink
           :to="localePath('/projects/cardinal')"
@@ -68,7 +75,7 @@ useSeoMeta({
       </div>
 
       <h2 class="text-2xl font-bold font-mono text-white">
-        Cardinal & Cardinal Wings
+        Cardinal, Wings & Panel
       </h2>
 
       <p class="text-xs text-zinc-300 leading-relaxed font-sans">
@@ -80,8 +87,8 @@ useSeoMeta({
 
       <p class="text-xs text-zinc-300 leading-relaxed font-sans">
         {{ locale === 'ru'
-          ? 'Для удалённого взаимодействия и будущей интеграции с планируемой панелью управления был спроектирован cardinal-wings — REST API демон на Go с потоковой передачей логов (SSE), интерактивными exec-сессиями и встроенным per-container SFTP-сервером.'
-          : 'To enable remote API interaction and future integration with the planned control panel, I engineered cardinal-wings — a dedicated REST API daemon in Go featuring real-time SSE log streaming, interactive exec sessions, and an embedded per-container SFTP server.'
+          ? 'Для управления инфраструктурой экосистема расширена демоном Cardinal Wings (Go, REST, SSE, SFTP) и полнофункциональной веб-панелью Cardinal Panel (Nuxt 4, Vue 3, Drizzle ORM, WebSocket, Monaco Editor) для централизованного управления игровыми серверами и контейнерами.'
+          : 'For infrastructure administration, the ecosystem is complemented by the Cardinal Wings daemon (Go, REST, SSE, SFTP) and the full-featured Cardinal Panel web dashboard (Nuxt 4, Vue 3, Drizzle ORM, WebSocket, Monaco Editor) for unified game server and container orchestration.'
         }}
       </p>
     </section>

@@ -3,8 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sync:versions": "node scripts/sync-versions.mjs",
+    "prebuild": "node scripts/sync-versions.mjs",
     "build": "nuxt build",
+    "pregenerate": "node scripts/sync-versions.mjs",
     "generate": "nuxt generate",
+    "predev": "node scripts/sync-versions.mjs",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",

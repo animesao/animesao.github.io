@@ -1,6 +1,6 @@
 # ANIMESAO — Персональный сайт-портфолио
 
-Современный, высокопроизводительный персональный сайт и инженерное портфолио для независимого разработчика **animesao**, автора и мейнтейнера экосистемы контейнерных инструментов **Cardinal**.
+Современный, высокопроизводительный персональный сайт и инженерное портфолио для разработчика **animesao**, автора экосистемы контейнерных инструментов **Cardinal** (рантайм Cardinal, API-демон Cardinal Wings и веб-панель Cardinal Panel).
 
 Сайт построен на архитектуре статической генерации (SSG), лишён серверных зависимостей и базы данных, полностью локализован на русском и английском языках и оформлен в сдержанной футуристической, монохромно-графитовой эстетике с акцентом на типографику и техническую строгость.
 
@@ -12,6 +12,7 @@
 - **Стилизация:** [Tailwind CSS 4.x](https://tailwindcss.com/) + CSS Design Tokens (`main.css`).
 - **Компоненты интерфейса:** [@nuxt/ui 4.x](https://ui.nuxt.com/) с набором иконок `@iconify-json/lucide` и `@iconify-json/simple-icons`.
 - **Интернационализация (i18n):** `@nuxtjs/i18n` (полная поддержка RU / EN, префиксная стратегия для английской версии, бесшовное переключение).
+- **Синхронизация версий:** автоматический модуль синхронизации версий напрямую из локальных репозиториев (`Desktop/cardinal`, `Desktop/cardinal-wings`, `Desktop/cardinal-panel`) и GitHub Releases API + клиентский реактивный composable `useProjectVersions()`.
 - **Архитектура сборки:** Static Site Generation (SSG, Nitro preset: `static`), генерация чистых HTML, JSON payload и статических ассетов в `.output/public`.
 - **SEO & Индексация:** динамически генерируемый `sitemap.xml`, `robots.txt`, Open Graph метатеги, семантическая верстка.
 - **Инструменты контроля качества:** ESLint (с Nuxt stylistic и Better Tailwind CSS), vue-tsc / `nuxt typecheck`.
@@ -28,8 +29,6 @@
 
 ## 3. Установка зависимостей
 
-Клонируйте репозиторий и установите пакеты с помощью pnpm:
-
 ```bash
 pnpm install
 ```
@@ -38,21 +37,21 @@ pnpm install
 
 ## 4. Локальный запуск (Development)
 
-Для запуска локального сервера разработки выполните:
+При запуске автоматически выполняется скрипт синхронизации версий `scripts/sync-versions.mjs`:
 
 ```bash
 pnpm run dev
 ```
 
-Сайт будет доступен по адресу: `http://localhost:3000`. Поддерживается HMR (Hot Module Replacement) для Vue-компонентов, данных и стилей.
+Сайт будет доступен по адресу: `http://localhost:3000`. Поддерживается HMR для компонентов, данных и стилей.
 
 ---
 
 ## 5. Production-сборка и статическая генерация (SSG)
 
-### Генерация статического сайта (Рекомендуемый способ)
+### Генерация статического сайта (Основной режим)
 
-Для формирования автономного статического сайта (HTML + CSS + JS + Sitemap):
+Скрипт автоматически обновляет версии проектов из локальных каталогов/GitHub и генерирует автономный статический сайт:
 
 ```bash
 pnpm run generate
@@ -60,16 +59,16 @@ pnpm run generate
 
 Результат сборки помещается в директорию `.output/public`. Этот каталог полностью автономен и готов к развёртыванию на любом статическом хостинге.
 
-### Серверная сборка (Node server, опционально)
+### Ручная синхронизация версий:
+
+```bash
+pnpm run sync:versions
+```
+
+### Серверная сборка (Node server, опционально):
 
 ```bash
 pnpm run build
-```
-
-Запуск предпросмотра скомпилированного сервера:
-
-```bash
-node .output/server/index.mjs
 ```
 
 ---
@@ -93,7 +92,48 @@ pnpm exec eslint . --fix
 
 ---
 
-## 7. Публикация на статическом хостинге
+## 7. Папка для аватара и логотипа (`public/custom/`)
+
+Для загрузки персональных изображений создана директория:
+
+```
+mysite/public/custom/
+├── avatar.svg      # Базовый векторный аватар
+├── logo.svg        # Базовый векторный логотип
+└── README.md       # Инструкция по форматам
+```
+
+### Как добавить свой аватар:
+Поместите файл с именем `avatar.png` (или `avatar.svg` / `avatar.jpg`) в папку `public/custom/`.
+- Рекомендуемый размер: `256x256` или `512x512` px.
+- Аватар автоматически появится на главной странице (Hero-блок), странице «О себе» (About) и в профиле.
+
+### Как добавить свой логотип:
+Поместите файл с именем `logo.png` (или `logo.svg`) в папку `public/custom/`.
+- Рекомендуемый размер: квадратная иконка `32x32` или `48x48` px.
+- Логотип автоматически появится в шапке сайта.
+- Если файл не добавлен, сайт аккуратно показывает фирменный знак `ANIMESAO // DEV`.
+
+---
+
+## 8. Проекты экосистемы Cardinal
+
+1. **Cardinal** (`v2.4.13`):
+   - Репозиторий: [https://github.com/animesao/cardinal](https://github.com/animesao/cardinal)
+   - У проекта **нет отдельного сайта**, только официальный репозиторий на GitHub.
+   - Легковесный daemonless container runtime на Go (~5 МБ статический бинарник).
+
+2. **Cardinal Wings** (`v0.5.20`):
+   - Репозиторий: [https://github.com/animesao/cardinal-wings](https://github.com/animesao/cardinal-wings)
+   - HTTP REST API демон управления рантаймом с SSE-стримингом и SFTP.
+
+3. **Cardinal Panel** (`v0.6.7`):
+   - Репозиторий: [https://github.com/animesao/cardinal-panel](https://github.com/animesao/cardinal-panel)
+   - Полнофункциональная веб-панель управления игровыми серверами на Nuxt 4 + Drizzle ORM (SQLite / MySQL) + WebSocket-терминал.
+
+---
+
+## 9. Публикация на статическом хостинге
 
 Каталог `.output/public` не требует Node.js в продакшене. Его можно разместить на:
 
@@ -101,76 +141,9 @@ pnpm exec eslint . --fix
   - Build command: `pnpm run generate`
   - Build output directory: `.output/public`
 - **GitHub Pages:**
-  - Настройте GitHub Action для выполнения `pnpm run generate` и выгрузки артефакта `.output/public` в ветку `gh-pages` или Pages.
+  - Настройте GitHub Action для выполнения `pnpm run generate` и выгрузки артефакта `.output/public` в Pages.
 - **Vercel:**
   - Framework Preset: `Nuxt.js`
   - Output Directory: `.output/public`
-- **Netlify:**
-  - Build command: `pnpm run generate`
-  - Publish directory: `.output/public`
 - **Nginx / Caddy / Статический веб-сервер:**
-  - Скопируйте содержимое папки `.output/public` в корневую директорию сайта (например, `/var/www/html/`).
-
----
-
-## 8. Руководство по редактированию контента
-
-Все данные сайта строго отделены от компонентов разметки и находятся в директории `app/data/`. Изменение текстов, ссылок или проектов **не требует** правки Vue-компонентов.
-
-### 8.1. Изменение профиля и биографии
-Файл: `app/data/profile.ts`
-- `handle`: никнейм разработчика (`animesao`).
-- `tagline`: краткий слоган на русском и английском.
-- `headline`: основной заголовок для первого экрана и метатегов.
-- `summary`: развёрнутое описание позиции и подхода.
-- `manifesto`: ключевые тезисы и инженерные принципы.
-- `workflow`: описание используемого инструментария (OpenCode, Gemini 3.8 Flash, Git) и правила (`P-01` — `P-04`).
-- `focusAreas`: список основных направлений разработки с тегами и иконками.
-
-### 8.2. Добавление и обновление проектов
-Файл: `app/data/projects.ts`
-Массив `projectsData` содержит описания проектов. Чтобы добавить новый проект:
-1. Добавьте объект с уникальным `id` и `slug` (например, `my-tool`).
-2. Укажите честный `status` (`'released'`, `'active-dev'`, `'planned'`, `'prototype'`).
-3. Заполните `role`, `summary`, `fullDescription`, `license`, `technologies`, `links` и `features`.
-4. Маршрут страницы `/projects/[slug]` и `/en/projects/[slug]` сгенерируется автоматически при сборке.
-
-### 8.3. Изменение технологий и стека
-Файл: `app/data/techStack.ts`
-Массив `techStackData` разделён на тематические категории:
-- `languages` — Языки программирования (Go, TypeScript, PHP, Python, HTML/CSS).
-- `web` — Веб-разработка (Nuxt 4, Vue 3, Tailwind 4, Nuxt UI 4).
-- `systems` — Системные инструменты (Linux Namespaces, cgroups v2, Git, pnpm).
-- `ai-tooling` — AI-ассистивная среда (OpenCode, Gemini 3.8 Flash).
-
-Каждый элемент содержит честный статус (`'in-projects'`, `'current-stack'`, `'planned'`, `'learning'`) и текстовое пояснение контекста применения.
-
-### 8.4. Настройка публичных ссылок и контактов
-Файл: `app/data/links.ts`
-Объект `publicContacts` хранит подтверждённые ссылки:
-```typescript
-export const publicContacts: ContactsConfig = {
-  github: 'https://github.com/animesao',
-  cardinalSite: 'https://cardinal.work.gd/',
-  cardinalRepo: 'https://github.com/animesao/cardinal',
-  cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings'
-}
-```
-*Важно:* Если контакт не подтверждён (например, email или соцсети), поле остаётся пустым или `undefined`. Функция `getConfirmedPublicLinks()` автоматически исключает незаполненные контакты, предотвращая показ пустых или фальшивых ссылок.
-
-### 8.5. Добавление заметок и статей
-Файл: `app/pages/notes.vue`
-В текущей версии раздел содержит аккуратное нейтральное пустое состояние, предотвращающее публикацию фиктивных статей. При появлении реальных заметок можно добавить рендеринг Markdown или список статей в `app/data/notes.ts`.
-
-### 8.6. Изменение переводов (RU / EN)
-Файлы:
-- `app/data/translations/ru.ts` — русские строки интерфейса.
-- `app/data/translations/en.ts` — английские строки интерфейса.
-
-Файл конфигурации интернационализации `i18n/i18n.config.ts` автоматически импортирует эти словари. Добавленные ключи становятся доступны через `$t('key')` или `t('key')`.
-
-### 8.7. Обновление домена и SEO
-Файлы:
-- `app/data/siteConfig.ts`: поле `siteUrl` (по умолчанию `https://animesao.dev` или берётся из переменной окружения `NUXT_PUBLIC_SITE_URL`).
-- `server/routes/sitemap.xml.ts`: динамический генератор карты сайта для всех страниц обеих локализаций.
-- `public/robots.txt`: файл управления индексацией поисковыми роботами.
+  - Скопируйте содержимое папки `.output/public` в директорию веб-сервера (например, `/var/www/html/`).

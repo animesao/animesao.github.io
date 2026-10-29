@@ -3,14 +3,14 @@ import { ref, computed } from 'vue'
 import { projectsData } from '~/data/projects'
 
 const { locale, t } = useI18n()
-const selectedFilter = ref<'all' | 'core' | 'planned'>('all')
+const selectedFilter = ref<'all' | 'systems' | 'web'>('all')
 
 const filteredProjects = computed(() => {
-  if (selectedFilter.value === 'core') {
+  if (selectedFilter.value === 'systems') {
     return projectsData.filter(p => p.ecosystemRole === 'core-runtime' || p.ecosystemRole === 'api-daemon')
   }
-  if (selectedFilter.value === 'planned') {
-    return projectsData.filter(p => p.status === 'planned')
+  if (selectedFilter.value === 'web') {
+    return projectsData.filter(p => p.ecosystemRole === 'control-plane')
   }
   return projectsData
 })
@@ -18,8 +18,8 @@ const filteredProjects = computed(() => {
 useSeoMeta({
   title: () => locale.value === 'ru' ? 'Проекты · animesao' : 'Projects · animesao',
   description: () => locale.value === 'ru'
-    ? 'Каталог проектов animesao: легковесный daemonless container runtime Cardinal, демон Cardinal Wings и сопутствующие инструменты.'
-    : 'Engineering projects by animesao: lightweight daemonless container runtime Cardinal, Cardinal Wings daemon, and related developer tools.',
+    ? 'Каталог проектов animesao: легковесный daemonless container runtime Cardinal, демон Cardinal Wings и веб-панель Cardinal Panel.'
+    : 'Engineering projects by animesao: lightweight daemonless container runtime Cardinal, Cardinal Wings daemon, and Cardinal Panel web dashboard.',
   ogTitle: () => locale.value === 'ru' ? 'Проекты · animesao' : 'Projects · animesao'
 })
 </script>
@@ -36,8 +36,8 @@ useSeoMeta({
       </h1>
       <p class="text-sm sm:text-base text-zinc-400 font-sans max-w-3xl leading-relaxed">
         {{ locale === 'ru'
-          ? 'Флагманские и прикладные проекты с открытым исходным кодом. Каждый проект представлен со своим действительным статусом, подтверждёнными репозиториями и архитектурными деталями.'
-          : 'Flagship open-source projects and developer tools. Every project is documented with its verified lifecycle status, repository links, and architectural role.'
+          ? 'Флагманские и инфраструктурные проекты с открытым исходным кодом. Каждый проект представлен со своим действительным статусом, версиями из репозиториев и архитектурными деталями.'
+          : 'Flagship open-source projects and developer tools. Every project is documented with its verified lifecycle status, repository releases, and architectural role.'
         }}
       </p>
 
@@ -55,26 +55,26 @@ useSeoMeta({
         <button
           type="button"
           class="px-3.5 py-1.5 rounded-md font-mono text-xs transition-colors cursor-pointer"
-          :class="selectedFilter === 'core' ? 'bg-white text-black font-semibold' : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'"
-          @click="selectedFilter = 'core'"
+          :class="selectedFilter === 'systems' ? 'bg-white text-black font-semibold' : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'"
+          @click="selectedFilter = 'systems'"
         >
-          {{ locale === 'ru' ? 'Экосистема Cardinal' : 'Cardinal Ecosystem' }}
+          {{ locale === 'ru' ? 'Системный рантайм (Go)' : 'Systems Runtime (Go)' }}
         </button>
 
         <button
           type="button"
           class="px-3.5 py-1.5 rounded-md font-mono text-xs transition-colors cursor-pointer"
-          :class="selectedFilter === 'planned' ? 'bg-white text-black font-semibold' : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'"
-          @click="selectedFilter = 'planned'"
+          :class="selectedFilter === 'web' ? 'bg-white text-black font-semibold' : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'"
+          @click="selectedFilter = 'web'"
         >
-          {{ locale === 'ru' ? 'Запланировано' : 'Planned' }}
+          {{ locale === 'ru' ? 'Веб-панель (Nuxt 4)' : 'Web Panel (Nuxt 4)' }}
         </button>
       </div>
     </div>
 
-    <!-- Cardinal Ecosystem Highlights (if viewing all or core) -->
+    <!-- Cardinal Ecosystem Highlights (if viewing all) -->
     <div
-      v-if="selectedFilter !== 'planned'"
+      v-if="selectedFilter === 'all'"
       class="mb-8"
     >
       <CardinalArchitecture />

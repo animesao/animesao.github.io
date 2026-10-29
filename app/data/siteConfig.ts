@@ -9,7 +9,7 @@ export interface SiteConfig {
     github?: string
     cardinalRepo?: string
     cardinalWingsRepo?: string
-    cardinalSite?: string
+    cardinalPanelRepo?: string
   }
 }
 
@@ -29,6 +29,6 @@ export const siteConfig: SiteConfig = {
     github: 'https://github.com/animesao',
     cardinalRepo: 'https://github.com/animesao/cardinal',
     cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings',
-    cardinalSite: 'https://cardinal.work.gd/'
+    cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel'
   }
 }

@@ -37,7 +37,7 @@ export interface ProjectItem {
     ru: string
     en: string
   }
-  versionBadge?: string
+  versionBadge: string
   license: string
   language: string
   technologies: string[]
@@ -96,8 +96,7 @@ export const projectsData: ProjectItem[] = [
     technologies: ['Go', 'Linux Namespaces', 'cgroups v2', 'OverlayFS', 'iptables', 'OCI Specification', 'Unix Sockets'],
     ecosystemRole: 'core-runtime',
     links: {
-      github: 'https://github.com/animesao/cardinal',
-      website: 'https://cardinal.work.gd/'
+      github: 'https://github.com/animesao/cardinal'
     },
     architecture: {
       ru: 'Чистый CLI-рантайм на Go. Взаимодействие с ядром через unshare, nsenter, cgroups v2 и Netlink. Отдельный режим `cardinal serve` предоставляет совместимый HTTP API для внешних агентов управления.',
@@ -151,8 +150,8 @@ export const projectsData: ProjectItem[] = [
       en: 'REST API daemon for remote management and cluster control.'
     },
     summary: {
-      ru: 'Высокопроизводительный HTTP REST API демон на Go, выступающий связующим звеном между рантаймом Cardinal и внешней веб-панелью управления (@cardinal-panel).',
-      en: 'High-performance HTTP REST API daemon in Go acting as the unified control interface between the Cardinal runtime and external control panels (@cardinal-panel).'
+      ru: 'Высокопроизводительный HTTP REST API демон на Go, выступающий связующим звеном между рантаймом Cardinal и веб-панелью управления Cardinal Panel.',
+      en: 'High-performance HTTP REST API daemon in Go acting as the unified control interface between the Cardinal runtime and Cardinal Panel.'
     },
     fullDescription: {
       ru: [
@@ -168,10 +167,10 @@ export const projectsData: ProjectItem[] = [
     },
     status: 'active-dev',
     statusLabel: {
-      ru: 'v1 Live · Активная поддержка',
-      en: 'v1 Live · Active Production'
+      ru: 'Активная разработка · v0.5.x',
+      en: 'Active Development · v0.5.x'
     },
-    versionBadge: 'v1 Live',
+    versionBadge: 'v0.5.20',
     license: 'AGPL-3.0-or-later',
     language: 'Go',
     technologies: ['Go', 'REST API', 'Server-Sent Events (SSE)', 'RBAC', 'SFTP Server', 'Prometheus Metrics'],
@@ -211,61 +210,69 @@ export const projectsData: ProjectItem[] = [
   {
     id: 'cardinal-panel',
     slug: 'cardinal-panel',
-    name: '@cardinal-panel',
+    name: 'Cardinal Panel',
     role: {
-      ru: 'Планируемая веб-панель управления серверами и хостингом',
-      en: 'Planned Web Hosting & Server Infrastructure Control Panel'
+      ru: 'Панель управления серверами и хостингом на Cardinal',
+      en: 'Server & Container Control Panel on Cardinal'
     },
     tagline: {
-      ru: 'Next-generation web interface for Cardinal infrastructure.',
-      en: 'Next-generation web interface for Cardinal infrastructure.'
+      ru: 'Full-featured web control panel for servers and game hosting.',
+      en: 'Full-featured web control panel for servers and game hosting.'
     },
     summary: {
-      ru: 'Проектируемая панель управления инфраструктурой, хостингом серверов и кластерами Cardinal. Выбранное архитектурное направление: PHP + Laravel.',
-      en: 'Planned infrastructure and hosting management dashboard for Cardinal clusters. Architecture direction: PHP + Laravel.'
+      ru: 'Полнофункциональная веб-панель управления игровыми серверами и контейнерами на базе Nuxt 4, Vue 3, Drizzle ORM (SQLite / MySQL) и WebSocket-консоли, взаимодействующая с нодами через Cardinal Wings.',
+      en: 'Full-featured web management dashboard for dedicated game servers and containers built with Nuxt 4, Vue 3, Drizzle ORM (SQLite / MySQL), and WebSocket terminal, communicating with nodes via Cardinal Wings.'
     },
     fullDescription: {
       ru: [
-        '@cardinal-panel — это планируемый графический интерфейс управления экосистемой Cardinal, предназначенный для администраторов хостинга и разработчиков.',
-        'В качестве технологического стека выбрана связка PHP + Laravel, обеспечивающая надёжную структуру работы с базами данных, очередями задач, аутентификацией пользователей и взаимодействием с REST API демона cardinal-wings.',
-        'Проект находится на этапе архитектурного проектирования и формирования контрактов взаимодействия. Статус строго зафиксирован как «Запланировано», без вымышленных релизов.'
+        'Cardinal Panel — это современная графическая панель управления серверами (включая Minecraft Paper, Fabric, BungeeCord, Discord-ботов и кастомные приложения), работающая поверх рантайма Cardinal через агент Cardinal Wings.',
+        'Панель не взаимодействует с контейнерами хоста напрямую: управление происходит централизованно через REST API демона wings. Каждый сервер идентифицируется стабильным именем `srv-<uuid>`, что гарантирует сохранность данных и отсутствие привязки к случайным системным ID.',
+        'Стек реализации: Nuxt 4, Vue 3, TypeScript, Tailwind CSS, Drizzle ORM (поддержка SQLite из коробки и MySQL), WebSocket для интерактивной консоли, Monaco Editor для редактирования файлов конфигурации и двухфакторная аутентификация (2FA).'
       ],
       en: [
-        '@cardinal-panel is the envisioned web control panel for the Cardinal ecosystem, tailored for server administrators and hosting infrastructure management.',
-        'PHP and Laravel have been selected as the implementation stack, providing robust primitives for queue processing, database migrations, authentication, and HTTP integration with cardinal-wings.',
-        'The project is currently in the architectural design and API contract definition phase. Status is honestly recorded as Planned with zero speculative releases.'
+        'Cardinal Panel is a modern web control panel for managing game servers (Minecraft Paper, Fabric, BungeeCord, bots, and custom applications) running on Cardinal through the Cardinal Wings agent.',
+        'The panel never accesses host containers directly: orchestration is handled via the Cardinal Wings REST API. Containers are tracked using deterministic identifiers (`srv-<uuid>`), eliminating migration drift and surviving container reinstalls.',
+        'Implementation stack: Nuxt 4, Vue 3, TypeScript, Tailwind CSS, Drizzle ORM (SQLite default with MySQL support), WebSocket for real-time console streaming, Monaco Editor for in-browser configuration editing, and 2FA authentication.'
       ]
     },
-    status: 'planned',
+    status: 'active-dev',
     statusLabel: {
-      ru: 'На этапе проектирования · Planned',
-      en: 'In Architecture Planning · Planned'
+      ru: 'Активная разработка · v0.6.x',
+      en: 'Active Development · v0.6.x'
     },
-    versionBadge: 'Roadmap',
-    license: 'TBD',
-    language: 'PHP',
-    technologies: ['PHP', 'Laravel', 'REST Integration', 'Server Management', 'Infrastructure UI'],
+    versionBadge: 'v0.6.7',
+    license: 'Apache-2.0',
+    language: 'TypeScript',
+    technologies: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'Drizzle ORM', 'SQLite', 'MySQL', 'WebSocket', 'Monaco Editor'],
     ecosystemRole: 'control-plane',
-    links: {},
-    architecture: {
-      ru: 'Классическое веб-приложение на Laravel, взаимодействующее с нодами через API cardinal-wings с использованием OpenAPI-спецификации.',
-      en: 'Web application built with Laravel communicating with cluster nodes via the cardinal-wings REST API generated from its OpenAPI specification.'
+    links: {
+      github: 'https://github.com/animesao/cardinal-panel'
     },
+    architecture: {
+      ru: 'Браузер ──► Cardinal Panel (Nuxt, :3000) ──► Wings-нода (:8080) ──► Cardinal serve ──► Контейнер. Все консольные сессии, файлы и бэкапы изолированы и проходят через авторизованный API.',
+      en: 'Browser ──► Cardinal Panel (Nuxt, :3000) ──► Wings Node (:8080) ──► Cardinal serve ──► Container. Real-time console, filesystem access, and backups stream through authenticated API boundaries.'
+    },
+    commandExample: 'curl -fsSL https://raw.githubusercontent.com/animesao/cardinal-panel/main/install.sh | sudo bash',
     features: [
       {
-        title: { ru: 'Управление нодами и кластером', en: 'Node & Cluster Administration' },
-        description: { ru: 'Централизованный интерфейс мониторинга распределённых нод Cardinal', en: 'Centralized UI for orchestrating multi-node Cardinal environments' },
-        implemented: false
+        title: { ru: 'WebSocket консоль в реальном времени', en: 'Real-Time WebSocket Console' },
+        description: { ru: 'Интерактивный ввод команд и отображение цветных ANSI-логов через xterm/ansi-to-html', en: 'Interactive command dispatch and ANSI log streaming via WebSocket' },
+        implemented: true
       },
       {
-        title: { ru: 'Визуальный менеджер контейнеров', en: 'Visual Container Management' },
-        description: { ru: 'Интерфейс запуска, остановки, настройки портов и переменных окружения', en: 'Web UI for container lifecycle, port configuration, and env vars' },
-        implemented: false
+        title: { ru: 'Файловый менеджер и Monaco Editor', en: 'File Manager & Monaco Editor' },
+        description: { ru: 'Управление файлами сервера, подсветка синтаксиса и безопасный SFTP', en: 'In-browser code editor with syntax highlighting, file upload, and SFTP bridge' },
+        implemented: true
       },
       {
-        title: { ru: 'Интеграция с cardinal-wings', en: 'Native cardinal-wings Bridge' },
-        description: { ru: 'Авторизованное взаимодействие по OpenAPI контракту с безопасными токенами', en: 'Authorized OpenAPI client interaction with bearer tokens' },
-        implemented: false
+        title: { ru: 'Детерминированная адресация серверов', en: 'Deterministic Server Addressing' },
+        description: { ru: 'Именование `srv-<uuid>`, сохраняющее конфигурацию при переустановке', en: 'Stable `srv-<uuid>` container naming surviving rebuilds and updates' },
+        implemented: true
+      },
+      {
+        title: { ru: 'Управление несколькими нодами', en: 'Multi-Node Cluster Management' },
+        description: { ru: 'Подключение и мониторинг нескольких узлов Cardinal Wings через API', en: 'Orchestrating distributed nodes running Cardinal Wings through uniform API' },
+        implemented: true
       }
     ],
     isFeatured: true

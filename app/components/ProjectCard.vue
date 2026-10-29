@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ProjectItem } from '~/data/projects'
+import { useProjectVersions } from '~/composables/useProjectVersions'
 
 const props = defineProps<{
   project: ProjectItem
@@ -7,6 +8,11 @@ const props = defineProps<{
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const { getVersion } = useProjectVersions()
+
+const liveVersion = computed(() => {
+  return getVersion(props.project.slug) || props.project.versionBadge
+})
 
 const statusClasses = computed(() => {
   switch (props.project.status) {
@@ -33,10 +39,11 @@ const statusClasses = computed(() => {
           {{ project.statusLabel[locale as 'ru' | 'en'] }}
         </span>
         <span
-          v-if="project.versionBadge"
-          class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/5 border border-white/10 text-zinc-300"
+          v-if="liveVersion"
+          class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/5 border border-white/10 text-zinc-300 flex items-center gap-1.5"
         >
-          {{ project.versionBadge }}
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          {{ liveVersion }}
         </span>
       </div>
 

@@ -12,9 +12,9 @@ export interface PublicLink {
 
 export interface ContactsConfig {
   github?: string
-  cardinalSite?: string
   cardinalRepo?: string
   cardinalWingsRepo?: string
+  cardinalPanelRepo?: string
   // Unverified/unknown contacts left intentionally undefined - never displayed
   email?: string
   discord?: string
@@ -24,9 +24,9 @@ export interface ContactsConfig {
 
 export const publicContacts: ContactsConfig = {
   github: 'https://github.com/animesao',
-  cardinalSite: 'https://cardinal.work.gd/',
   cardinalRepo: 'https://github.com/animesao/cardinal',
-  cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings'
+  cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings',
+  cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel'
 }
 
 /**
@@ -46,20 +46,6 @@ export function getConfirmedPublicLinks(_locale: 'ru' | 'en' = 'ru'): PublicLink
       icon: 'i-simple-icons-github',
       category: 'social',
       badge: '@animesao'
-    })
-  }
-
-  if (publicContacts.cardinalSite) {
-    links.push({
-      id: 'cardinal-site',
-      label: {
-        ru: 'Сайт Cardinal',
-        en: 'Cardinal Website'
-      },
-      url: publicContacts.cardinalSite,
-      icon: 'i-lucide-globe',
-      category: 'official',
-      badge: 'cardinal.work.gd'
     })
   }
 
@@ -88,6 +74,20 @@ export function getConfirmedPublicLinks(_locale: 'ru' | 'en' = 'ru'): PublicLink
       icon: 'i-lucide-cpu',
       category: 'project',
       badge: 'API Daemon'
+    })
+  }
+
+  if (publicContacts.cardinalPanelRepo) {
+    links.push({
+      id: 'cardinal-panel-repo',
+      label: {
+        ru: 'Репозиторий Cardinal Panel',
+        en: 'Cardinal Panel Repository'
+      },
+      url: publicContacts.cardinalPanelRepo,
+      icon: 'i-lucide-layout-dashboard',
+      category: 'project',
+      badge: 'Web Panel'
     })
   }
 

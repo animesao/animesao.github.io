@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { projectsData } from '~/data/projects'
+import { useProjectVersions } from '~/composables/useProjectVersions'
 
 const route = useRoute()
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const { getVersion } = useProjectVersions()
 
 const slug = computed(() => route.params.slug as string)
 const project = computed(() => projectsData.find(p => p.slug === slug.value))
+
+const liveVersion = computed(() => {
+  if (!project.value) return ''
+  return getVersion(project.value.slug) || project.value.versionBadge
+})
 
 const statusClasses = computed(() => {
   if (!project.value) return ''
@@ -64,10 +71,11 @@ useSeoMeta({
             {{ project.statusLabel[locale as 'ru' | 'en'] }}
           </span>
           <span
-            v-if="project.versionBadge"
-            class="px-2.5 py-1 rounded text-xs font-mono bg-white/5 border border-white/10 text-zinc-300"
+            v-if="liveVersion"
+            class="px-2.5 py-1 rounded text-xs font-mono bg-white/5 border border-white/10 text-zinc-300 flex items-center gap-1.5"
           >
-            {{ project.versionBadge }}
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            {{ liveVersion }}
           </span>
           <span class="px-2.5 py-1 rounded text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">
             {{ project.license }}

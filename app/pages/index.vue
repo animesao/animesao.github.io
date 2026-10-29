@@ -40,17 +40,24 @@ useSeoMeta({
           <span>{{ t('hero.badge') }}</span>
         </div>
 
-        <!-- Name & Headline -->
-        <div class="space-y-4 max-w-4xl">
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white font-mono uppercase">
-            {{ profileData.handle }}
-          </h1>
-          <p class="text-xl sm:text-2xl text-sky-400 font-mono">
-            {{ profileData.tagline[locale as 'ru' | 'en'] }}
-          </p>
-          <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans max-w-3xl">
-            {{ profileData.summary[locale as 'ru' | 'en'] }}
-          </p>
+        <!-- Avatar & Name / Headline -->
+        <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8">
+          <AppAvatar
+            size="xl"
+            class="mt-1"
+          />
+
+          <div class="space-y-4 max-w-4xl">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white font-mono uppercase">
+              {{ profileData.handle }}
+            </h1>
+            <p class="text-xl sm:text-2xl text-sky-400 font-mono">
+              {{ profileData.tagline[locale as 'ru' | 'en'] }}
+            </p>
+            <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans max-w-3xl">
+              {{ profileData.summary[locale as 'ru' | 'en'] }}
+            </p>
+          </div>
         </div>
 
         <!-- Action Buttons -->

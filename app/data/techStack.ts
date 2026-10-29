@@ -38,8 +38,8 @@ export const techStackData: TechCategory[] = [
       en: 'Programming Languages'
     },
     description: {
-      ru: 'Ключевые языки реализации проектов, веб-разработки и архитектурных направлений.',
-      en: 'Core implementation languages across systems engineering, web development, and planned tools.'
+      ru: 'Ключевые языки реализации проектов, системных рантаймов и веб-приложений.',
+      en: 'Core implementation languages across systems engineering and full-stack applications.'
     },
     items: [
       {
@@ -52,8 +52,8 @@ export const techStackData: TechCategory[] = [
           en: 'In Core Projects'
         },
         context: {
-          ru: 'Основной язык рантайма Cardinal и сервиса Cardinal Wings. Работа с системными вызовами Linux, сетевыми мостами, cgroups v2 и конкурентными сервисами.',
-          en: 'Primary language powering the Cardinal runtime and Cardinal Wings. Low-level Linux syscalls, bridge networking, cgroups v2, and concurrent servers.'
+          ru: 'Основной язык рантайма Cardinal и демона Cardinal Wings. Системные вызовы Linux, cgroups v2, namespaces, сетевые мосты и конкурентные HTTP/SSE-серверы.',
+          en: 'Primary systems language powering the Cardinal runtime and Cardinal Wings daemon. Direct Linux syscalls, cgroups v2, namespaces, Netlink, and SSE streaming.'
         },
         icon: 'i-simple-icons-go',
         highlight: true
@@ -64,31 +64,15 @@ export const techStackData: TechCategory[] = [
         category: 'languages',
         status: 'in-projects',
         statusLabel: {
-          ru: 'В проектах и инструментах',
-          en: 'In Projects & Tooling'
+          ru: 'В ключевых проектах',
+          en: 'In Core Projects'
         },
         context: {
-          ru: 'Основной язык создания современных веб-приложений, включая этот сайт на Nuxt 4, интерфейсы и скрипты автоматизации.',
-          en: 'Core language for modern web applications, including this Nuxt 4 personal website, frontend interfaces, and automation utilities.'
+          ru: 'Основной язык веб-экосистемы: разработка веб-панели Cardinal Panel (Nuxt 4, Drizzle ORM), этого персонального сайта, утилит и API-интеграций.',
+          en: 'Core language for web engineering: powering Cardinal Panel (Nuxt 4, Drizzle ORM), this personal portfolio website, utilities, and API bridges.'
         },
         icon: 'i-simple-icons-typescript',
         highlight: true
-      },
-      {
-        id: 'php-laravel',
-        name: 'PHP & Laravel',
-        category: 'languages',
-        status: 'planned',
-        statusLabel: {
-          ru: 'Направление @cardinal-panel',
-          en: 'Planned for @cardinal-panel'
-        },
-        context: {
-          ru: 'Выбранный технологический стек для проектируемой веб-панели управления серверами и хостингом @cardinal-panel.',
-          en: 'Target architecture chosen for the upcoming server and hosting control panel @cardinal-panel.'
-        },
-        icon: 'i-simple-icons-php',
-        highlight: false
       },
       {
         id: 'python',
@@ -100,8 +84,8 @@ export const techStackData: TechCategory[] = [
           en: 'Experiments & Automation'
         },
         context: {
-          ru: 'Применяется для прикладного программирования, вспомогательных скриптов, Discord-ботов и исследовательских задач.',
-          en: 'Used for practical scripting, Discord bot prototypes, automation tasks, and programming research.'
+          ru: 'Применяется для прикладного скриптинга, автоматизации рутинных задач, вспомогательных ботов и исследования алгоритмов.',
+          en: 'Used for practical scripting, automation workflows, service bots, and algorithmic experiments.'
         },
         icon: 'i-simple-icons-python',
         highlight: false
@@ -131,8 +115,8 @@ export const techStackData: TechCategory[] = [
       en: 'Web Development & Interfaces'
     },
     description: {
-      ru: 'Инструменты построения интерфейсов, статической генерации и организации клиентского кода.',
-      en: 'Modern UI engineering, static generation pipelines, and frontend architecture.'
+      ru: 'Инструменты построения интерфейсов, серверных приложений и баз данных.',
+      en: 'Modern UI engineering, full-stack application frameworks, and database layers.'
     },
     items: [
       {
@@ -145,8 +129,8 @@ export const techStackData: TechCategory[] = [
           en: 'Current Stack'
         },
         context: {
-          ru: 'Фреймворк этого сайта: архитектура статической генерации (SSG), файловая маршрутизация Nuxt 4 и локализация.',
-          en: 'Framework powering this site: static site generation (SSG), Nuxt 4 file routing, and internationalization.'
+          ru: 'Основной фреймворк для веб-приложений: на нём реализованы Cardinal Panel (full-stack с серверным Nitro и Drizzle ORM) и этот сайт (SSG-архитектура).',
+          en: 'Core web framework: powers both Cardinal Panel (full-stack with Nitro server and Drizzle ORM) and this site (SSG architecture).'
         },
         icon: 'i-simple-icons-nuxtdotjs',
         highlight: true
@@ -161,10 +145,26 @@ export const techStackData: TechCategory[] = [
           en: 'Current Stack'
         },
         context: {
-          ru: 'Composition API, строгая типизация в Single File Components, предсказуемое состояние интерфейса.',
-          en: 'Composition API, strict typing across SFCs, and predictable reactive state architecture.'
+          ru: 'Composition API, строгая типизация в SFC, реактивное состояние интерфейсов и консолей.',
+          en: 'Composition API, strict typing across SFCs, and real-time reactive state management for dashboard and console.'
         },
         icon: 'i-simple-icons-vuedotjs',
+        highlight: true
+      },
+      {
+        id: 'drizzle',
+        name: 'Drizzle ORM & SQLite / MySQL',
+        category: 'web',
+        status: 'in-projects',
+        statusLabel: {
+          ru: 'В Cardinal Panel',
+          en: 'In Cardinal Panel'
+        },
+        context: {
+          ru: 'Слой данных Cardinal Panel: строго типизированные схемы, автоматические миграции, поддержка локального SQLite и внешнего MySQL.',
+          en: 'Data layer in Cardinal Panel: type-safe schemas, automated migrations, out-of-the-box SQLite with production MySQL support.'
+        },
+        icon: 'i-simple-icons-sqlite',
         highlight: true
       },
       {
@@ -177,39 +177,23 @@ export const techStackData: TechCategory[] = [
           en: 'Current Stack'
         },
         context: {
-          ru: 'Новейший движок стилизации Tailwind 4 с direct CSS переменными и высокой скоростью сборки.',
-          en: 'Latest Tailwind 4 CSS engine utilizing native CSS variables, container queries, and sub-second builds.'
+          ru: 'Стилизация интерфейсов, кастомные утилиты и дизайн-токены.',
+          en: 'Interface styling, custom utility layers, and consistent design tokens.'
         },
         icon: 'i-simple-icons-tailwindcss',
         highlight: true
-      },
-      {
-        id: 'nuxt-ui',
-        name: 'Nuxt UI 4',
-        category: 'web',
-        status: 'current-stack',
-        statusLabel: {
-          ru: 'Текущий стек',
-          en: 'Current Stack'
-        },
-        context: {
-          ru: 'Библиотека доступных компонентов с поддержкой дизайн-токенов и адаптивной вёрстки.',
-          en: 'Accessible UI component layer powered by Tailwind CSS tokens and keyboard navigation.'
-        },
-        icon: 'i-lucide-component',
-        highlight: false
       }
     ]
   },
   {
     id: 'systems',
     title: {
-      ru: 'Инфраструктура и инструменты разработки',
+      ru: 'Инфраструктура и системные технологии',
       en: 'Systems, Tooling & Infrastructure'
     },
     description: {
-      ru: 'Инструменты контроля версий, среды сборки и низкоуровневые технологии контейнеризации.',
-      en: 'Version control, packaging formats, and underlying Linux containerization primitives.'
+      ru: 'Контейнерные примитивы Linux, средства контроля версий и среды сборки.',
+      en: 'Linux containerization primitives, version control systems, and build tooling.'
     },
     items: [
       {
@@ -218,12 +202,12 @@ export const techStackData: TechCategory[] = [
         category: 'systems',
         status: 'in-projects',
         statusLabel: {
-          ru: 'В проекте Cardinal',
+          ru: 'В рантайме Cardinal',
           en: 'In Cardinal Runtime'
         },
         context: {
-          ru: 'Прямая изоляция процессов через unshare (PID/Mount/Net/UTS/IPC) и контроль ресурсов CPU/RAM через cgroups v2.',
-          en: 'Direct Linux process isolation via unshare and fine-grained CPU/memory control through cgroups v2 controllers.'
+          ru: 'Прямая изоляция процессов через unshare (PID/Mount/Net/UTS/IPC), контроль ресурсов через cgroups v2 и оверлейная ФС OverlayFS.',
+          en: 'Direct Linux process isolation via unshare, fine-grained cgroups v2 resource controllers, and OverlayFS layered filesystem.'
         },
         icon: 'i-simple-icons-linux',
         highlight: true
@@ -238,8 +222,8 @@ export const techStackData: TechCategory[] = [
           en: 'Daily Use'
         },
         context: {
-          ru: 'Основная площадка для открытого исходного кода, публикации релизов, трекинга задач и версионирования.',
-          en: 'Primary platform for open-source codebases, release distribution, issue tracking, and versioning.'
+          ru: 'Основная площадка для открытого исходного кода, релизов и управления версиями (Cardinal, Wings, Panel).',
+          en: 'Primary platform for open-source repositories, releases, and versioning across the entire ecosystem.'
         },
         icon: 'i-simple-icons-github',
         highlight: true

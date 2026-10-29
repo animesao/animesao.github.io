@@ -39,8 +39,8 @@ export const en = {
     runtimeDesc: '~5 MB static binary. Runs OCI containers directly via Linux namespaces, cgroups v2, and OverlayFS without persistent daemon overhead.',
     wingsTitle: 'Cardinal Wings',
     wingsDesc: 'REST API daemon for remote Cardinal management over HTTP. Bearer auth, live streaming SSE, and per-container SFTP.',
-    panelTitle: '@cardinal-panel',
-    panelDesc: 'Envisioned web hosting and server management dashboard. Chosen architectural direction: PHP + Laravel.',
+    panelTitle: 'Cardinal Panel',
+    panelDesc: 'Full-featured web control panel for servers and game hosting built with Nuxt 4, Vue 3, Drizzle ORM, and WebSocket terminal.',
     viewDetails: 'Explore Cardinal Architecture'
   },
   focusSection: {

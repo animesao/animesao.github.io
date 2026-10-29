@@ -34,7 +34,8 @@ export default defineNuxtConfig({
         '/en/stack',
         '/notes',
         '/en/notes',
-        '/sitemap.xml'
+        '/sitemap.xml',
+        '/api/versions'
       ]
     }
   },

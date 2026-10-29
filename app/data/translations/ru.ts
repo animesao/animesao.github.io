@@ -39,8 +39,8 @@ export const ru = {
     runtimeDesc: 'Статический бинарник ~5 МБ. Прямой запуск OCI-контейнеров через Linux namespaces, cgroups v2 и OverlayFS без фонового демона.',
     wingsTitle: 'Cardinal Wings',
     wingsDesc: 'REST API демон для управления Cardinal по HTTP. Bearer токены, потоковый SSE-вывод и изолированный SFTP.',
-    panelTitle: '@cardinal-panel',
-    panelDesc: 'Проектируемая панель управления хостингом и серверами. Выбранное направление: PHP + Laravel.',
+    panelTitle: 'Cardinal Panel',
+    panelDesc: 'Веб-панель управления игровыми серверами и контейнерами на базе Nuxt 4, Vue 3, Drizzle ORM и WebSocket-консоли.',
     viewDetails: 'Подробнее об архитектуре Cardinal'
   },
   focusSection: {
