@@ -1,5 +1,10 @@
 {
-  "name": "mysite",
+  "name": "animesao-portfolio",
+  "version": "1.0.0",
+  "description": "Personal website and engineering portfolio of animesao — author of the Cardinal ecosystem",
+  "author": "animesao",
+  "homepage": "https://animesao.work.gd",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
