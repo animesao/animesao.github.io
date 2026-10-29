@@ -41,6 +41,8 @@ export const en = {
     wingsDesc: 'REST API daemon for remote Cardinal management over HTTP. Bearer auth, live streaming SSE, and per-container SFTP.',
     panelTitle: 'Cardinal Panel',
     panelDesc: 'Full-featured web control panel for servers and game hosting built with Nuxt 4, Vue 3, Drizzle ORM, and WebSocket terminal.',
+    blueprintsTitle: 'Cardinal Blueprints',
+    blueprintsDesc: 'Official registry of 27 pre-built container blueprints (databases, games, web apps, VPN) for CLI and web panel.',
     viewDetails: 'Explore Cardinal Architecture'
   },
   focusSection: {

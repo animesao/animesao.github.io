@@ -4,7 +4,8 @@ import { baselineVersions } from '~/data/versions'
 const versions = ref<Record<string, string>>({
   'cardinal': baselineVersions.cardinal || 'v2.4.13',
   'cardinal-wings': baselineVersions['cardinal-wings'] || 'v0.5.20',
-  'cardinal-panel': baselineVersions['cardinal-panel'] || 'v0.6.7'
+  'cardinal-panel': baselineVersions['cardinal-panel'] || 'v0.6.7',
+  'cardinal-blueprints': baselineVersions['cardinal-blueprints'] || '27 blueprints'
 })
 
 let hasFetched = false
@@ -30,7 +31,8 @@ export function useProjectVersions() {
       const repos = [
         { key: 'cardinal', repo: 'animesao/cardinal' },
         { key: 'cardinal-wings', repo: 'animesao/cardinal-wings' },
-        { key: 'cardinal-panel', repo: 'animesao/cardinal-panel' }
+        { key: 'cardinal-panel', repo: 'animesao/cardinal-panel' },
+        { key: 'cardinal-blueprints', repo: 'cardinal-organization/cardinal-blueprints' }
       ]
 
       await Promise.allSettled(

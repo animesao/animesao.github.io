@@ -11,20 +11,23 @@ const versionsTsPath = path.resolve(__dirname, '../app/data/versions.ts')
 const localPaths = {
   'cardinal': path.resolve(__dirname, '../../cardinal'),
   'cardinal-wings': path.resolve(__dirname, '../../cardinal-wings'),
-  'cardinal-panel': path.resolve(__dirname, '../../cardinal-panel')
+  'cardinal-panel': path.resolve(__dirname, '../../cardinal-panel'),
+  'cardinal-blueprints': path.resolve(__dirname, '../../cardinal-blueprints')
 }
 
 // GitHub repo fallback if local directories are absent
 const repos = {
   'cardinal': 'animesao/cardinal',
   'cardinal-wings': 'animesao/cardinal-wings',
-  'cardinal-panel': 'animesao/cardinal-panel'
+  'cardinal-panel': 'animesao/cardinal-panel',
+  'cardinal-blueprints': 'cardinal-organization/cardinal-blueprints'
 }
 
 let existingVersions = {
   'cardinal': 'v2.4.13',
   'cardinal-wings': 'v0.5.20',
-  'cardinal-panel': 'v0.6.7'
+  'cardinal-panel': 'v0.6.7',
+  'cardinal-blueprints': '27 blueprints'
 }
 
 if (fs.existsSync(versionsJsonPath)) {
@@ -42,6 +45,20 @@ async function sync() {
     let detected = null
 
     if (fs.existsSync(dir)) {
+      // 0. Try reading registry.json (for blueprints)
+      const registryFile = path.join(dir, 'registry.json')
+      if (fs.existsSync(registryFile)) {
+        try {
+          const reg = JSON.parse(fs.readFileSync(registryFile, 'utf8'))
+          if (reg.blueprints && typeof reg.blueprints === 'object') {
+            const count = Object.keys(reg.blueprints).length
+            detected = `${count} blueprints`
+          }
+        } catch {
+          // ignore
+        }
+      }
+
       // 1. Try reading VERSION file
       const versionFile = path.join(dir, 'VERSION')
       if (fs.existsSync(versionFile)) {
@@ -106,12 +123,14 @@ async function sync() {
   'cardinal': string
   'cardinal-wings': string
   'cardinal-panel': string
+  'cardinal-blueprints': string
 }
 
 export const baselineVersions: ProjectVersions = {
   'cardinal': '${resolvedVersions.cardinal}',
   'cardinal-wings': '${resolvedVersions['cardinal-wings']}',
-  'cardinal-panel': '${resolvedVersions['cardinal-panel']}'
+  'cardinal-panel': '${resolvedVersions['cardinal-panel']}',
+  'cardinal-blueprints': '${resolvedVersions['cardinal-blueprints'] || '27 blueprints'}'
 }
 `
   fs.writeFileSync(versionsTsPath, tsContent, 'utf8')

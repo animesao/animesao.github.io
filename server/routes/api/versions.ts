@@ -15,7 +15,8 @@ export default defineEventHandler(async (event) => {
   const repos: Record<string, string> = {
     'cardinal': 'animesao/cardinal',
     'cardinal-wings': 'animesao/cardinal-wings',
-    'cardinal-panel': 'animesao/cardinal-panel'
+    'cardinal-panel': 'animesao/cardinal-panel',
+    'cardinal-blueprints': 'cardinal-organization/cardinal-blueprints'
   }
 
   const updated = { ...cachedVersions }

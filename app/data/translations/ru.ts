@@ -41,6 +41,8 @@ export const ru = {
     wingsDesc: 'REST API демон для управления Cardinal по HTTP. Bearer токены, потоковый SSE-вывод и изолированный SFTP.',
     panelTitle: 'Cardinal Panel',
     panelDesc: 'Веб-панель управления игровыми серверами и контейнерами на базе Nuxt 4, Vue 3, Drizzle ORM и WebSocket-консоли.',
+    blueprintsTitle: 'Cardinal Blueprints',
+    blueprintsDesc: 'Официальный реестр 27 готовых шаблонов (базы данных, игровые серверы, веб-сервисы, VPN) для CLI и панели.',
     viewDetails: 'Подробнее об архитектуре Cardinal'
   },
   focusSection: {

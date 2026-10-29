@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import { projectsData } from '~/data/projects'
 
 const { locale, t } = useI18n()
-const selectedFilter = ref<'all' | 'systems' | 'web'>('all')
+const selectedFilter = ref<'all' | 'systems' | 'web' | 'blueprints'>('all')
 
 const filteredProjects = computed(() => {
   if (selectedFilter.value === 'systems') {
@@ -11,6 +11,9 @@ const filteredProjects = computed(() => {
   }
   if (selectedFilter.value === 'web') {
     return projectsData.filter(p => p.ecosystemRole === 'control-plane')
+  }
+  if (selectedFilter.value === 'blueprints') {
+    return projectsData.filter(p => p.ecosystemRole === 'blueprints')
   }
   return projectsData
 })
@@ -74,6 +77,17 @@ useSeoMeta({
           @click="selectedFilter = 'web'"
         >
           {{ locale === 'ru' ? 'Веб-панель (Nuxt 4)' : 'Web Panel (Nuxt 4)' }}
+        </button>
+
+        <button
+          type="button"
+          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
+          :class="selectedFilter === 'blueprints'
+            ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
+            : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
+          @click="selectedFilter = 'blueprints'"
+        >
+          {{ locale === 'ru' ? 'Шаблоны (Blueprints)' : 'Templates (Blueprints)' }}
         </button>
       </div>
     </div>

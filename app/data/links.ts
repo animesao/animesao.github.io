@@ -15,6 +15,8 @@ export interface ContactsConfig {
   cardinalRepo?: string
   cardinalWingsRepo?: string
   cardinalPanelRepo?: string
+  cardinalOrg?: string
+  cardinalBlueprintsRepo?: string
   // Unverified/unknown contacts left intentionally undefined - never displayed
   email?: string
   discord?: string
@@ -26,7 +28,9 @@ export const publicContacts: ContactsConfig = {
   github: 'https://github.com/animesao',
   cardinalRepo: 'https://github.com/animesao/cardinal',
   cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings',
-  cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel'
+  cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel',
+  cardinalOrg: 'https://github.com/cardinal-organization',
+  cardinalBlueprintsRepo: 'https://github.com/cardinal-organization/cardinal-blueprints'
 }
 
 /**
@@ -88,6 +92,34 @@ export function getConfirmedPublicLinks(_locale: 'ru' | 'en' = 'ru'): PublicLink
       icon: 'i-lucide-layout-dashboard',
       category: 'project',
       badge: 'Web Panel'
+    })
+  }
+
+  if (publicContacts.cardinalOrg) {
+    links.push({
+      id: 'cardinal-org',
+      label: {
+        ru: 'Организация Cardinal',
+        en: 'Cardinal Organization'
+      },
+      url: publicContacts.cardinalOrg,
+      icon: 'i-simple-icons-github',
+      category: 'official',
+      badge: '@cardinal-organization'
+    })
+  }
+
+  if (publicContacts.cardinalBlueprintsRepo) {
+    links.push({
+      id: 'cardinal-blueprints-repo',
+      label: {
+        ru: 'Репозиторий Blueprints',
+        en: 'Cardinal Blueprints'
+      },
+      url: publicContacts.cardinalBlueprintsRepo,
+      icon: 'i-lucide-layers',
+      category: 'project',
+      badge: '27 Blueprints'
     })
   }
 

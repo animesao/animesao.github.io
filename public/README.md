@@ -17,7 +17,7 @@
 
 - **Developer:** animesao
 - **Role:** Software Developer · AI-assisted Development
-- **Core Ecosystem:** [Cardinal](https://github.com/animesao/cardinal) (Daemonless container runtime in Go), [Cardinal Wings](https://github.com/animesao/cardinal-wings) (API Daemon & SFTP in Go), [Cardinal Panel](https://github.com/animesao/cardinal-panel) (Full-stack management UI with Nuxt 4, Drizzle ORM, Monaco Editor & WebSocket terminal).
+- **Core Ecosystem:** [Cardinal Organization](https://github.com/cardinal-organization) — [Cardinal](https://github.com/animesao/cardinal) (Daemonless container runtime in Go), [Cardinal Wings](https://github.com/animesao/cardinal-wings) (API Daemon & SFTP in Go), [Cardinal Panel](https://github.com/animesao/cardinal-panel) (Full-stack management UI with Nuxt 4, Drizzle ORM, Monaco Editor & WebSocket terminal), and [Cardinal Blueprints](https://github.com/cardinal-organization/cardinal-blueprints) (Official curated registry of 27 container templates).
 - **Core Tooling:** OpenCode, Gemini 3.8 Flash, Git, Linux containers.
 - **Design Philosophy:** Dark obsidian backdrop (`#0d0e12`), glowing electric amber accents (`#f59e0b`), monospace technical typography, subtle grid lines, and micro-interactions.
 

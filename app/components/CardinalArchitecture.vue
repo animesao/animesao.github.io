@@ -24,7 +24,19 @@ const { getVersion } = useProjectVersions()
         </h2>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
+        <a
+          href="https://github.com/cardinal-organization"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono text-xs font-semibold hover:bg-amber-500/20 transition-all duration-150 shadow-md shadow-black/30 hover:-translate-y-0.5 cursor-pointer card-sheen"
+        >
+          <UIcon
+            name="i-simple-icons-github"
+            class="w-3.5 h-3.5 text-amber-400"
+          />
+          <span>cardinal-organization</span>
+        </a>
         <a
           href="https://github.com/animesao/cardinal"
           target="_blank"
@@ -51,7 +63,7 @@ const { getVersion } = useProjectVersions()
     </div>
 
     <!-- Architecture Grid / Components Diagram -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
       <!-- 1. Cardinal Runtime -->
       <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#1a1d28] card-sheen p-5 hover:border-amber-500/50 hover:bg-[#1e2230] transition-all duration-200 hover:-translate-y-0.5 group">
         <header class="flex items-center justify-between mb-3">
@@ -204,12 +216,63 @@ const { getVersion } = useProjectVersions()
           </div>
         </footer>
       </article>
+
+      <!-- 4. Cardinal Blueprints -->
+      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#1a1d28] card-sheen p-5 hover:border-amber-500/50 hover:bg-[#1e2230] transition-all duration-200 hover:-translate-y-0.5 group">
+        <header class="flex items-center justify-between mb-3">
+          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 card-sheen">
+            Blueprints
+          </span>
+          <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            {{ getVersion('cardinal-blueprints') }}
+          </span>
+        </header>
+
+        <h3 class="text-lg font-bold text-white font-mono mb-2 group-hover:text-amber-300 transition-colors">
+          {{ t('cardinalSection.blueprintsTitle') }}
+        </h3>
+
+        <p class="text-xs text-zinc-300 leading-relaxed flex-1">
+          {{ t('cardinalSection.blueprintsDesc') }}
+        </p>
+
+        <footer class="pt-4 mt-4 border-t border-white/[0.08] space-y-2.5">
+          <div class="text-[11px] font-mono text-zinc-400">
+            <span class="text-zinc-500">Stack:</span> JSON · 27 Templates · OCI · Registry
+          </div>
+          <div class="flex items-center justify-between">
+            <NuxtLink
+              :to="localePath('/projects/cardinal-blueprints')"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 font-semibold"
+            >
+              <span>{{ t('common.readMore') }}</span>
+              <UIcon
+                name="i-lucide-arrow-right"
+                class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"
+              />
+            </NuxtLink>
+            <a
+              href="https://github.com/cardinal-organization/cardinal-blueprints"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-400 hover:text-white transition-colors"
+              aria-label="Cardinal Blueprints GitHub"
+            >
+              <UIcon
+                name="i-simple-icons-github"
+                class="w-3.5 h-3.5"
+              />
+            </a>
+          </div>
+        </footer>
+      </article>
     </div>
 
     <!-- Bottom link to full Cardinal architecture -->
     <div class="mt-6 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
       <span class="text-zinc-400">
-        {{ locale === 'ru' ? 'Вся экосистема: автономный рантайм на Go, REST API демон управления и веб-панель на Nuxt 4.' : 'The complete ecosystem: daemonless Go runtime, REST API daemon, and Nuxt 4 web panel.' }}
+        {{ locale === 'ru' ? 'Вся экосистема: автономный рантайм на Go, REST API демон управления, веб-панель на Nuxt 4 и реестр шаблонов контейнеров.' : 'The complete ecosystem: daemonless Go runtime, REST API daemon, Nuxt 4 web panel, and curated blueprints registry.' }}
       </span>
       <NuxtLink
         :to="localePath('/projects/cardinal')"

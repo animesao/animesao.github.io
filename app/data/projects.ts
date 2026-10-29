@@ -41,7 +41,7 @@ export interface ProjectItem {
   license: string
   language: string
   technologies: string[]
-  ecosystemRole: 'core-runtime' | 'api-daemon' | 'control-plane' | 'standalone'
+  ecosystemRole: 'core-runtime' | 'api-daemon' | 'control-plane' | 'blueprints' | 'standalone'
   links: {
     github?: string
     website?: string
@@ -272,6 +272,100 @@ export const projectsData: ProjectItem[] = [
       {
         title: { ru: 'Управление несколькими нодами', en: 'Multi-Node Cluster Management' },
         description: { ru: 'Подключение и мониторинг нескольких узлов Cardinal Wings через API', en: 'Orchestrating distributed nodes running Cardinal Wings through uniform API' },
+        implemented: true
+      }
+    ],
+    isFeatured: true
+  },
+  {
+    id: 'cardinal-blueprints',
+    slug: 'cardinal-blueprints',
+    name: 'Cardinal Blueprints',
+    role: {
+      ru: 'Официальный реестр готовых шаблонов контейнеров',
+      en: 'Official Ready-to-Deploy Container Blueprints Registry'
+    },
+    tagline: {
+      ru: '27 ready-to-deploy blueprints for databases, web services, and game servers.',
+      en: '27 ready-to-deploy blueprints for databases, web services, and game servers.'
+    },
+    summary: {
+      ru: 'Каталог проверенных шаблонов контейнеров с автоматическим разрешением портов, переменных окружения и монтирования томов. Интегрирован напрямую в Cardinal CLI (cardinal blueprint list/install) и Cardinal Panel.',
+      en: 'Curated registry of 27 container blueprints with automated port resolution, environment variables, and persistent volume management. Natively integrated with Cardinal CLI and Cardinal Panel.'
+    },
+    fullDescription: {
+      ru: [
+        'Cardinal Blueprints — это официальный реестр декларативных спецификаций контейнеров, разработанный специально для экосистемы Cardinal. Шаблоны позволяют разворачивать базы данных, веб-сервисы, инструменты мониторинга и игровые серверы одной командой.',
+        'Каждый блюпринт содержит преднастроенные переменные окружения, рекомендации по ресурсам (CPU/RAM), правила проброса портов и монтирования томов для надёжного хранения данных.',
+        'Включает категории: Базы данных (PostgreSQL 16, MySQL 8, MariaDB 11, MongoDB 7, Redis 7, ClickHouse, CouchDB), Игровые серверы (Minecraft, CS2, Rust, Palworld, Terraria, Valheim, Satisfactory), Веб-сервисы (Nginx, Caddy, Ghost, Nextcloud, FileBrowser, Node.js), Сеть и Мониторинг (WireGuard, AdGuard Home, Uptime Kuma, Grafana, TeamSpeak 3).'
+      ],
+      en: [
+        'Cardinal Blueprints is the official curated container template registry designed specifically for the Cardinal ecosystem. Blueprints enable one-command deployment of databases, web applications, observability tools, and game servers.',
+        'Each blueprint specifies validated environment variables, recommended resource limits (CPU/RAM), port mapping schemes, and persistent storage volume bindings.',
+        'Covers categories: Databases (PostgreSQL 16, MySQL 8, MariaDB 11, MongoDB 7, Redis 7, ClickHouse, CouchDB), Game Servers (Minecraft, CS2, Rust, Palworld, Terraria, Valheim, Satisfactory), Web Services (Nginx, Caddy, Ghost, Nextcloud, FileBrowser, Node.js), Network & Monitoring (WireGuard, AdGuard Home, Uptime Kuma, Grafana, TeamSpeak 3).'
+      ]
+    },
+    status: 'released',
+    statusLabel: {
+      ru: '27 шаблонов · Реестр активен',
+      en: '27 blueprints · Active Registry'
+    },
+    versionBadge: '27 Blueprints',
+    license: 'MIT',
+    language: 'JSON / Shell',
+    technologies: ['JSON Templates', 'OCI Containers', 'Cardinal CLI', 'Docker Hub', 'Shell'],
+    ecosystemRole: 'blueprints',
+    links: {
+      github: 'https://github.com/cardinal-organization/cardinal-blueprints'
+    },
+    architecture: {
+      ru: 'Декларативные JSON-манифесты с центральным registry.json, поддерживающие расширение сторонними репозиториями через cardinal blueprint repo add.',
+      en: 'Declarative JSON manifests with centralized registry.json, supporting third-party registry extensions via cardinal blueprint repo add.'
+    },
+    commandExample: 'cardinal blueprint install postgres-16 --name db -y',
+    features: [
+      {
+        title: {
+          ru: '27 готовых шаблонов',
+          en: '27 Pre-built Blueprints'
+        },
+        description: {
+          ru: 'Базы данных, игровые серверы, веб-сервисы, VPN (WireGuard), мониторинг (Grafana, Uptime Kuma).',
+          en: 'Databases, game servers, web platforms, VPN (WireGuard), observability (Grafana, Uptime Kuma).'
+        },
+        implemented: true
+      },
+      {
+        title: {
+          ru: 'CLI & Panel интеграция',
+          en: 'CLI & Panel Integration'
+        },
+        description: {
+          ru: 'Команды cardinal blueprint list / info / install / repo add и развёртывание в один клик в Cardinal Panel.',
+          en: 'cardinal blueprint list / info / install / repo add CLI commands and one-click deployment in Cardinal Panel.'
+        },
+        implemented: true
+      },
+      {
+        title: {
+          ru: 'Авто-разрешение ресурсов и портов',
+          en: 'Automated Resource & Port Resolution'
+        },
+        description: {
+          ru: 'Интерактивный ввод паролей, проверка занятости портов и оверрайд CPU/RAM флагами при запуске.',
+          en: 'Interactive secret prompts, port collision detection, and CLI resource overrides at install time.'
+        },
+        implemented: true
+      },
+      {
+        title: {
+          ru: 'Кастомные реестры',
+          en: 'Custom Registry Support'
+        },
+        description: {
+          ru: 'Возможность подключения сторонних реестров шаблонов через cardinal blueprint repo add.',
+          en: 'Support for subscribing to external custom registries via cardinal blueprint repo add.'
+        },
         implemented: true
       }
     ],
