@@ -26,6 +26,18 @@ const { getVersion } = useProjectVersions()
 
       <div class="flex flex-wrap items-center gap-2">
         <a
+          href="https://dsc.gg/cardinal-organization"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#5865F2]/15 border border-[#5865F2]/30 text-[#99a2fe] hover:text-white hover:bg-[#5865F2]/25 font-mono text-xs font-semibold transition-all duration-150 shadow-md shadow-black/30 hover:-translate-y-0.5 cursor-pointer card-sheen"
+        >
+          <UIcon
+            name="i-simple-icons-discord"
+            class="w-3.5 h-3.5 text-[#5865F2]"
+          />
+          <span>Discord</span>
+        </a>
+        <a
           href="https://github.com/cardinal-organization"
           target="_blank"
           rel="noopener noreferrer"

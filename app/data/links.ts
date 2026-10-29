@@ -30,7 +30,8 @@ export const publicContacts: ContactsConfig = {
   cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings',
   cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel',
   cardinalOrg: 'https://github.com/cardinal-organization',
-  cardinalBlueprintsRepo: 'https://github.com/cardinal-organization/cardinal-blueprints'
+  cardinalBlueprintsRepo: 'https://github.com/cardinal-organization/cardinal-blueprints',
+  discord: 'https://dsc.gg/cardinal-organization'
 }
 
 /**
@@ -120,6 +121,20 @@ export function getConfirmedPublicLinks(_locale: 'ru' | 'en' = 'ru'): PublicLink
       icon: 'i-lucide-layers',
       category: 'project',
       badge: '27 Blueprints'
+    })
+  }
+
+  if (publicContacts.discord) {
+    links.push({
+      id: 'discord',
+      label: {
+        ru: 'Discord сообщество',
+        en: 'Discord Community'
+      },
+      url: publicContacts.discord,
+      icon: 'i-simple-icons-discord',
+      category: 'official',
+      badge: 'Cardinal Discord'
     })
   }
 

@@ -12,6 +12,7 @@ export interface SiteConfig {
     cardinalPanelRepo?: string
     cardinalOrg?: string
     cardinalBlueprintsRepo?: string
+    discord?: string
   }
 }
 
@@ -33,6 +34,7 @@ export const siteConfig: SiteConfig = {
     cardinalWingsRepo: 'https://github.com/animesao/cardinal-wings',
     cardinalPanelRepo: 'https://github.com/animesao/cardinal-panel',
     cardinalOrg: 'https://github.com/cardinal-organization',
-    cardinalBlueprintsRepo: 'https://github.com/cardinal-organization/cardinal-blueprints'
+    cardinalBlueprintsRepo: 'https://github.com/cardinal-organization/cardinal-blueprints',
+    discord: 'https://dsc.gg/cardinal-organization'
   }
 }

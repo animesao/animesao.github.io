@@ -5,11 +5,13 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg)](LICENSE)
+[![Discord](https://img.shields.io/badge/Discord-Cardinal_Community-5865F2?logo=discord&logoColor=white)](https://dsc.gg/cardinal-organization)
 [![Deploy to GitHub Pages](https://github.com/animesao/animesao.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/animesao/animesao.github.io/actions/workflows/deploy.yml)
 
 > High-performance personal website and software engineering portfolio for **animesao**, author of the **Cardinal** container ecosystem. Built with Nuxt 4, Vue 3, Tailwind CSS 4, and Nuxt UI. Featuring an **Obsidian & Electric Amber** dark sci-fi aesthetic, complete bilingual support (RU / EN), and automated release tracking.
 
-🌐 **Live Website:** [https://animesao.work.gd/](https://animesao.work.gd/)
+🌐 **Live Website:** [https://animesao.work.gd/](https://animesao.work.gd/)  
+💬 **Discord Community:** [https://dsc.gg/cardinal-organization](https://dsc.gg/cardinal-organization)
 
 ---
 
@@ -18,6 +20,7 @@
 - **Developer:** animesao
 - **Role:** Software Developer · AI-assisted Development
 - **Core Ecosystem:** [Cardinal Organization](https://github.com/cardinal-organization) — [Cardinal](https://github.com/animesao/cardinal) (Daemonless container runtime in Go), [Cardinal Wings](https://github.com/animesao/cardinal-wings) (API Daemon & SFTP in Go), [Cardinal Panel](https://github.com/animesao/cardinal-panel) (Full-stack management UI with Nuxt 4, Drizzle ORM, Monaco Editor & WebSocket terminal), and [Cardinal Blueprints](https://github.com/cardinal-organization/cardinal-blueprints) (Official curated registry of 27 container templates).
+- **Discord Community:** [dsc.gg/cardinal-organization](https://dsc.gg/cardinal-organization)
 - **Core Tooling:** OpenCode, Gemini 3.8 Flash, Git, Linux containers.
 - **Design Philosophy:** Dark obsidian backdrop (`#0d0e12`), glowing electric amber accents (`#f59e0b`), monospace technical typography, subtle grid lines, and micro-interactions.
 

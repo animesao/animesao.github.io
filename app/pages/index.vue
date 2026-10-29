@@ -96,6 +96,19 @@ useSeoMeta({
             />
             <span>GitHub</span>
           </a>
+
+          <a
+            href="https://dsc.gg/cardinal-organization"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#5865F2]/30 bg-[#5865F2]/10 text-[#99a2fe] font-mono text-sm hover:text-white hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+          >
+            <UIcon
+              name="i-simple-icons-discord"
+              class="w-4 h-4 text-[#5865F2]"
+            />
+            <span>Discord</span>
+          </a>
         </div>
 
         <!-- Quick Info Tags -->
