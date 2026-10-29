@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { profileData } from '~/data/profile'
 import { getConfirmedPublicLinks } from '~/data/links'
+import { useLicenseModal } from '~/composables/useLicenseModal'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const { openLicenseModal } = useLicenseModal()
 const confirmedLinks = computed(() => getConfirmedPublicLinks(locale.value as 'ru' | 'en'))
 
 useSeoMeta({
@@ -179,6 +181,42 @@ useSeoMeta({
             {{ point }}
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- Open Source & Website License -->
+    <section class="p-6 rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-4 shadow-xl shadow-black/30">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-2 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/25">
+            <UIcon
+              name="i-lucide-scale"
+              class="w-3 h-3"
+            />
+            <span>{{ locale === 'ru' ? 'Открытый код & Лицензия' : 'Open Source & License' }}</span>
+          </div>
+          <h3 class="text-lg font-bold font-mono text-white">
+            {{ locale === 'ru' ? 'Лицензия сайта animesao.work.gd' : 'animesao.work.gd Website License' }}
+          </h3>
+          <p class="text-xs text-zinc-300 font-sans max-w-2xl leading-relaxed">
+            {{ locale === 'ru'
+              ? 'Исходный код сайта, дизайн-система, UI-компоненты и технические заметки полностью открыты под свободной лицензией MIT.'
+              : 'Website source code, design system, UI components, and technical articles are open-source under the MIT License.'
+            }}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/[0.1] bg-[#1a1d28] hover:bg-[#222638] hover:border-amber-500/50 text-amber-300 font-mono text-xs font-semibold transition-all duration-200 card-sheen cursor-pointer interactive-tap shrink-0 self-start sm:self-auto"
+          @click="openLicenseModal('website')"
+        >
+          <UIcon
+            name="i-lucide-file-text"
+            class="w-4 h-4 text-amber-400"
+          />
+          <span>{{ locale === 'ru' ? 'Смотреть лицензию MIT' : 'View MIT License' }}</span>
+        </button>
       </div>
     </section>
 

@@ -370,5 +370,71 @@ export const projectsData: ProjectItem[] = [
       }
     ],
     isFeatured: true
+  },
+  {
+    id: 'animesao-site',
+    slug: 'animesao-site',
+    name: 'animesao.work.gd',
+    role: {
+      ru: 'Персональный сайт и технический журнал',
+      en: 'Personal Portfolio & Engineering Journal'
+    },
+    tagline: {
+      ru: 'Открытый исходный код портфолио на Nuxt 4, Vue 3 и Tailwind CSS 4',
+      en: 'Open-source portfolio codebase built with Nuxt 4, Vue 3, and Tailwind CSS 4'
+    },
+    summary: {
+      ru: 'Архитектурный каркас персонального сайта: статическая генерация (SSG) на Nitro, полная локализация RU/EN, централизованный слой данных, интерактивный терминал и технические заметки.',
+      en: 'Architectural foundation of animesao personal portfolio: Nitro SSG static prerender, full RU/EN i18n localization, centralized data layer, interactive terminal, and deep technical notes.'
+    },
+    fullDescription: {
+      ru: [
+        'Сайт спроектирован с упором на производительность, типографику в стиле кибернетического минимализма и соответствие соглашениям Nuxt 4.',
+        'Все данные о проектах, ссылках и стеке строго разделены от представления и хранятся в модуле app/data/. Перед сборкой скрипт sync-versions автоматически опрашивает локальные репозитории и релизы GitHub.',
+        'Исходный код полностью открыт под лицензией MIT и доступен для изучения и повторного использования.'
+      ],
+      en: [
+        'The portfolio is engineered around performance, cyber-minimalist typography, and strict adherence to Nuxt 4 directory conventions.',
+        'All project, link, and tech stack records are decoupled from presentation inside app/data/. The pre-build sync-versions script automatically resolves local repository tags and GitHub release tags.',
+        'The codebase is published under the open-source MIT License for community study.'
+      ]
+    },
+    status: 'released',
+    statusLabel: {
+      ru: 'Релиз v1.0',
+      en: 'Released v1.0'
+    },
+    versionBadge: 'v1.0.0',
+    license: 'MIT',
+    language: 'TypeScript',
+    technologies: ['Nuxt 4', 'Vue 3', 'Tailwind CSS 4', 'TypeScript', 'Nitro SSG'],
+    ecosystemRole: 'standalone',
+    links: {
+      github: 'https://github.com/animesao/animesao.github.io',
+      website: 'https://animesao.work.gd'
+    },
+    architecture: {
+      ru: 'Nuxt 4 static prerender (Nitro), i18n маршрутизация, нативные <dialog:modal> компоненты, Tailwind CSS 4 с аппаратными анимациями.',
+      en: 'Nuxt 4 static prerender (Nitro), i18n routing, native <dialog:modal> primitives, and Tailwind CSS 4 with compositor-bound animations.'
+    },
+    commandExample: 'pnpm run generate',
+    features: [
+      {
+        title: { ru: 'Статическая генерация (SSG)', en: 'Static Site Generation (SSG)' },
+        description: { ru: 'Предрендер статических страниц без зависимости от Node.js рантайма в продакшене', en: 'Prerendered static pages with zero runtime Node.js dependency in production' },
+        implemented: true
+      },
+      {
+        title: { ru: 'Интерактивное модальное окно лицензий', en: 'Interactive License Modal' },
+        description: { ru: 'Нативный <dialog> с матрицей прав, условий и переключением лицензий проектов', en: 'Native <dialog> with permissions matrix and live license switching' },
+        implemented: true
+      },
+      {
+        title: { ru: 'Технический журнал заметок', en: 'Engineering Notes Journal' },
+        description: { ru: 'Глубокий разбор архитектуры связки Cardinal Panel & Wings, cgroups v2 и рантайма на Go', en: 'In-depth analysis of Cardinal Panel & Wings, cgroups v2, and Go runtime' },
+        implemented: true
+      }
+    ],
+    isFeatured: false
   }
 ]

@@ -29,6 +29,20 @@ function scrollToTop() {
           <div class="text-[11px] font-mono text-zinc-500">
             LOC: RU / EN · SSG DEPLOYMENT · Nuxt 4
           </div>
+          <div>
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] hover:border-amber-500/40 text-zinc-400 hover:text-amber-300 font-mono text-[11px] transition-all duration-200 card-sheen cursor-pointer interactive-tap group"
+              :title="locale === 'ru' ? 'Посмотреть лицензию сайта animesao.work.gd' : 'View animesao.work.gd website license'"
+              @click="openLicenseModal('website')"
+            >
+              <UIcon
+                name="i-lucide-scale"
+                class="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform"
+              />
+              <span>{{ locale === 'ru' ? 'Лицензия сайта: MIT' : 'Site License: MIT' }}</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ecosystem & Navigation -->
@@ -114,9 +128,9 @@ function scrollToTop() {
           <span>·</span>
           <button
             type="button"
-            class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-amber-400 transition-colors cursor-pointer group focus-visible:outline"
-            :title="locale === 'ru' ? 'Открыть условия лицензии MIT' : 'Open MIT License terms'"
-            @click="openLicenseModal('MIT')"
+            class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-amber-400 transition-colors cursor-pointer group focus-visible:outline interactive-tap"
+            :title="locale === 'ru' ? 'Открыть условия лицензии MIT сайта' : 'Open MIT License terms of this website'"
+            @click="openLicenseModal('website')"
           >
             <UIcon
               name="i-lucide-scale"

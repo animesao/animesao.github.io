@@ -9,29 +9,27 @@ const dialogRef = ref<HTMLDialogElement | null>(null)
 const closeButtonRef = ref<HTMLButtonElement | null>(null)
 const copied = ref(false)
 
-const licenses = {
-  'MIT': {
-    name: 'MIT License',
-    spdx: 'MIT',
-    badge: 'Permissive',
-    summary: {
-      ru: 'Простая и разрешительная лицензия с минимальными ограничениями. Разрешает коммерческое и частное использование, модификацию и распространение при условии сохранения оригинального уведомления об авторских правах.',
-      en: 'A simple and permissive open-source license with minimal restrictions. Allows commercial and private use, modification, and distribution provided the original copyright notice is preserved.'
-    },
-    permissions: [
-      { ru: 'Коммерческое использование', en: 'Commercial use' },
-      { ru: 'Модификация кода', en: 'Modification' },
-      { ru: 'Распространение', en: 'Distribution' },
-      { ru: 'Частное использование', en: 'Private use' }
-    ],
-    limitations: [
-      { ru: 'Ограничение ответственности', en: 'No liability' },
-      { ru: 'Отсутствие гарантий', en: 'No warranty' }
-    ],
-    conditions: [
-      { ru: 'Уведомление об авторских правах и лицензии', en: 'License & copyright notice' }
-    ],
-    text: `MIT License
+interface LicenseInfo {
+  key: string
+  name: string
+  project: {
+    ru: string
+    en: string
+  }
+  spdx: string
+  badge: string
+  repoUrl: string
+  summary: {
+    ru: string
+    en: string
+  }
+  permissions: Array<{ ru: string, en: string }>
+  limitations: Array<{ ru: string, en: string }>
+  conditions: Array<{ ru: string, en: string }>
+  text: string
+}
+
+const mitLicenseText = `MIT License
 
 Copyright (c) 2026 animesao
 
@@ -52,31 +50,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`
-  },
-  'Apache-2.0': {
-    name: 'Apache License 2.0',
-    spdx: 'Apache-2.0',
-    badge: 'Permissive + Patent Grant',
-    summary: {
-      ru: 'Разрешительная лицензия на программное обеспечение, предоставляющая явные патентные права от участников проекта, право на модификацию и распространение при сохранении авторских прав и пометок об изменениях.',
-      en: 'A permissive open-source license that provides explicit user grants of patent rights from contributors, permitting modification and distribution with preservation of copyright and change notices.'
-    },
-    permissions: [
-      { ru: 'Коммерческое использование', en: 'Commercial use' },
-      { ru: 'Модификация кода', en: 'Modification' },
-      { ru: 'Распространение', en: 'Distribution' },
-      { ru: 'Патентные права', en: 'Patent rights grant' }
-    ],
-    limitations: [
-      { ru: 'Использование торговых марок', en: 'Trademark use' },
-      { ru: 'Ограничение ответственности', en: 'No liability' },
-      { ru: 'Отсутствие гарантий', en: 'No warranty' }
-    ],
-    conditions: [
-      { ru: 'Уведомление об авторских правах', en: 'License and copyright notice' },
-      { ru: 'Указание внесённых изменений', en: 'State changes' }
-    ],
-    text: `                                 Apache License
+
+const apacheLicenseText = `                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -106,30 +81,8 @@ SOFTWARE.`
       (b) You must cause any modified files to carry prominent notices stating
           that You changed the files; and
       (c) You must retain all copyright, patent, trademark, and attribution notices.`
-  },
-  'AGPL-3.0-or-later': {
-    name: 'GNU Affero General Public License v3',
-    spdx: 'AGPL-3.0-or-later',
-    badge: 'Copyleft + Network',
-    summary: {
-      ru: 'Строгая copyleft-лицензия, требующая открывать исходный код модифицированного ПО не только при бинарном распространении, но и при предоставлении сетевого сервиса (SaaS / API).',
-      en: 'A strong copyleft license requiring source code disclosure of modified versions even when interacting with users remotely over computer networks (SaaS / API).'
-    },
-    permissions: [
-      { ru: 'Коммерческое использование', en: 'Commercial use' },
-      { ru: 'Модификация кода', en: 'Modification' },
-      { ru: 'Распространение', en: 'Distribution' },
-      { ru: 'Патентные права', en: 'Patent rights' }
-    ],
-    limitations: [
-      { ru: 'Ограничение ответственности', en: 'No liability' },
-      { ru: 'Отсутствие гарантий', en: 'No warranty' }
-    ],
-    conditions: [
-      { ru: 'Раскрытие исходного кода в сети', en: 'Network use is distribution' },
-      { ru: 'Сохранение той же лицензии (Copyleft)', en: 'Same license (Copyleft)' }
-    ],
-    text: `                    GNU AFFERO GENERAL PUBLIC LICENSE
+
+const agplLicenseText = `                    GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -154,14 +107,185 @@ freedom to distribute copies of free software (and charge for them if you
 wish), that you receive source code or can get it if you want it, that you
 can change the software or use pieces of it in new free programs, and that
 you know you can do these things.`
+
+const licensesCatalog: Record<string, LicenseInfo> = {
+  'website': {
+    key: 'website',
+    name: 'MIT License — animesao.work.gd',
+    project: {
+      ru: 'Этот сайт (animesao.work.gd)',
+      en: 'This Website (animesao.work.gd)'
+    },
+    spdx: 'MIT',
+    badge: 'Permissive Open Source',
+    repoUrl: 'https://github.com/animesao/animesao.github.io/blob/main/LICENSE',
+    summary: {
+      ru: 'Исходный код сайта animesao.work.gd (Nuxt 4, Vue 3, Tailwind CSS 4), архитектурные схемы и инженерные заметки полностью открыты под лицензией MIT. Разрешено коммерческое и частное использование, модификация и адаптация при сохранении уведомления об авторстве.',
+      en: 'The source code of the animesao.work.gd website (Nuxt 4, Vue 3, Tailwind CSS 4), architecture schematics, and engineering notes are open-source under the MIT License. Commercial and private use, modification, and reproduction are permitted with copyright attribution.'
+    },
+    permissions: [
+      { ru: 'Коммерческое использование', en: 'Commercial use' },
+      { ru: 'Модификация кода и стилей', en: 'Modification' },
+      { ru: 'Распространение', en: 'Distribution' },
+      { ru: 'Частное использование', en: 'Private use' }
+    ],
+    limitations: [
+      { ru: 'Ограничение ответственности', en: 'No liability' },
+      { ru: 'Отсутствие гарантий', en: 'No warranty' }
+    ],
+    conditions: [
+      { ru: 'Сохранение уведомления об авторских правах (c) 2026 animesao', en: 'Copyright and license notice (c) 2026 animesao' }
+    ],
+    text: mitLicenseText
+  },
+  'cardinal': {
+    key: 'cardinal',
+    name: 'Apache License 2.0 — Cardinal Core',
+    project: {
+      ru: 'Cardinal Runtime',
+      en: 'Cardinal Runtime'
+    },
+    spdx: 'Apache-2.0',
+    badge: 'Permissive + Patent Grant',
+    repoUrl: 'https://github.com/animesao/cardinal',
+    summary: {
+      ru: 'Ядро легковесного контейнерного рантайма Cardinal на Go. Лицензия Apache 2.0 предоставляет явные патентные права от контрибьюторов и разрешает встраивание рантайма в любые инфраструктурные платформы.',
+      en: 'Core daemonless container runtime in Go. The Apache 2.0 license grants explicit patent rights from contributors and permits embedded integration across commercial and cloud infrastructure.'
+    },
+    permissions: [
+      { ru: 'Коммерческое использование', en: 'Commercial use' },
+      { ru: 'Модификация кода', en: 'Modification' },
+      { ru: 'Распространение', en: 'Distribution' },
+      { ru: 'Патентные права от участников', en: 'Patent rights grant' }
+    ],
+    limitations: [
+      { ru: 'Использование торговых марок', en: 'Trademark use' },
+      { ru: 'Ограничение ответственности', en: 'No liability' },
+      { ru: 'Отсутствие гарантий', en: 'No warranty' }
+    ],
+    conditions: [
+      { ru: 'Уведомление об авторских правах', en: 'License and copyright notice' },
+      { ru: 'Указание внесенных изменений', en: 'State changes notice' }
+    ],
+    text: apacheLicenseText
+  },
+  'cardinal-wings': {
+    key: 'cardinal-wings',
+    name: 'GNU AGPL v3 — Cardinal Wings',
+    project: {
+      ru: 'Cardinal Wings Daemon',
+      en: 'Cardinal Wings Daemon'
+    },
+    spdx: 'AGPL-3.0-or-later',
+    badge: 'Strong Copyleft (Network)',
+    repoUrl: 'https://github.com/animesao/cardinal-wings',
+    summary: {
+      ru: 'Сетевой демон управления нодами на Go с REST API, SSE-стримингом и SFTP. Лицензия AGPL v3 гарантирует, что любые сетевые модификации демона остаются открытыми для сообщества.',
+      en: 'Go node orchestration daemon with REST API, SSE log streaming, and SFTP. AGPL v3 ensures that modified server versions running across network boundaries remain open-source for the community.'
+    },
+    permissions: [
+      { ru: 'Коммерческое использование', en: 'Commercial use' },
+      { ru: 'Модификация кода', en: 'Modification' },
+      { ru: 'Распространение', en: 'Distribution' },
+      { ru: 'Патентные права', en: 'Patent rights' }
+    ],
+    limitations: [
+      { ru: 'Ограничение ответственности', en: 'No liability' },
+      { ru: 'Отсутствие гарантий', en: 'No warranty' }
+    ],
+    conditions: [
+      { ru: 'Раскрытие исходного кода при сетевом использовании', en: 'Network use requires source disclosure' },
+      { ru: 'Сохранение той же лицензии (Copyleft)', en: 'Same license inheritance' }
+    ],
+    text: agplLicenseText
+  },
+  'cardinal-panel': {
+    key: 'cardinal-panel',
+    name: 'Apache License 2.0 — Cardinal Panel',
+    project: {
+      ru: 'Cardinal Panel',
+      en: 'Cardinal Panel'
+    },
+    spdx: 'Apache-2.0',
+    badge: 'Permissive + Patent Grant',
+    repoUrl: 'https://github.com/animesao/cardinal-panel',
+    summary: {
+      ru: 'Полнофункциональная панель управления серверами на Nuxt 4, Vue 3, Drizzle ORM, WebSocket-терминалом и Monaco Editor под открытой лицензией Apache 2.0.',
+      en: 'Server orchestration control plane built on Nuxt 4, Vue 3, Drizzle ORM, interactive WebSocket terminal, and Monaco Editor licensed under Apache 2.0.'
+    },
+    permissions: [
+      { ru: 'Коммерческое использование', en: 'Commercial use' },
+      { ru: 'Модификация кода', en: 'Modification' },
+      { ru: 'Распространение', en: 'Distribution' },
+      { ru: 'Патентные права', en: 'Patent rights' }
+    ],
+    limitations: [
+      { ru: 'Использование торговых марок', en: 'Trademark use' },
+      { ru: 'Ограничение ответственности', en: 'No liability' },
+      { ru: 'Отсутствие гарантий', en: 'No warranty' }
+    ],
+    conditions: [
+      { ru: 'Уведомление об авторских правах', en: 'License and copyright notice' },
+      { ru: 'Указание внесенных изменений', en: 'State changes notice' }
+    ],
+    text: apacheLicenseText
+  },
+  'cardinal-blueprints': {
+    key: 'cardinal-blueprints',
+    name: 'MIT License — Cardinal Blueprints',
+    project: {
+      ru: 'Cardinal Blueprints',
+      en: 'Cardinal Blueprints'
+    },
+    spdx: 'MIT',
+    badge: 'Permissive Open Source',
+    repoUrl: 'https://github.com/cardinal-organization/cardinal-blueprints',
+    summary: {
+      ru: 'Официальный реестр проверенных шаблонов и конфигураций контейнеров экосистемы Cardinal под свободной лицензией MIT.',
+      en: 'Curated registry of production-ready container blueprints and deployment templates for Cardinal licensed under MIT.'
+    },
+    permissions: [
+      { ru: 'Коммерческое использование', en: 'Commercial use' },
+      { ru: 'Модификация шаблонов', en: 'Modification' },
+      { ru: 'Распространение', en: 'Distribution' },
+      { ru: 'Частное использование', en: 'Private use' }
+    ],
+    limitations: [
+      { ru: 'Ограничение ответственности', en: 'No liability' },
+      { ru: 'Отсутствие гарантий', en: 'No warranty' }
+    ],
+    conditions: [
+      { ru: 'Сохранение уведомления об авторстве', en: 'License & copyright notice' }
+    ],
+    text: mitLicenseText
   }
 }
 
-const activeLicenseData = computed(() => {
-  if (currentLicense.value in licenses) {
-    return licenses[currentLicense.value as keyof typeof licenses]
+// Alias lookup
+function resolveLicenseKey(input: string): string {
+  const norm = input.toLowerCase()
+  if (norm.includes('site') || norm.includes('website') || norm === 'mit' || norm.includes('animesao')) {
+    return 'website'
   }
-  return licenses.MIT
+  if (norm.includes('blueprint')) {
+    return 'cardinal-blueprints'
+  }
+  if (norm.includes('wing') || norm.includes('agpl')) {
+    return 'cardinal-wings'
+  }
+  if (norm.includes('panel')) {
+    return 'cardinal-panel'
+  }
+  if (norm.includes('cardinal') || norm.includes('apache')) {
+    return 'cardinal'
+  }
+  return 'website'
+}
+
+const activeLicenseData = computed<LicenseInfo>(() => {
+  const resolved = resolveLicenseKey(currentLicense.value)
+  const item = licensesCatalog[resolved] || licensesCatalog.website
+  return (item || licensesCatalog['website']) as LicenseInfo
 })
 
 watch(isOpen, async (val) => {
@@ -216,18 +340,18 @@ onMounted(() => {
   >
     <div class="flex flex-col max-h-[85vh]">
       <!-- Header Bar with Cybernetic Styling -->
-      <header class="px-6 py-5 bg-[#151722] border-b border-white/[0.08] flex items-center justify-between gap-4 card-sheen">
-        <div class="space-y-1">
+      <header class="px-6 py-4 bg-[#151722] border-b border-white/[0.08] flex items-center justify-between gap-4 card-sheen">
+        <div class="space-y-0.5">
           <div class="inline-flex items-center gap-2 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/25">
             <UIcon
               name="i-lucide-scale"
               class="w-3 h-3 text-amber-400"
             />
-            <span>{{ locale === 'ru' ? 'Юридическая верификация' : 'Open Source License' }}</span>
+            <span>{{ locale === 'ru' ? 'Открытая лицензия' : 'Open Source License' }}</span>
           </div>
           <h2
             id="license-dialog-title"
-            class="text-xl sm:text-2xl font-bold font-mono text-white flex items-center gap-2.5"
+            class="text-lg sm:text-xl font-bold font-mono text-white flex items-center gap-2.5"
           >
             <span>{{ activeLicenseData.name }}</span>
             <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#1e2230] text-zinc-300 border border-white/[0.08]">
@@ -236,54 +360,38 @@ onMounted(() => {
           </h2>
         </div>
 
+        <!-- Redesigned proportional square close button with hover rotation -->
         <button
           ref="closeButtonRef"
           type="button"
-          class="p-2 rounded-xl border border-white/[0.08] bg-[#1a1d28] hover:bg-[#222738] text-zinc-400 hover:text-white transition-all duration-150 card-sheen cursor-pointer focus-visible:outline"
-          :aria-label="locale === 'ru' ? 'Закрыть модальное окно' : 'Close license modal'"
+          class="group flex items-center justify-center w-8 h-8 rounded-lg border border-white/[0.1] bg-[#1a1d28] hover:bg-[#252a3a] hover:border-amber-500/50 text-zinc-400 hover:text-white transition-all duration-200 card-sheen cursor-pointer shrink-0 focus-visible:outline active:scale-95"
+          :aria-label="locale === 'ru' ? 'Закрыть окно лицензии' : 'Close license dialog'"
           @click="closeLicenseModal"
         >
           <UIcon
             name="i-lucide-x"
-            class="w-5 h-5"
+            class="w-4 h-4 transition-transform duration-200 group-hover:rotate-90 group-hover:text-amber-400"
           />
         </button>
       </header>
 
-      <!-- License Switcher Tabs -->
+      <!-- License Switcher Tabs with explicit Site License -->
       <div class="px-6 py-2.5 bg-[#0d0e14] border-b border-white/[0.06] flex items-center gap-2 overflow-x-auto text-xs font-mono">
-        <span class="text-zinc-500 text-[11px] uppercase tracking-wider mr-1">
-          {{ locale === 'ru' ? 'Выбор:' : 'Select:' }}
+        <span class="text-zinc-500 text-[11px] uppercase tracking-wider shrink-0 mr-1">
+          {{ locale === 'ru' ? 'Проект:' : 'Project:' }}
         </span>
+
         <button
+          v-for="entry in licensesCatalog"
+          :key="entry.key"
           type="button"
-          class="px-3 py-1 rounded-lg border transition-all duration-150 cursor-pointer"
-          :class="activeLicenseData.spdx === 'MIT'
-            ? 'bg-amber-400/15 border-amber-500/40 text-amber-300 font-semibold'
+          class="px-3 py-1 rounded-lg border transition-all duration-150 cursor-pointer shrink-0 interactive-tap"
+          :class="activeLicenseData.key === entry.key
+            ? 'bg-amber-400/15 border-amber-500/50 text-amber-300 font-semibold shadow-sm shadow-amber-500/10'
             : 'bg-[#14161f] border-white/[0.06] text-zinc-400 hover:text-white hover:bg-[#1a1d28]'"
-          @click="openLicenseModal('MIT')"
+          @click="openLicenseModal(entry.key)"
         >
-          MIT (mysite & blueprints)
-        </button>
-        <button
-          type="button"
-          class="px-3 py-1 rounded-lg border transition-all duration-150 cursor-pointer"
-          :class="activeLicenseData.spdx === 'Apache-2.0'
-            ? 'bg-amber-400/15 border-amber-500/40 text-amber-300 font-semibold'
-            : 'bg-[#14161f] border-white/[0.06] text-zinc-400 hover:text-white hover:bg-[#1a1d28]'"
-          @click="openLicenseModal('Apache-2.0')"
-        >
-          Apache 2.0 (Cardinal & Panel)
-        </button>
-        <button
-          type="button"
-          class="px-3 py-1 rounded-lg border transition-all duration-150 cursor-pointer"
-          :class="activeLicenseData.spdx === 'AGPL-3.0-or-later'
-            ? 'bg-amber-400/15 border-amber-500/40 text-amber-300 font-semibold'
-            : 'bg-[#14161f] border-white/[0.06] text-zinc-400 hover:text-white hover:bg-[#1a1d28]'"
-          @click="openLicenseModal('AGPL-3.0-or-later')"
-        >
-          AGPL 3.0 (Wings)
+          {{ entry.project[locale as 'ru' | 'en'] }}
         </button>
       </div>
 
@@ -364,7 +472,7 @@ onMounted(() => {
         <div class="space-y-2">
           <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
             <span class="uppercase tracking-wider text-[10px] text-zinc-500">
-              {{ locale === 'ru' ? 'Полный текст лицензии' : 'Full License Text' }}
+              {{ locale === 'ru' ? 'Официальный текст лицензии' : 'Full License Text' }}
             </span>
             <span class="text-[10px] text-zinc-500">SPDX: {{ activeLicenseData.spdx }}</span>
           </div>
@@ -376,7 +484,7 @@ onMounted(() => {
       <!-- Footer Action Row -->
       <footer class="px-6 py-4 bg-[#151722] border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
         <a
-          href="https://github.com/animesao/animesao.github.io/blob/main/LICENSE"
+          :href="activeLicenseData.repoUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
@@ -385,7 +493,7 @@ onMounted(() => {
             name="i-simple-icons-github"
             class="w-4 h-4 text-zinc-400"
           />
-          <span>{{ locale === 'ru' ? 'LICENSE в репозитории' : 'View LICENSE in repo' }}</span>
+          <span>{{ locale === 'ru' ? 'Репозиторий проекта' : 'Project repository' }}</span>
           <UIcon
             name="i-lucide-external-link"
             class="w-3 h-3 text-zinc-500"
@@ -395,7 +503,7 @@ onMounted(() => {
         <div class="flex items-center gap-2">
           <button
             type="button"
-            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-white/[0.08] bg-[#1a1d28] hover:bg-[#232736] text-zinc-300 hover:text-white transition-all duration-150 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-white/[0.08] bg-[#1a1d28] hover:bg-[#232736] text-zinc-300 hover:text-white transition-all duration-150 card-sheen cursor-pointer interactive-tap"
             @click="copyLicenseText"
           >
             <UIcon
@@ -408,7 +516,7 @@ onMounted(() => {
 
           <button
             type="button"
-            class="px-4 py-2 rounded-xl bg-zinc-100 text-black font-semibold hover:bg-white transition-colors cursor-pointer"
+            class="px-4 py-2 rounded-xl bg-zinc-100 text-black font-semibold hover:bg-white transition-colors cursor-pointer interactive-tap"
             @click="closeLicenseModal"
           >
             {{ locale === 'ru' ? 'Закрыть' : 'Close' }}

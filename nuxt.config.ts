@@ -45,6 +45,8 @@ export default defineNuxtConfig({
         '/en/projects/cardinal-panel',
         '/projects/cardinal-blueprints',
         '/en/projects/cardinal-blueprints',
+        '/projects/animesao-site',
+        '/en/projects/animesao-site',
         '/stack',
         '/en/stack',
         '/notes',
