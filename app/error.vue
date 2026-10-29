@@ -13,12 +13,12 @@ function handleError() {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center bg-[#090a0f] px-4 font-mono text-zinc-100 selection:bg-sky-500/30 selection:text-white relative overflow-hidden">
+  <div class="min-h-screen flex flex-col items-center justify-center bg-[#0e1015] px-4 font-mono text-zinc-100 selection:bg-sky-500/30 selection:text-white relative overflow-hidden animate-reveal">
     <!-- Sci-fi background grid -->
-    <div class="absolute inset-0 bg-tech-grid opacity-40 pointer-events-none" />
+    <div class="absolute inset-0 bg-tech-grid opacity-50 pointer-events-none" />
 
     <div class="relative z-10 max-w-lg text-center space-y-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs tracking-wider uppercase">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs tracking-wider uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
         <span>HTTP {{ error.statusCode || 404 }} // ROUTE ANOMALY</span>
       </div>
@@ -37,7 +37,7 @@ function handleError() {
       <div class="pt-4 flex items-center justify-center gap-3">
         <button
           type="button"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-mono text-xs font-bold hover:bg-zinc-200 transition-colors cursor-pointer"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-md shadow-black/30 hover:-translate-y-0.5 cursor-pointer"
           @click="handleError"
         >
           <UIcon

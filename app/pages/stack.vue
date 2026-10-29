@@ -13,10 +13,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16 animate-reveal">
     <!-- Header -->
-    <div class="space-y-4 border-b border-white/10 pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider">
+    <div class="space-y-4 border-b border-[#222736] pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider">
         {{ t('stackSection.eyebrow') }}
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -31,19 +31,19 @@ useSeoMeta({
 
       <!-- Legend / Status descriptions -->
       <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/25">
           <span class="w-1.5 h-1.5 rounded-full bg-sky-400" />
           {{ locale === 'ru' ? 'В ключевых проектах' : 'In Core Projects' }}
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" />
           {{ locale === 'ru' ? 'Текущий рабочий стек' : 'Current Stack' }}
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/25">
           <span class="w-1.5 h-1.5 rounded-full bg-purple-400" />
           {{ locale === 'ru' ? 'Эксперименты / Изучаю' : 'Learning & Scripts' }}
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/25">
           <span class="w-1.5 h-1.5 rounded-full bg-amber-400" />
           {{ locale === 'ru' ? 'Запланировано' : 'Planned' }}
         </span>

@@ -17,16 +17,16 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16 animate-reveal">
     <!-- Header with Avatar -->
-    <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8 border-b border-white/10 pb-8">
+    <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8 border-b border-[#222736] pb-8">
       <AppAvatar
         size="xl"
         class="mt-1"
       />
 
       <div class="space-y-4 flex-1">
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider">
           {{ t('aboutPage.eyebrow') }}
         </div>
         <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -57,19 +57,19 @@ useSeoMeta({
     </section>
 
     <!-- The Cardinal Story -->
-    <section class="rounded-xl border border-white/10 bg-[#0d0f17] p-6 sm:p-8 space-y-4">
+    <section class="rounded-2xl border border-[#252a38] bg-[#131620] p-6 sm:p-8 space-y-4 shadow-xl shadow-black/25">
       <div class="flex items-center justify-between">
         <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">
           {{ locale === 'ru' ? 'Экосистема проектов' : 'Core Ecosystem' }}
         </span>
         <NuxtLink
           :to="localePath('/projects/cardinal')"
-          class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-sky-300 font-semibold"
+          class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-sky-300 font-semibold group"
         >
           <span>{{ locale === 'ru' ? 'Страница Cardinal' : 'Cardinal Overview' }}</span>
           <UIcon
             name="i-lucide-arrow-right"
-            class="w-3.5 h-3.5"
+            class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
           />
         </NuxtLink>
       </div>
@@ -103,7 +103,7 @@ useSeoMeta({
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-lg border border-white/10 bg-white/5 space-y-2">
+        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-sky-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-code-2"
@@ -116,7 +116,7 @@ useSeoMeta({
           </p>
         </div>
 
-        <div class="p-5 rounded-lg border border-white/10 bg-white/5 space-y-2">
+        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-sparkles"
@@ -129,7 +129,7 @@ useSeoMeta({
           </p>
         </div>
 
-        <div class="p-5 rounded-lg border border-white/10 bg-white/5 space-y-2">
+        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-bold">
             <UIcon
               name="i-simple-icons-git"
@@ -154,7 +154,7 @@ useSeoMeta({
         <div
           v-for="(point, idx) in profileData.manifesto[locale as 'ru' | 'en']"
           :key="idx"
-          class="flex items-start gap-4 p-4 rounded-lg border border-white/5 bg-black/20"
+          class="flex items-start gap-4 p-4 rounded-xl border border-[#222736] bg-[#0f1118]"
         >
           <span class="text-xs font-mono text-sky-400 font-bold mt-0.5">
             // 0{{ idx + 1 }}
@@ -167,7 +167,7 @@ useSeoMeta({
     </section>
 
     <!-- Reach / Public Links -->
-    <section class="space-y-6 pt-6 border-t border-white/10">
+    <section class="space-y-6 pt-6 border-t border-[#222736]">
       <h2 class="text-xl font-bold font-mono text-white uppercase tracking-wider">
         {{ t('contactSection.title') }}
       </h2>
@@ -179,17 +179,17 @@ useSeoMeta({
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-[#0d0f17] hover:border-white/25 hover:bg-white/5 transition-colors group"
+          class="flex items-center justify-between p-4 rounded-xl border border-[#252a38] bg-[#141722] hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group"
         >
           <div class="flex items-center gap-3">
-            <div class="p-2 rounded bg-white/5 border border-white/10 text-white group-hover:text-sky-400 transition-colors">
+            <div class="p-2 rounded-lg bg-[#1c2130] border border-[#2b3346] text-white group-hover:text-sky-400 transition-colors">
               <UIcon
                 :name="link.icon"
                 class="w-4 h-4"
               />
             </div>
             <div>
-              <span class="text-xs font-bold font-mono text-white block">
+              <span class="text-xs font-bold font-mono text-white block group-hover:text-sky-300 transition-colors">
                 {{ link.label[locale as 'ru' | 'en'] }}
               </span>
               <span

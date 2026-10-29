@@ -12,9 +12,9 @@ function scrollToTop() {
 </script>
 
 <template>
-  <footer class="border-t border-white/10 bg-[#07080b] py-12 text-zinc-400 font-sans">
+  <footer class="border-t border-[#222736] bg-[#0c0e13] py-12 text-zinc-400 font-sans">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-[#222736]">
         <!-- Brand column -->
         <div class="space-y-3">
           <AppLogo />
@@ -25,7 +25,7 @@ function scrollToTop() {
             }}
           </p>
           <div class="text-[11px] font-mono text-zinc-500">
-            LOC: RU / EN · SSG DEPLOYMENT
+            LOC: RU / EN · SSG DEPLOYMENT · Nuxt 4
           </div>
         </div>
 
@@ -99,26 +99,23 @@ function scrollToTop() {
                   class="w-3.5 h-3.5 text-zinc-400"
                 />
                 <span>{{ link.label[locale as 'ru' | 'en'] }}</span>
-                <span
-                  v-if="link.badge"
-                  class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400"
-                >
-                  {{ link.badge }}
-                </span>
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- Bottom copyright & back to top -->
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-        <div>
-          © {{ currentYear }} animesao. {{ t('footer.builtWith') }}
+      <!-- Bottom bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+        <div class="flex items-center gap-3 text-zinc-500">
+          <span>© {{ currentYear }} animesao</span>
+          <span>·</span>
+          <span>MIT License</span>
         </div>
+
         <button
           type="button"
-          class="inline-flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#252a38] bg-[#141722] hover:bg-[#1a1e2c] text-zinc-400 hover:text-white transition-colors text-xs"
           @click="scrollToTop"
         >
           <span>{{ locale === 'ru' ? 'Наверх' : 'Back to top' }}</span>

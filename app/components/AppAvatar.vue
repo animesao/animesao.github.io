@@ -34,10 +34,10 @@ const sizeClasses = computed(() => {
 </script>
 
 <template>
-  <div class="relative inline-flex shrink-0 select-none">
-    <!-- Outer sci-fi frame -->
+  <div class="relative inline-flex shrink-0 select-none group">
+    <!-- Outer refined dark-gray frame with subtle ring glow -->
     <div
-      class="relative overflow-hidden border border-white/20 bg-[#0d0f17] flex items-center justify-center p-0.5 transition-all group-hover:border-sky-400/50"
+      class="relative overflow-hidden border border-[#2b3346] bg-[#141722] shadow-md shadow-black/40 flex items-center justify-center p-0.5 transition-all duration-300 group-hover:border-sky-400/60 group-hover:shadow-sky-500/10"
       :class="sizeClasses"
     >
       <!-- Try loading custom avatar (png / svg) -->
@@ -45,7 +45,7 @@ const sizeClasses = computed(() => {
         v-if="imageLoaded"
         src="/custom/avatar.svg"
         alt="animesao avatar"
-        class="w-full h-full object-cover rounded-[inherit]"
+        class="w-full h-full object-cover rounded-[inherit] transition-transform duration-300 group-hover:scale-105"
         loading="eager"
         @error="onImageError"
       >
@@ -53,19 +53,19 @@ const sizeClasses = computed(() => {
       <!-- Fallback Monogram if image failed or empty -->
       <div
         v-else
-        class="w-full h-full rounded-[inherit] bg-gradient-to-br from-zinc-800 to-zinc-950 flex items-center justify-center font-mono font-bold text-sky-400"
+        class="w-full h-full rounded-[inherit] bg-gradient-to-br from-[#1c2130] to-[#10131c] flex items-center justify-center font-mono font-bold text-sky-400 text-lg"
       >
         <span>A</span>
       </div>
     </div>
 
-    <!-- Live indicator dot -->
+    <!-- Live indicator dot with compositor pulse -->
     <span
       v-if="showStatus"
       class="absolute -bottom-1 -right-1 flex h-3.5 w-3.5"
     >
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-      <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#090a0f]" />
+      <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#0e1015]" />
     </span>
   </div>
 </template>

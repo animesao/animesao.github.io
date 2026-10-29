@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { projectsData } from '~/data/projects'
 import { useProjectVersions } from '~/composables/useProjectVersions'
 
@@ -15,6 +15,20 @@ const liveVersion = computed(() => {
   if (!project.value) return ''
   return getVersion(project.value.slug) || project.value.versionBadge
 })
+
+const copiedCommand = ref(false)
+
+async function copyCode(text: string) {
+  try {
+    await navigator.clipboard.writeText(text)
+    copiedCommand.value = true
+    setTimeout(() => {
+      copiedCommand.value = false
+    }, 2000)
+  } catch {
+    copiedCommand.value = false
+  }
+}
 
 const statusClasses = computed(() => {
   if (!project.value) return ''
@@ -45,24 +59,24 @@ useSeoMeta({
   <div>
     <div
       v-if="project"
-      class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12"
+      class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12 animate-reveal"
     >
       <!-- Back Navigation -->
       <div>
         <NuxtLink
           :to="localePath('/projects')"
-          class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+          class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white transition-colors group"
         >
           <UIcon
             name="i-lucide-arrow-left"
-            class="w-3.5 h-3.5"
+            class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1"
           />
           <span>{{ t('common.backToProjects') }}</span>
         </NuxtLink>
       </div>
 
       <!-- Project Header -->
-      <div class="space-y-6 border-b border-white/10 pb-8">
+      <div class="space-y-6 border-b border-[#222736] pb-8">
         <div class="flex flex-wrap items-center gap-3">
           <span
             class="px-2.5 py-1 rounded text-xs font-mono border"
@@ -72,7 +86,7 @@ useSeoMeta({
           </span>
           <span
             v-if="liveVersion"
-            class="px-2.5 py-1 rounded text-xs font-mono bg-white/5 border border-white/10 text-zinc-300 flex items-center gap-1.5"
+            class="px-2.5 py-1 rounded text-xs font-mono bg-[#1c2130] border border-[#2b3346] text-zinc-300 flex items-center gap-1.5"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {{ liveVersion }}
@@ -102,7 +116,7 @@ useSeoMeta({
             :href="project.links.website"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-black font-mono text-xs font-bold hover:bg-zinc-200 transition-colors"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-md shadow-black/30 hover:-translate-y-0.5"
           >
             <UIcon
               name="i-lucide-globe"
@@ -116,7 +130,7 @@ useSeoMeta({
             :href="project.links.github"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white font-mono text-xs font-medium hover:bg-white/10 transition-colors"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2b3346] bg-[#141722] text-white font-mono text-xs font-medium hover:bg-[#1c2130] hover:border-[#3e4860] transition-all duration-150 hover:-translate-y-0.5"
           >
             <UIcon
               name="i-simple-icons-github"
@@ -143,8 +157,8 @@ useSeoMeta({
       </section>
 
       <!-- Architecture Section -->
-      <section class="rounded-xl border border-white/10 bg-[#0d0f17] p-6 sm:p-8 space-y-4">
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs uppercase tracking-wider">
+      <section class="rounded-2xl border border-[#252a38] bg-[#131620] p-6 sm:p-8 space-y-4 shadow-xl shadow-black/25">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs uppercase tracking-wider border border-sky-500/20">
           {{ t('projectDetail.architecture') }}
         </div>
         <p class="text-sm text-zinc-300 leading-relaxed font-sans">
@@ -154,12 +168,26 @@ useSeoMeta({
         <!-- CLI invocation example if available -->
         <div
           v-if="project.commandExample"
-          class="pt-4 border-t border-white/10"
+          class="pt-4 border-t border-[#222736]"
         >
-          <div class="text-xs font-mono text-zinc-400 mb-2">
-            {{ t('projectDetail.quickStart') }}:
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-zinc-400">
+              {{ t('projectDetail.quickStart') }}:
+            </span>
+            <button
+              type="button"
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1e2230] hover:bg-[#252b3d] text-zinc-300 hover:text-white border border-[#30374b] transition-colors font-mono text-[11px]"
+              @click="copyCode(project.commandExample!)"
+            >
+              <UIcon
+                :name="copiedCommand ? 'i-lucide-check' : 'i-lucide-copy'"
+                class="w-3.5 h-3.5"
+                :class="copiedCommand ? 'text-emerald-400' : 'text-zinc-400'"
+              />
+              <span>{{ copiedCommand ? (locale === 'ru' ? 'Скопировано!' : 'Copied!') : (locale === 'ru' ? 'Скопировать' : 'Copy') }}</span>
+            </button>
           </div>
-          <pre class="p-4 rounded-lg bg-black/60 border border-white/10 text-xs font-mono text-sky-300 overflow-x-auto select-all"><code>{{ project.commandExample }}</code></pre>
+          <pre class="p-4 rounded-xl bg-[#0e1015] border border-[#222736] text-xs font-mono text-sky-300 overflow-x-auto select-all"><code>{{ project.commandExample }}</code></pre>
         </div>
       </section>
 
@@ -173,7 +201,7 @@ useSeoMeta({
           <div
             v-for="(feature, idx) in project.features"
             :key="idx"
-            class="flex items-start gap-3 p-4 rounded-lg border border-white/5 bg-white/5"
+            class="flex items-start gap-3 p-4 rounded-xl border border-[#252a38] bg-[#141722] hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20"
           >
             <div class="mt-0.5">
               <UIcon
@@ -208,7 +236,7 @@ useSeoMeta({
       </section>
 
       <!-- Tech tags -->
-      <section class="pt-6 border-t border-white/10 space-y-3">
+      <section class="pt-6 border-t border-[#222736] space-y-3">
         <div class="text-xs font-mono text-zinc-400">
           {{ locale === 'ru' ? 'Технологии и примитивы:' : 'Technologies & Primitives:' }}
         </div>
@@ -216,7 +244,7 @@ useSeoMeta({
           <span
             v-for="tech in project.technologies"
             :key="tech"
-            class="text-xs font-mono px-3 py-1 rounded bg-white/5 border border-white/10 text-zinc-300"
+            class="text-xs font-mono px-3 py-1 rounded-lg bg-[#1c2130] border border-[#2b3346] text-zinc-300"
           >
             {{ tech }}
           </span>
@@ -227,7 +255,7 @@ useSeoMeta({
     <!-- Fallback if project not found -->
     <div
       v-else
-      class="max-w-3xl mx-auto px-4 py-24 text-center space-y-6"
+      class="max-w-3xl mx-auto px-4 py-24 text-center space-y-6 animate-reveal"
     >
       <div class="text-4xl font-mono font-bold text-red-400">
         404
@@ -241,7 +269,7 @@ useSeoMeta({
       <div>
         <NuxtLink
           :to="localePath('/projects')"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-black font-mono text-xs font-bold"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-colors"
         >
           <span>{{ t('common.backToProjects') }}</span>
         </NuxtLink>

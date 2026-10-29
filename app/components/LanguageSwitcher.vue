@@ -4,20 +4,20 @@ const switchLocalePath = useSwitchLocalePath()
 </script>
 
 <template>
-  <div class="inline-flex items-center rounded-md border border-white/10 bg-white/5 p-0.5 text-xs font-mono">
+  <div class="inline-flex items-center rounded-lg border border-[#252a38] bg-[#141722] p-0.5 text-xs font-mono shadow-sm">
     <NuxtLink
       :to="switchLocalePath('ru')"
-      class="px-2 py-1 rounded transition-colors"
-      :class="locale === 'ru' ? 'bg-white/15 text-white font-semibold' : 'text-zinc-400 hover:text-zinc-200'"
+      class="px-2 py-1 rounded-md transition-all duration-150"
+      :class="locale === 'ru' ? 'bg-[#1c202d] text-white font-semibold border border-[#30374b] shadow-sm' : 'text-zinc-400 hover:text-white border border-transparent'"
       aria-label="Переключить на русский язык"
     >
       RU
     </NuxtLink>
-    <span class="text-zinc-600 select-none">/</span>
+    <span class="text-[#2b3346] px-0.5 select-none">/</span>
     <NuxtLink
       :to="switchLocalePath('en')"
-      class="px-2 py-1 rounded transition-colors"
-      :class="locale === 'en' ? 'bg-white/15 text-white font-semibold' : 'text-zinc-400 hover:text-zinc-200'"
+      class="px-2 py-1 rounded-md transition-all duration-150"
+      :class="locale === 'en' ? 'bg-[#1c202d] text-white font-semibold border border-[#30374b] shadow-sm' : 'text-zinc-400 hover:text-white border border-transparent'"
       aria-label="Switch to English language"
     >
       EN

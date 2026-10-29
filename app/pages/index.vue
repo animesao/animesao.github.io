@@ -27,15 +27,15 @@ useSeoMeta({
 
 <template>
   <div class="relative overflow-hidden">
-    <!-- Subtle sci-fi background pattern -->
-    <div class="absolute inset-0 bg-tech-grid opacity-60 pointer-events-none" />
+    <!-- Subtle technical graphite grid background -->
+    <div class="absolute inset-0 bg-tech-grid opacity-70 pointer-events-none" />
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-glow pointer-events-none" />
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-24 sm:space-y-32">
       <!-- 1. HERO SECTION -->
-      <section class="space-y-8 pt-4">
+      <section class="space-y-8 pt-4 animate-reveal">
         <!-- Status Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 font-mono text-xs text-zinc-300">
+        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-[#2b3346] bg-[#141722] font-mono text-xs text-zinc-300 shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>{{ t('hero.badge') }}</span>
         </div>
@@ -64,7 +64,7 @@ useSeoMeta({
         <div class="flex flex-wrap items-center gap-4 pt-2">
           <NuxtLink
             :to="localePath('/projects')"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-mono text-sm font-bold hover:bg-zinc-200 transition-colors shadow-lg shadow-white/5"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 text-black font-mono text-sm font-bold hover:bg-white transition-all duration-150 shadow-lg shadow-black/30 hover:-translate-y-0.5"
           >
             <span>{{ t('common.viewProjects') }}</span>
             <UIcon
@@ -75,7 +75,7 @@ useSeoMeta({
 
           <NuxtLink
             :to="localePath('/about')"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-white/15 bg-white/5 text-white font-mono text-sm font-medium hover:bg-white/10 hover:border-white/30 transition-colors"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#2b3346] bg-[#141722] text-white font-mono text-sm font-medium hover:bg-[#1c2130] hover:border-[#3e4860] transition-all duration-150 hover:-translate-y-0.5"
           >
             <UIcon
               name="i-lucide-user"
@@ -88,7 +88,7 @@ useSeoMeta({
             href="https://github.com/animesao"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-white/15 bg-white/5 text-zinc-300 font-mono text-sm hover:text-white hover:bg-white/10 transition-colors"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#2b3346] bg-[#141722] text-zinc-300 font-mono text-sm hover:text-white hover:bg-[#1c2130] hover:border-[#3e4860] transition-all duration-150 hover:-translate-y-0.5"
           >
             <UIcon
               name="i-simple-icons-github"
@@ -99,7 +99,7 @@ useSeoMeta({
         </div>
 
         <!-- Quick Info Tags -->
-        <div class="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs text-zinc-400">
+        <div class="pt-6 border-t border-[#222736] grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs text-zinc-400">
           <div>
             <span class="text-zinc-500 block text-[10px] uppercase">Primary Systems</span>
             <span class="text-white font-semibold">Go · Linux Namespaces</span>
@@ -119,18 +119,32 @@ useSeoMeta({
         </div>
       </section>
 
-      <!-- 2. CARDINAL ECOSYSTEM SPOTLIGHT -->
+      <!-- 2. CARDINAL ECOSYSTEM SPOTLIGHT & LIVE TERMINAL -->
       <section
         id="cardinal"
-        class="space-y-6"
+        class="space-y-8"
       >
         <CardinalArchitecture />
+
+        <!-- Interactive Terminal Showcase -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400" />
+              {{ locale === 'ru' ? 'Интерактивный терминал экосистемы' : 'Interactive Ecosystem Terminal' }}
+            </span>
+            <span class="text-[11px] font-mono text-zinc-500 hidden sm:inline">
+              {{ locale === 'ru' ? 'Переключайте вкладки и копируйте команды' : 'Switch tabs and copy commands' }}
+            </span>
+          </div>
+          <TerminalPreview />
+        </div>
       </section>
 
       <!-- 3. FOCUS AREAS -->
       <section class="space-y-8">
         <div>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
             {{ t('focusSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -145,10 +159,10 @@ useSeoMeta({
           <div
             v-for="area in coreFocusAreas"
             :key="area.id"
-            class="flex flex-col rounded-xl border border-white/10 bg-[#0d0f17] p-6 hover:border-white/20 transition-colors"
+            class="flex flex-col rounded-xl border border-[#252a38] bg-[#141722] p-6 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/20"
           >
             <div class="flex items-center gap-3 mb-3">
-              <div class="p-2 rounded bg-white/5 border border-white/10 text-sky-400">
+              <div class="p-2 rounded-lg bg-[#1c2130] border border-[#2b3346] text-sky-400">
                 <UIcon
                   :name="area.icon"
                   class="w-5 h-5"
@@ -161,11 +175,11 @@ useSeoMeta({
             <p class="text-xs text-zinc-300 leading-relaxed font-sans mb-4 flex-1">
               {{ area.description[locale as 'ru' | 'en'] }}
             </p>
-            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[#222736]">
               <span
                 v-for="tag in area.tags"
                 :key="tag"
-                class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5"
+                class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1c2130] text-zinc-300 border border-[#2b3346]"
               >
                 {{ tag }}
               </span>
@@ -178,7 +192,7 @@ useSeoMeta({
       <section class="space-y-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
               {{ t('stackSection.eyebrow') }}
             </div>
             <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -191,12 +205,12 @@ useSeoMeta({
 
           <NuxtLink
             :to="localePath('/stack')"
-            class="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold"
+            class="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold group"
           >
             <span>{{ t('stackSection.viewFullStack') }}</span>
             <UIcon
               name="i-lucide-arrow-right"
-              class="w-3.5 h-3.5"
+              class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
             />
           </NuxtLink>
         </div>
@@ -211,9 +225,9 @@ useSeoMeta({
       </section>
 
       <!-- 5. ENGINEERING APPROACH / WORKFLOW -->
-      <section class="space-y-8 rounded-xl border border-white/10 bg-[#0b0d14] p-6 sm:p-8">
+      <section class="space-y-8 rounded-2xl border border-[#252a38] bg-[#131620] p-6 sm:p-8 shadow-xl shadow-black/25">
         <div>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#181d2a] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
             {{ t('workflowSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -228,7 +242,7 @@ useSeoMeta({
           <div
             v-for="principle in profileData.workflow.principles"
             :key="principle.code"
-            class="p-5 rounded-lg border border-white/5 bg-black/30 space-y-2"
+            class="p-5 rounded-xl border border-[#222736] bg-[#0f1118] space-y-2 hover:border-[#323a4e] transition-colors"
           >
             <div class="flex items-center justify-between">
               <span class="text-xs font-mono text-sky-400 font-bold">
@@ -244,7 +258,7 @@ useSeoMeta({
           </div>
         </div>
 
-        <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-zinc-400">
+        <div class="pt-4 border-t border-[#222736] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-zinc-400">
           <div>
             <span class="text-zinc-500">Editor:</span> {{ profileData.workflow.editor }}
           </div>
@@ -256,12 +270,12 @@ useSeoMeta({
           </div>
           <NuxtLink
             :to="localePath('/about')"
-            class="text-white hover:text-sky-300 font-semibold inline-flex items-center gap-1"
+            class="text-white hover:text-sky-300 font-semibold inline-flex items-center gap-1 group"
           >
             <span>{{ t('common.readMore') }}</span>
             <UIcon
               name="i-lucide-arrow-right"
-              class="w-3.5 h-3.5"
+              class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
             />
           </NuxtLink>
         </div>
@@ -270,7 +284,7 @@ useSeoMeta({
       <!-- 6. CONTACTS & VERIFIED LINKS -->
       <section class="space-y-8">
         <div>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2">
             {{ t('contactSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -288,17 +302,17 @@ useSeoMeta({
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-[#0d0f17] hover:border-white/25 hover:bg-white/5 transition-colors group"
+            class="flex items-center justify-between p-4 rounded-xl border border-[#252a38] bg-[#141722] hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group"
           >
             <div class="flex items-center gap-3">
-              <div class="p-2 rounded bg-white/5 border border-white/10 text-white group-hover:text-sky-400 transition-colors">
+              <div class="p-2 rounded-lg bg-[#1c2130] border border-[#2b3346] text-white group-hover:text-sky-400 transition-colors">
                 <UIcon
                   :name="link.icon"
                   class="w-4 h-4"
                 />
               </div>
               <div>
-                <span class="text-xs font-bold font-mono text-white block">
+                <span class="text-xs font-bold font-mono text-white block group-hover:text-sky-300 transition-colors">
                   {{ link.label[locale as 'ru' | 'en'] }}
                 </span>
                 <span
