@@ -12,9 +12,9 @@ function scrollToTop() {
 </script>
 
 <template>
-  <footer class="border-t border-[#222736] bg-[#0c0e13] py-12 text-zinc-400 font-sans">
+  <footer class="border-t border-white/[0.08] bg-[#090a0d] py-12 text-zinc-400 font-sans">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-[#222736]">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-white/[0.08]">
         <!-- Brand column -->
         <div class="space-y-3">
           <AppLogo />
@@ -115,7 +115,7 @@ function scrollToTop() {
 
         <button
           type="button"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#252a38] bg-[#141722] hover:bg-[#1a1e2c] text-zinc-400 hover:text-white transition-colors text-xs"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.08] bg-[#12141a] hover:bg-[#181b24] text-zinc-400 hover:text-white transition-colors text-xs card-sheen cursor-pointer"
           @click="scrollToTop"
         >
           <span>{{ locale === 'ru' ? 'Наверх' : 'Back to top' }}</span>

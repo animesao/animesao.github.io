@@ -3,14 +3,16 @@
 
 :root {
   color-scheme: dark;
-  --bg-canvas: #0e1015;
-  --bg-surface: #151821;
-  --bg-surface-elevated: #1c202c;
-  --border-subtle: #242a38;
-  --border-strong: #363e52;
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #64748b;
+  --bg-canvas: #0a0b0e;
+  --bg-surface: #12141a;
+  --bg-surface-elevated: #181b24;
+  --bg-surface-inset: #0d0f14;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #8492a6;
   --accent-cyan: #38bdf8;
   --accent-emerald: #10b981;
   --accent-purple: #a855f7;
@@ -61,16 +63,24 @@ body {
 @utility bg-tech-grid {
   background-size: 32px 32px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
 }
 
 @utility bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05), transparent 60%);
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.06), transparent 65%);
+}
+
+@utility card-sheen {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.09);
+}
+
+@utility card-sheen-strong {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
 }
 
 @utility animate-reveal {
-  animation: enter-reveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: enter-reveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @utility animate-pulse-subtle {
@@ -86,16 +96,17 @@ code, pre, .font-mono {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(56, 189, 248, 0.7);
+  outline: 2px solid rgba(56, 189, 248, 0.8);
   outline-offset: 2px;
 }
 
-/* Reduced motion preference adhering to Modern Web Guidance: selective, avoids universal reset */
+/* Reduced motion adhering to Modern Web Guidance: selective, avoids universal reset */
 @media (prefers-reduced-motion: reduce) {
   .animate-reveal,
   .animate-pulse-subtle,
   .cursor-blink,
-  .animate-pulse {
+  .animate-pulse,
+  .animate-ping {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }
@@ -107,14 +118,14 @@ code, pre, .font-mono {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0e1015;
+  background: #0a0b0e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252a38;
+  background: #222634;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374055;
+  background: #343b4f;
 }

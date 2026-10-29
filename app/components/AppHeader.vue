@@ -24,11 +24,11 @@ function closeMenu() {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full border-b border-[#222736] bg-[#0e1015]/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#0a0b0e]/85 backdrop-blur-xl card-sheen">
     <!-- Accessibility skip link -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-mono focus:text-sm focus:rounded"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-mono focus:text-sm focus:rounded-lg"
     >
       Skip to content
     </a>
@@ -37,7 +37,7 @@ function closeMenu() {
       <!-- Logo -->
       <NuxtLink
         :to="localePath('/')"
-        class="focus-visible:rounded"
+        class="focus-visible:rounded-lg"
         aria-label="ANIMESAO Home"
       >
         <AppLogo />
@@ -52,8 +52,8 @@ function closeMenu() {
           v-for="item in navItems"
           :key="item.to"
           :to="localePath(item.to)"
-          class="px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-[#161a24] transition-all duration-150 font-mono text-xs tracking-wider uppercase border border-transparent"
-          active-class="!text-white !bg-[#1c202d] !border-[#30374b] shadow-sm"
+          class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.05] transition-all duration-150 font-mono text-xs tracking-wider uppercase border border-transparent"
+          active-class="!text-white !bg-[#171a23] !border-white/[0.12] card-sheen shadow-sm"
         >
           {{ t(item.labelKey) }}
         </NuxtLink>
@@ -68,7 +68,7 @@ function closeMenu() {
           :href="publicContacts.github"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-2 rounded-lg border border-[#252a38] bg-[#141722] text-zinc-400 hover:text-white hover:border-[#3d475f] hover:bg-[#1a1e2c] transition-all duration-150 inline-flex items-center justify-center"
+          class="p-2 rounded-lg border border-white/[0.08] bg-[#12141a] text-zinc-400 hover:text-white hover:border-white/[0.2] hover:bg-[#181b24] transition-all duration-150 inline-flex items-center justify-center card-sheen"
           aria-label="GitHub Profile"
         >
           <UIcon
@@ -84,7 +84,7 @@ function closeMenu() {
 
         <button
           type="button"
-          class="p-2 rounded-lg border border-[#252a38] bg-[#141722] text-zinc-300 hover:text-white focus-visible:outline"
+          class="p-2 rounded-lg border border-white/[0.08] bg-[#12141a] text-zinc-300 hover:text-white focus-visible:outline"
           :aria-expanded="isMobileMenuOpen"
           aria-controls="mobile-nav"
           :aria-label="isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'"
@@ -102,20 +102,20 @@ function closeMenu() {
     <div
       v-if="isMobileMenuOpen"
       id="mobile-nav"
-      class="md:hidden border-b border-[#222736] bg-[#121520] px-4 py-4 space-y-2 animate-reveal"
+      class="md:hidden border-b border-white/[0.08] bg-[#101217] px-4 py-4 space-y-2 animate-reveal"
     >
       <NuxtLink
         v-for="item in navItems"
         :key="item.to"
         :to="localePath(item.to)"
-        class="block px-3 py-2 rounded-lg text-zinc-300 hover:text-white hover:bg-[#1a1e2c] font-mono text-xs uppercase tracking-wider transition-colors"
-        active-class="!text-white !bg-[#1c202d] border border-[#30374b]"
+        class="block px-3 py-2 rounded-lg text-zinc-300 hover:text-white hover:bg-white/[0.05] font-mono text-xs uppercase tracking-wider transition-colors"
+        active-class="!text-white !bg-[#171a23] border border-white/[0.12]"
         @click="closeMenu"
       >
         {{ t(item.labelKey) }}
       </NuxtLink>
 
-      <div class="pt-3 border-t border-[#222736] flex items-center justify-between">
+      <div class="pt-3 border-t border-white/[0.08] flex items-center justify-between">
         <span class="text-xs font-mono text-zinc-500">github.com/animesao</span>
         <a
           v-if="publicContacts.github"

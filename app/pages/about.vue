@@ -19,14 +19,14 @@ useSeoMeta({
 <template>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16 animate-reveal">
     <!-- Header with Avatar -->
-    <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8 border-b border-[#222736] pb-8">
+    <div class="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8 border-b border-white/[0.08] pb-8">
       <AppAvatar
         size="xl"
         class="mt-1"
       />
 
       <div class="space-y-4 flex-1">
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
           {{ t('aboutPage.eyebrow') }}
         </div>
         <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -40,6 +40,11 @@ useSeoMeta({
 
     <!-- Introduction & Positioning -->
     <section class="space-y-6">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase">
+          // 01 POSITIONING & BACKGROUND
+        </span>
+      </div>
       <h2 class="text-xl font-bold font-mono text-white uppercase tracking-wider">
         {{ locale === 'ru' ? 'Позиционирование и профиль' : 'Positioning & Background' }}
       </h2>
@@ -57,14 +62,15 @@ useSeoMeta({
     </section>
 
     <!-- The Cardinal Story -->
-    <section class="rounded-2xl border border-[#252a38] bg-[#131620] p-6 sm:p-8 space-y-4 shadow-xl shadow-black/25">
+    <section class="rounded-2xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 sm:p-8 space-y-4 shadow-2xl shadow-black/40">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">
+        <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-sky-400" />
           {{ locale === 'ru' ? 'Экосистема проектов' : 'Core Ecosystem' }}
         </span>
         <NuxtLink
           :to="localePath('/projects/cardinal')"
-          class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-sky-300 font-semibold group"
+          class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-sky-300 font-semibold group cursor-pointer"
         >
           <span>{{ locale === 'ru' ? 'Страница Cardinal' : 'Cardinal Overview' }}</span>
           <UIcon
@@ -95,6 +101,11 @@ useSeoMeta({
 
     <!-- AI-assisted Workflow -->
     <section class="space-y-6">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase">
+          // 02 WORKFLOW ENVIRONMENT
+        </span>
+      </div>
       <h2 class="text-xl font-bold font-mono text-white uppercase tracking-wider">
         {{ t('aboutPage.environmentTitle') }}
       </h2>
@@ -103,7 +114,7 @@ useSeoMeta({
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-sky-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-code-2"
@@ -111,12 +122,12 @@ useSeoMeta({
             />
             <span>OpenCode</span>
           </div>
-          <p class="text-xs text-zinc-300">
+          <p class="text-xs text-zinc-300 leading-relaxed">
             {{ locale === 'ru' ? 'Основное окружение для архитектурной работы, навигации по коду и интеграции ИИ-агентов.' : 'Primary workspace for architectural design, code navigation, and agent coordination.' }}
           </p>
-        </div>
+        </article>
 
-        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-sparkles"
@@ -124,12 +135,12 @@ useSeoMeta({
             />
             <span>Gemini 3.8 Flash</span>
           </div>
-          <p class="text-xs text-zinc-300">
+          <p class="text-xs text-zinc-300 leading-relaxed">
             {{ locale === 'ru' ? 'Анализ сложных технических спецификаций, генерация тестов, проверка граничных случаев и рефакторинг.' : 'Analyzing technical specs, generating test suites, boundary checking, and refactoring.' }}
           </p>
-        </div>
+        </article>
 
-        <div class="p-5 rounded-xl border border-[#252a38] bg-[#141722] space-y-2 shadow-md shadow-black/20 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5">
           <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-bold">
             <UIcon
               name="i-simple-icons-git"
@@ -137,15 +148,20 @@ useSeoMeta({
             />
             <span>Git & GitHub</span>
           </div>
-          <p class="text-xs text-zinc-300">
+          <p class="text-xs text-zinc-300 leading-relaxed">
             {{ locale === 'ru' ? 'Строгий контроль версий, атомарные коммиты, CI-пайплайны и открытая публикация релизов.' : 'Strict version control, atomic commits, automated CI pipelines, and public release distribution.' }}
           </p>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- Manifesto & Principles -->
     <section class="space-y-6">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase">
+          // 03 ENGINEERING MANIFESTO
+        </span>
+      </div>
       <h2 class="text-xl font-bold font-mono text-white uppercase tracking-wider">
         {{ t('aboutPage.manifestoTitle') }}
       </h2>
@@ -154,7 +170,7 @@ useSeoMeta({
         <div
           v-for="(point, idx) in profileData.manifesto[locale as 'ru' | 'en']"
           :key="idx"
-          class="flex items-start gap-4 p-4 rounded-xl border border-[#222736] bg-[#0f1118]"
+          class="flex items-start gap-4 p-4 rounded-xl border border-white/[0.06] bg-[#0d0f14] card-sheen"
         >
           <span class="text-xs font-mono text-sky-400 font-bold mt-0.5">
             // 0{{ idx + 1 }}
@@ -167,7 +183,12 @@ useSeoMeta({
     </section>
 
     <!-- Reach / Public Links -->
-    <section class="space-y-6 pt-6 border-t border-[#222736]">
+    <section class="space-y-6 pt-6 border-t border-white/[0.08]">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase">
+          // 04 CONNECT
+        </span>
+      </div>
       <h2 class="text-xl font-bold font-mono text-white uppercase tracking-wider">
         {{ t('contactSection.title') }}
       </h2>
@@ -179,10 +200,10 @@ useSeoMeta({
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between p-4 rounded-xl border border-[#252a38] bg-[#141722] hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group"
+          class="flex items-center justify-between p-4 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/25 group"
         >
           <div class="flex items-center gap-3">
-            <div class="p-2 rounded-lg bg-[#1c2130] border border-[#2b3346] text-white group-hover:text-sky-400 transition-colors">
+            <div class="p-2 rounded-lg bg-[#181b24] border border-white/[0.1] text-white group-hover:text-sky-400 transition-colors card-sheen">
               <UIcon
                 :name="link.icon"
                 class="w-4 h-4"

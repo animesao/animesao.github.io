@@ -24,10 +24,10 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col rounded-xl border border-[#252a38] bg-[#141722] p-5 hover:border-[#3e4860] hover:bg-[#181c29] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group">
-    <div class="flex items-center justify-between gap-3 mb-3">
+  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen p-5 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group">
+    <header class="flex items-center justify-between gap-3 mb-3">
       <div class="flex items-center gap-3">
-        <div class="p-2 rounded-lg bg-[#1c2130] border border-[#2b3346] text-white group-hover:text-sky-400 transition-colors">
+        <div class="p-2 rounded-lg bg-[#181b24] border border-white/[0.1] text-white group-hover:text-sky-400 transition-colors card-sheen">
           <UIcon
             :name="item.icon"
             class="w-5 h-5"
@@ -38,15 +38,15 @@ const statusClasses = computed(() => {
         </h4>
       </div>
       <span
-        class="px-2 py-0.5 rounded text-[10px] font-mono border"
+        class="px-2 py-0.5 rounded text-[10px] font-mono border card-sheen"
         :class="statusClasses"
       >
         {{ item.statusLabel[locale as 'ru' | 'en'] }}
       </span>
-    </div>
+    </header>
 
     <p class="text-xs text-zinc-300 leading-relaxed font-sans">
       {{ item.context[locale as 'ru' | 'en'] }}
     </p>
-  </div>
+  </article>
 </template>

@@ -14,8 +14,8 @@ useSeoMeta({
 <template>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12 animate-reveal">
     <!-- Header -->
-    <div class="space-y-4 border-b border-[#222736] pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#161a25] border border-[#2b3346] text-zinc-400 font-mono text-xs uppercase tracking-wider">
+    <div class="space-y-4 border-b border-white/[0.08] pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
         {{ locale === 'ru' ? 'ТЕХНИЧЕСКИЙ БЛОГ' : 'ENGINEERING JOURNAL' }}
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -27,8 +27,8 @@ useSeoMeta({
     </div>
 
     <!-- Elegant Empty State -->
-    <div class="rounded-2xl border border-dashed border-[#2c3448] bg-[#131620] p-8 sm:p-12 text-center space-y-6 shadow-xl shadow-black/20">
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-[#2b3346] bg-[#1a1e2c] text-sky-400">
+    <div class="rounded-2xl border border-dashed border-white/[0.12] bg-[#12141a] card-sheen p-8 sm:p-12 text-center space-y-6 shadow-2xl shadow-black/40">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-white/[0.1] bg-[#181b24] text-sky-400 card-sheen">
         <UIcon
           name="i-lucide-file-text"
           class="w-6 h-6"
@@ -47,7 +47,7 @@ useSeoMeta({
       <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
         <NuxtLink
           :to="localePath('/projects')"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-md shadow-black/30 hover:-translate-y-0.5"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-lg shadow-black/30 hover:-translate-y-0.5 cursor-pointer"
         >
           <span>{{ t('common.viewProjects') }}</span>
           <UIcon
@@ -60,7 +60,7 @@ useSeoMeta({
           href="https://github.com/animesao"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2b3346] bg-[#141722] text-white font-mono text-xs hover:bg-[#1c2130] hover:border-[#3e4860] transition-all duration-150 hover:-translate-y-0.5"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.1] bg-[#14161f] text-white font-mono text-xs hover:bg-[#181b24] hover:border-white/[0.2] transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
         >
           <UIcon
             name="i-simple-icons-github"
