@@ -25,6 +25,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Pages configuration
+        uses: actions/configure-pages@v5
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
@@ -51,8 +54,8 @@ jobs:
 
       - name: Ensure CNAME & .nojekyll in build output
         run: |
-          echo "animesao.work.gd" > .output/public/CNAME
-          touch .output/public/.nojekyll
+          cp CNAME .output/public/CNAME
+          cp .nojekyll .output/public/.nojekyll
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
