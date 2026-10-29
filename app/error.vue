@@ -13,7 +13,7 @@ function handleError() {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center bg-[#0a0b0e] px-4 font-mono text-zinc-100 selection:bg-sky-500/30 selection:text-white relative overflow-hidden animate-reveal">
+  <div class="min-h-screen flex flex-col items-center justify-center bg-[#0d0e12] px-4 font-mono text-zinc-100 selection:bg-amber-500/30 selection:text-amber-100 relative overflow-hidden animate-reveal">
     <!-- Sci-fi background grid -->
     <div class="absolute inset-0 bg-tech-grid opacity-50 pointer-events-none" />
 
@@ -37,7 +37,7 @@ function handleError() {
       <div class="pt-4 flex items-center justify-center gap-3">
         <button
           type="button"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-lg shadow-black/40 hover:-translate-y-0.5 cursor-pointer"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-400 text-black font-mono text-xs font-bold hover:bg-amber-300 transition-all duration-150 shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 cursor-pointer"
           @click="handleError"
         >
           <UIcon

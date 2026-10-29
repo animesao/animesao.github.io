@@ -28,7 +28,7 @@ useSeoMeta({
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12 animate-reveal">
     <!-- Header -->
     <div class="space-y-4 border-b border-white/[0.08] pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
         {{ locale === 'ru' ? 'ИНЖЕНЕРНЫЕ ПРОЕКТЫ' : 'ENGINEERING REPOSITORY' }}
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -47,8 +47,8 @@ useSeoMeta({
           type="button"
           class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
           :class="selectedFilter === 'all'
-            ? 'bg-zinc-100 text-black font-semibold shadow-md shadow-black/30'
-            : 'bg-[#12141a] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#181b24] card-sheen'"
+            ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
+            : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
           @click="selectedFilter = 'all'"
         >
           {{ locale === 'ru' ? 'Все проекты' : 'All Projects' }} ({{ projectsData.length }})
@@ -58,8 +58,8 @@ useSeoMeta({
           type="button"
           class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
           :class="selectedFilter === 'systems'
-            ? 'bg-zinc-100 text-black font-semibold shadow-md shadow-black/30'
-            : 'bg-[#12141a] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#181b24] card-sheen'"
+            ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
+            : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
           @click="selectedFilter = 'systems'"
         >
           {{ locale === 'ru' ? 'Системный рантайм (Go)' : 'Systems Runtime (Go)' }}
@@ -69,8 +69,8 @@ useSeoMeta({
           type="button"
           class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
           :class="selectedFilter === 'web'
-            ? 'bg-zinc-100 text-black font-semibold shadow-md shadow-black/30'
-            : 'bg-[#12141a] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#181b24] card-sheen'"
+            ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
+            : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
           @click="selectedFilter = 'web'"
         >
           {{ locale === 'ru' ? 'Веб-панель (Nuxt 4)' : 'Web Panel (Nuxt 4)' }}

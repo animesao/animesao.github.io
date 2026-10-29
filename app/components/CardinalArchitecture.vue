@@ -7,16 +7,16 @@ const { getVersion } = useProjectVersions()
 </script>
 
 <template>
-  <div class="rounded-2xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 sm:p-8 relative overflow-hidden shadow-2xl shadow-black/40">
-    <!-- Ambient subtle background lighting -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+  <div class="rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 sm:p-8 relative overflow-hidden shadow-2xl shadow-black/40">
+    <!-- Ambient subtle amber & emerald background lighting -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
     <div class="absolute -bottom-10 -left-10 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
     <!-- Top Badge & Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/[0.08] relative z-10">
       <div>
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-sky-500/10 border border-sky-500/20 text-sky-400 font-mono text-xs tracking-wider uppercase mb-2 card-sheen">
-          <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-xs tracking-wider uppercase mb-2 card-sheen">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
           {{ t('cardinalSection.eyebrow') }}
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-mono">
@@ -41,11 +41,11 @@ const { getVersion } = useProjectVersions()
     </div>
 
     <!-- Core Philosophy Callout -->
-    <div class="my-6 p-4 rounded-xl bg-[#0d0f14] border border-white/[0.06] card-sheen font-mono text-center">
+    <div class="my-6 p-4 rounded-xl bg-[#0a0b0f] border border-white/[0.06] card-sheen font-mono text-center">
       <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-1">
         {{ locale === 'ru' ? 'Инженерная философия' : 'Engineering Principle' }}
       </span>
-      <p class="text-base sm:text-lg font-bold text-sky-400">
+      <p class="text-base sm:text-lg font-bold text-amber-400">
         "No daemon. No Docker. Just containers."
       </p>
     </div>
@@ -53,9 +53,9 @@ const { getVersion } = useProjectVersions()
     <!-- Architecture Grid / Components Diagram -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
       <!-- 1. Cardinal Runtime -->
-      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#161922] card-sheen p-5 hover:border-sky-500/50 hover:bg-[#1a1e28] transition-all duration-200 hover:-translate-y-0.5 group">
+      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#1a1d28] card-sheen p-5 hover:border-amber-500/50 hover:bg-[#1e2230] transition-all duration-200 hover:-translate-y-0.5 group">
         <header class="flex items-center justify-between mb-3">
-          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20 card-sheen">
+          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 card-sheen">
             Core Runtime
           </span>
           <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
@@ -64,7 +64,7 @@ const { getVersion } = useProjectVersions()
           </span>
         </header>
 
-        <h3 class="text-lg font-bold text-white font-mono mb-2 group-hover:text-sky-300 transition-colors">
+        <h3 class="text-lg font-bold text-white font-mono mb-2 group-hover:text-amber-300 transition-colors">
           Cardinal
         </h3>
 
@@ -79,7 +79,7 @@ const { getVersion } = useProjectVersions()
           <div class="flex items-center justify-between">
             <NuxtLink
               :to="localePath('/projects/cardinal')"
-              class="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 font-semibold"
             >
               <span>{{ t('common.readMore') }}</span>
               <UIcon
@@ -104,7 +104,7 @@ const { getVersion } = useProjectVersions()
       </article>
 
       <!-- 2. Cardinal Wings -->
-      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#161922] card-sheen p-5 hover:border-emerald-500/50 hover:bg-[#1a1e28] transition-all duration-200 hover:-translate-y-0.5 group">
+      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#1a1d28] card-sheen p-5 hover:border-emerald-500/50 hover:bg-[#1e2230] transition-all duration-200 hover:-translate-y-0.5 group">
         <header class="flex items-center justify-between mb-3">
           <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 card-sheen">
             API Daemon
@@ -155,9 +155,9 @@ const { getVersion } = useProjectVersions()
       </article>
 
       <!-- 3. Cardinal Panel -->
-      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#161922] card-sheen p-5 hover:border-purple-500/50 hover:bg-[#1a1e28] transition-all duration-200 hover:-translate-y-0.5 group">
+      <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#1a1d28] card-sheen p-5 hover:border-amber-500/50 hover:bg-[#1e2230] transition-all duration-200 hover:-translate-y-0.5 group">
         <header class="flex items-center justify-between mb-3">
-          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 card-sheen">
+          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 card-sheen">
             Control Plane
           </span>
           <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
@@ -166,7 +166,7 @@ const { getVersion } = useProjectVersions()
           </span>
         </header>
 
-        <h3 class="text-lg font-bold text-white font-mono mb-2 group-hover:text-purple-300 transition-colors">
+        <h3 class="text-lg font-bold text-white font-mono mb-2 group-hover:text-amber-300 transition-colors">
           Cardinal Panel
         </h3>
 
@@ -181,7 +181,7 @@ const { getVersion } = useProjectVersions()
           <div class="flex items-center justify-between">
             <NuxtLink
               :to="localePath('/projects/cardinal-panel')"
-              class="inline-flex items-center gap-1.5 text-xs font-mono text-purple-400 hover:text-purple-300 font-semibold"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 font-semibold"
             >
               <span>{{ t('common.readMore') }}</span>
               <UIcon
@@ -213,7 +213,7 @@ const { getVersion } = useProjectVersions()
       </span>
       <NuxtLink
         :to="localePath('/projects/cardinal')"
-        class="inline-flex items-center gap-1.5 text-white hover:text-sky-400 font-semibold transition-colors group"
+        class="inline-flex items-center gap-1.5 text-white hover:text-amber-400 font-semibold transition-colors group"
       >
         <span>{{ t('cardinalSection.viewDetails') }}</span>
         <UIcon

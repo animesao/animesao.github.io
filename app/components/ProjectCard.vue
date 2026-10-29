@@ -28,7 +28,7 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30 group">
+  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30 group">
     <!-- Top Meta Row -->
     <header class="flex items-start justify-between gap-3 mb-4">
       <div class="flex flex-wrap items-center gap-2">
@@ -40,7 +40,7 @@ const statusClasses = computed(() => {
         </span>
         <span
           v-if="liveVersion"
-          class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#181b24] border border-white/[0.1] text-zinc-300 flex items-center gap-1.5 card-sheen"
+          class="px-2 py-0.5 rounded text-[11px] font-mono bg-[#1b1e2a] border border-white/[0.1] text-zinc-300 flex items-center gap-1.5 card-sheen"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           {{ liveVersion }}
@@ -54,7 +54,7 @@ const statusClasses = computed(() => {
           :href="project.links.website"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 rounded-lg border border-white/[0.08] bg-[#181b24] text-zinc-400 hover:text-white hover:border-white/[0.2] transition-colors card-sheen"
+          class="p-1.5 rounded-lg border border-white/[0.08] bg-[#1b1e2a] text-zinc-400 hover:text-white hover:border-amber-500/40 transition-colors card-sheen"
           :aria-label="project.name + ' Website'"
         >
           <UIcon
@@ -67,7 +67,7 @@ const statusClasses = computed(() => {
           :href="project.links.github"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 rounded-lg border border-white/[0.08] bg-[#181b24] text-zinc-400 hover:text-white hover:border-white/[0.2] transition-colors card-sheen"
+          class="p-1.5 rounded-lg border border-white/[0.08] bg-[#1b1e2a] text-zinc-400 hover:text-white hover:border-amber-500/40 transition-colors card-sheen"
           :aria-label="project.name + ' GitHub Repository'"
         >
           <UIcon
@@ -80,7 +80,7 @@ const statusClasses = computed(() => {
 
     <!-- Title & Role -->
     <div class="mb-3">
-      <h3 class="text-xl font-bold font-mono text-white group-hover:text-sky-300 transition-colors flex items-center gap-2">
+      <h3 class="text-xl font-bold font-mono text-white group-hover:text-amber-300 transition-colors flex items-center gap-2">
         <span>{{ project.name }}</span>
       </h3>
       <p class="text-xs font-mono text-zinc-400 mt-1">
@@ -98,7 +98,7 @@ const statusClasses = computed(() => {
       <span
         v-for="tech in project.technologies"
         :key="tech"
-        class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#181b24] text-zinc-300 border border-white/[0.08] card-sheen"
+        class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1b1e2a] text-zinc-300 border border-white/[0.08] card-sheen"
       >
         {{ tech }}
       </span>
@@ -108,7 +108,7 @@ const statusClasses = computed(() => {
     <footer class="pt-4 border-t border-white/[0.08] flex items-center justify-between">
       <NuxtLink
         :to="localePath('/projects/' + project.slug)"
-        class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-sky-300 font-semibold group/link"
+        class="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-amber-300 font-semibold group/link"
       >
         <span>{{ t('common.readMore') }}</span>
         <UIcon

@@ -16,7 +16,7 @@ useSeoMeta({
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16 animate-reveal">
     <!-- Header -->
     <div class="space-y-4 border-b border-white/[0.08] pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider card-sheen">
         {{ t('stackSection.eyebrow') }}
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
@@ -31,8 +31,8 @@ useSeoMeta({
 
       <!-- Legend / Status descriptions -->
       <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/25 card-sheen">
-          <span class="w-1.5 h-1.5 rounded-full bg-sky-400" />
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/25 card-sheen">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400" />
           {{ locale === 'ru' ? 'В ключевых проектах' : 'In Core Projects' }}
         </span>
         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 card-sheen">

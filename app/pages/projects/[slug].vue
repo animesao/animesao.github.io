@@ -86,12 +86,12 @@ useSeoMeta({
           </span>
           <span
             v-if="liveVersion"
-            class="px-2.5 py-1 rounded text-xs font-mono bg-[#181b24] border border-white/[0.1] text-zinc-300 flex items-center gap-1.5 card-sheen"
+            class="px-2.5 py-1 rounded text-xs font-mono bg-[#1b1e2a] border border-white/[0.1] text-zinc-300 flex items-center gap-1.5 card-sheen"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {{ liveVersion }}
           </span>
-          <span class="px-2.5 py-1 rounded text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20 card-sheen">
+          <span class="px-2.5 py-1 rounded text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/25 card-sheen">
             {{ project.license }}
           </span>
         </div>
@@ -100,7 +100,7 @@ useSeoMeta({
           <h1 class="text-3xl sm:text-5xl font-bold font-mono text-white">
             {{ project.name }}
           </h1>
-          <p class="text-lg text-sky-400 font-mono">
+          <p class="text-lg text-amber-400 font-mono">
             {{ project.role[locale as 'ru' | 'en'] }}
           </p>
         </div>
@@ -116,7 +116,7 @@ useSeoMeta({
             :href="project.links.website"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-100 text-black font-mono text-xs font-bold hover:bg-white transition-all duration-150 shadow-lg shadow-black/30 hover:-translate-y-0.5 cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 text-black font-mono text-xs font-bold hover:bg-amber-300 transition-all duration-150 shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 cursor-pointer"
           >
             <UIcon
               name="i-lucide-globe"
@@ -130,7 +130,7 @@ useSeoMeta({
             :href="project.links.github"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.1] bg-[#12141a] text-white font-mono text-xs font-medium hover:bg-[#181b24] hover:border-white/[0.2] transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.1] bg-[#14161f] text-white font-mono text-xs font-medium hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
           >
             <UIcon
               name="i-simple-icons-github"
@@ -157,8 +157,8 @@ useSeoMeta({
       </section>
 
       <!-- Architecture Section -->
-      <section class="rounded-2xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 sm:p-8 space-y-4 shadow-2xl shadow-black/40">
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs uppercase tracking-wider border border-sky-500/20 card-sheen">
+      <section class="rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 sm:p-8 space-y-4 shadow-2xl shadow-black/40">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 font-mono text-xs uppercase tracking-wider border border-amber-500/25 card-sheen">
           {{ t('projectDetail.architecture') }}
         </div>
         <p class="text-sm text-zinc-300 leading-relaxed font-sans">
@@ -176,18 +176,18 @@ useSeoMeta({
             </span>
             <button
               type="button"
-              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#181b24] hover:bg-[#202430] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-white/[0.2] transition-colors font-mono text-[11px] card-sheen cursor-pointer"
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#1b1e2a] hover:bg-[#222635] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-amber-500/40 transition-colors font-mono text-[11px] card-sheen cursor-pointer"
               @click="copyCode(project.commandExample!)"
             >
               <UIcon
                 :name="copiedCommand ? 'i-lucide-check' : 'i-lucide-copy'"
                 class="w-3.5 h-3.5"
-                :class="copiedCommand ? 'text-emerald-400' : 'text-zinc-400'"
+                :class="copiedCommand ? 'text-emerald-400' : 'text-amber-400'"
               />
               <span>{{ copiedCommand ? (locale === 'ru' ? 'Скопировано!' : 'Copied!') : (locale === 'ru' ? 'Скопировать' : 'Copy') }}</span>
             </button>
           </div>
-          <pre class="p-4 rounded-xl bg-[#0a0b0e] border border-white/[0.08] text-xs font-mono text-sky-300 overflow-x-auto select-all"><code>{{ project.commandExample }}</code></pre>
+          <pre class="p-4 rounded-xl bg-[#0a0b0f] border border-white/[0.08] text-xs font-mono text-amber-300 overflow-x-auto select-all"><code>{{ project.commandExample }}</code></pre>
         </div>
       </section>
 
@@ -201,7 +201,7 @@ useSeoMeta({
           <div
             v-for="(feature, idx) in project.features"
             :key="idx"
-            class="flex items-start gap-3 p-4 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/20"
+            class="flex items-start gap-3 p-4 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/20"
           >
             <div class="mt-0.5">
               <UIcon
@@ -244,7 +244,7 @@ useSeoMeta({
           <span
             v-for="tech in project.technologies"
             :key="tech"
-            class="text-xs font-mono px-3 py-1 rounded-lg bg-[#181b24] border border-white/[0.08] text-zinc-300 card-sheen"
+            class="text-xs font-mono px-3 py-1 rounded-lg bg-[#1b1e2a] border border-white/[0.08] text-zinc-300 card-sheen"
           >
             {{ tech }}
           </span>

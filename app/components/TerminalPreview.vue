@@ -104,28 +104,28 @@ async function copyCommand() {
 </script>
 
 <template>
-  <div class="rounded-2xl border border-white/[0.08] bg-[#101217] card-sheen shadow-2xl shadow-black/60 overflow-hidden font-mono text-xs">
+  <div class="rounded-2xl border border-white/[0.08] bg-[#10121a] card-sheen shadow-2xl shadow-black/60 overflow-hidden font-mono text-xs">
     <!-- Window Top Bar -->
-    <div class="px-4 py-3 bg-[#14161f] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+    <div class="px-4 py-3 bg-[#161823] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
       <!-- Window Controls (Red, Yellow, Green) -->
       <div class="flex items-center gap-2">
         <span class="w-3 h-3 rounded-full bg-[#ef4444]/80 inline-block border border-black/30" />
-        <span class="w-3 h-3 rounded-full bg-[#eab308]/80 inline-block border border-black/30" />
-        <span class="w-3 h-3 rounded-full bg-[#22c55e]/80 inline-block border border-black/30" />
+        <span class="w-3 h-3 rounded-full bg-[#f59e0b]/80 inline-block border border-black/30" />
+        <span class="w-3 h-3 rounded-full bg-[#10b981]/80 inline-block border border-black/30" />
         <span class="ml-2 text-[11px] text-zinc-400 font-sans font-medium hidden sm:inline">
           terminal@cardinal-ecosystem
         </span>
       </div>
 
       <!-- Tab Switcher -->
-      <div class="flex items-center bg-[#0a0b0e] p-1 rounded-xl border border-white/[0.08]">
+      <div class="flex items-center bg-[#0a0b0f] p-1 rounded-xl border border-white/[0.08]">
         <button
           v-for="tab in tabs"
           :key="tab.id"
           type="button"
           class="px-3 py-1 rounded-lg text-[11px] transition-all duration-150 font-mono cursor-pointer"
           :class="activeTab === tab.id
-            ? 'bg-[#181b24] text-white font-semibold card-sheen shadow-sm border border-white/[0.12]'
+            ? 'bg-[#1b1e2a] text-amber-300 font-semibold card-sheen shadow-sm border border-amber-500/30'
             : 'text-zinc-400 hover:text-zinc-200 border border-transparent'"
           @click="activeTab = tab.id"
         >
@@ -136,14 +136,14 @@ async function copyCommand() {
       <!-- Copy Action -->
       <button
         type="button"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181b24] hover:bg-[#1f2330] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-white/[0.2] transition-colors card-sheen cursor-pointer"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1b1e2a] hover:bg-[#222635] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-amber-500/40 transition-colors card-sheen cursor-pointer"
         :aria-label="locale === 'ru' ? 'Скопировать команду' : 'Copy command'"
         @click="copyCommand"
       >
         <UIcon
           :name="copied ? 'i-lucide-check' : 'i-lucide-copy'"
           class="w-3.5 h-3.5"
-          :class="copied ? 'text-emerald-400' : 'text-zinc-400'"
+          :class="copied ? 'text-emerald-400' : 'text-amber-400'"
         />
         <span class="text-[11px]">
           {{ copied
@@ -155,12 +155,12 @@ async function copyCommand() {
     </div>
 
     <!-- Sub-bar: Tab info description -->
-    <div class="px-4 py-2 bg-[#12141c] border-b border-white/[0.05] flex items-center justify-between gap-3 text-[11px] text-zinc-400 font-sans">
+    <div class="px-4 py-2 bg-[#131520] border-b border-white/[0.05] flex items-center justify-between gap-3 text-[11px] text-zinc-400 font-sans">
       <div class="flex items-center gap-2 truncate">
-        <span class="px-2 py-0.5 rounded-md bg-[#181b24] text-sky-400 font-mono text-[10px] border border-sky-500/20 card-sheen">
+        <span class="px-2 py-0.5 rounded-md bg-[#1b1e2a] text-amber-400 font-mono text-[10px] border border-amber-500/25 card-sheen">
           {{ currentTab.badge }}
         </span>
-        <span class="truncate">{{ currentTab.description[locale as 'ru' | 'en'] }}</span>
+        <span class="truncate text-zinc-300">{{ currentTab.description[locale as 'ru' | 'en'] }}</span>
       </div>
       <span class="text-zinc-500 font-mono text-[10px] hidden md:inline">
         bash 5.2 · UTF-8
@@ -168,7 +168,7 @@ async function copyCommand() {
     </div>
 
     <!-- Terminal Output Area -->
-    <div class="p-4 sm:p-6 space-y-2.5 overflow-x-auto text-[11px] sm:text-xs leading-relaxed bg-[#0d0f14]">
+    <div class="p-4 sm:p-6 space-y-2.5 overflow-x-auto text-[11px] sm:text-xs leading-relaxed bg-[#0a0b0f]">
       <div
         v-for="(line, idx) in currentTab.lines"
         :key="idx"
@@ -176,13 +176,13 @@ async function copyCommand() {
       >
         <!-- Command Line -->
         <template v-if="line.type === 'cmd'">
-          <span class="text-emerald-400 font-bold select-none">➜</span>
+          <span class="text-amber-400 font-bold select-none">➜</span>
           <span class="text-white font-semibold">{{ line.text }}</span>
         </template>
 
         <!-- Informational Log Line -->
         <template v-else-if="line.type === 'info'">
-          <span class="text-sky-400 select-none">ℹ</span>
+          <span class="text-amber-300 select-none">ℹ</span>
           <span class="text-zinc-300">{{ line.text }}</span>
         </template>
 
@@ -200,9 +200,9 @@ async function copyCommand() {
 
         <!-- Prompt with blinking cursor -->
         <template v-else-if="line.type === 'prompt'">
-          <span class="text-sky-400 select-none">#</span>
+          <span class="text-amber-400 select-none">#</span>
           <span class="text-zinc-200">{{ line.text }}</span>
-          <span class="inline-block w-2 h-4 bg-sky-400 cursor-blink -mb-0.5 ml-0.5" />
+          <span class="inline-block w-2 h-4 bg-amber-400 cursor-blink -mb-0.5 ml-0.5" />
         </template>
       </div>
     </div>

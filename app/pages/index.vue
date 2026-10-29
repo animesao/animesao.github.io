@@ -27,7 +27,7 @@ useSeoMeta({
 
 <template>
   <div class="relative overflow-hidden">
-    <!-- Subtle technical graphite grid background -->
+    <!-- Subtle technical graphite grid background with warm amber glow -->
     <div class="absolute inset-0 bg-tech-grid opacity-75 pointer-events-none" />
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-glow pointer-events-none" />
 
@@ -35,7 +35,7 @@ useSeoMeta({
       <!-- 1. HERO SECTION -->
       <section class="space-y-8 pt-4 animate-reveal">
         <!-- Status Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/[0.1] bg-[#12141a] font-mono text-xs text-zinc-300 shadow-sm card-sheen">
+        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/[0.1] bg-[#14161f] font-mono text-xs text-zinc-300 shadow-sm card-sheen">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>{{ t('hero.badge') }}</span>
         </div>
@@ -51,7 +51,7 @@ useSeoMeta({
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight font-mono uppercase bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
               {{ profileData.handle }}
             </h1>
-            <p class="text-xl sm:text-2xl text-sky-400 font-mono">
+            <p class="text-xl sm:text-2xl text-amber-400 font-mono">
               {{ profileData.tagline[locale as 'ru' | 'en'] }}
             </p>
             <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans max-w-3xl">
@@ -75,7 +75,7 @@ useSeoMeta({
 
           <NuxtLink
             :to="localePath('/about')"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#12141a] text-white font-mono text-sm font-medium hover:bg-[#181b24] hover:border-white/[0.2] transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-white font-mono text-sm font-medium hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
           >
             <UIcon
               name="i-lucide-user"
@@ -88,7 +88,7 @@ useSeoMeta({
             href="https://github.com/animesao"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#12141a] text-zinc-300 font-mono text-sm hover:text-white hover:bg-[#181b24] hover:border-white/[0.2] transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-zinc-300 font-mono text-sm hover:text-white hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
           >
             <UIcon
               name="i-simple-icons-github"
@@ -135,7 +135,7 @@ useSeoMeta({
         <div class="space-y-3 pt-4">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-sky-400" />
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400" />
               {{ locale === 'ru' ? 'Интерактивный терминал экосистемы' : 'Interactive Ecosystem Terminal' }}
             </span>
             <span class="text-[11px] font-mono text-zinc-500 hidden sm:inline">
@@ -152,7 +152,7 @@ useSeoMeta({
           <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase block mb-2">
             // 02 CORE FOCUS AREAS
           </span>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
             {{ t('focusSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -167,10 +167,10 @@ useSeoMeta({
           <article
             v-for="area in coreFocusAreas"
             :key="area.id"
-            class="flex flex-col rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30"
+            class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30"
           >
             <div class="flex items-center gap-3 mb-3">
-              <div class="p-2 rounded-lg bg-[#181b24] border border-white/[0.1] text-sky-400 card-sheen">
+              <div class="p-2 rounded-lg bg-[#1b1e2a] border border-white/[0.1] text-amber-400 card-sheen">
                 <UIcon
                   :name="area.icon"
                   class="w-5 h-5"
@@ -187,7 +187,7 @@ useSeoMeta({
               <span
                 v-for="tag in area.tags"
                 :key="tag"
-                class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#181b24] text-zinc-300 border border-white/[0.08] card-sheen"
+                class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1b1e2a] text-zinc-300 border border-white/[0.08] card-sheen"
               >
                 {{ tag }}
               </span>
@@ -203,7 +203,7 @@ useSeoMeta({
             <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase block mb-2">
               // 03 SELECTED TECHNOLOGIES
             </span>
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
               {{ t('stackSection.eyebrow') }}
             </div>
             <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -216,7 +216,7 @@ useSeoMeta({
 
           <NuxtLink
             :to="localePath('/stack')"
-            class="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold group cursor-pointer"
+            class="inline-flex items-center gap-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 font-semibold group cursor-pointer"
           >
             <span>{{ t('stackSection.viewFullStack') }}</span>
             <UIcon
@@ -236,12 +236,12 @@ useSeoMeta({
       </section>
 
       <!-- 5. ENGINEERING APPROACH / WORKFLOW -->
-      <section class="space-y-8 rounded-2xl border border-white/[0.08] bg-[#12141a] card-sheen p-6 sm:p-8 shadow-2xl shadow-black/40">
+      <section class="space-y-8 rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 sm:p-8 shadow-2xl shadow-black/40">
         <div>
           <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase block mb-2">
             // 04 METHODOLOGY & PRINCIPLES
           </span>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#181b24] border border-white/[0.1] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#1b1e2a] border border-white/[0.1] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
             {{ t('workflowSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -256,10 +256,10 @@ useSeoMeta({
           <div
             v-for="principle in profileData.workflow.principles"
             :key="principle.code"
-            class="p-5 rounded-xl border border-white/[0.06] bg-[#0d0f14] card-sheen space-y-2 hover:border-white/[0.16] transition-colors"
+            class="p-5 rounded-xl border border-white/[0.06] bg-[#0a0b0f] card-sheen space-y-2 hover:border-amber-500/30 transition-colors"
           >
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-sky-400 font-bold">
+              <span class="text-xs font-mono text-amber-400 font-bold">
                 {{ principle.code }}
               </span>
               <h3 class="text-sm font-bold font-mono text-white">
@@ -284,7 +284,7 @@ useSeoMeta({
           </div>
           <NuxtLink
             :to="localePath('/about')"
-            class="text-white hover:text-sky-300 font-semibold inline-flex items-center gap-1 group cursor-pointer"
+            class="text-white hover:text-amber-300 font-semibold inline-flex items-center gap-1 group cursor-pointer"
           >
             <span>{{ t('common.readMore') }}</span>
             <UIcon
@@ -301,7 +301,7 @@ useSeoMeta({
           <span class="text-xs font-mono text-zinc-500 tracking-widest uppercase block mb-2">
             // 05 VERIFIED CHANNELS
           </span>
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#12141a] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#14161f] border border-white/[0.08] text-zinc-400 font-mono text-xs uppercase tracking-wider mb-2 card-sheen">
             {{ t('contactSection.eyebrow') }}
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
@@ -319,17 +319,17 @@ useSeoMeta({
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-between p-4 rounded-xl border border-white/[0.08] bg-[#12141a] card-sheen hover:border-white/[0.2] hover:bg-[#161922] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/30 group"
+            class="flex items-center justify-between p-4 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-black/30 group"
           >
             <div class="flex items-center gap-3">
-              <div class="p-2 rounded-lg bg-[#181b24] border border-white/[0.1] text-white group-hover:text-sky-400 transition-colors card-sheen">
+              <div class="p-2 rounded-lg bg-[#1b1e2a] border border-white/[0.1] text-white group-hover:text-amber-400 transition-colors card-sheen">
                 <UIcon
                   :name="link.icon"
                   class="w-4 h-4"
                 />
               </div>
               <div>
-                <span class="text-xs font-bold font-mono text-white block group-hover:text-sky-300 transition-colors">
+                <span class="text-xs font-bold font-mono text-white block group-hover:text-amber-300 transition-colors">
                   {{ link.label[locale as 'ru' | 'en'] }}
                 </span>
                 <span

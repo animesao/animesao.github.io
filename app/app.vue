@@ -10,7 +10,7 @@ useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'color-scheme', content: 'dark' },
-    { name: 'theme-color', content: '#0a0b0e' },
+    { name: 'theme-color', content: '#0d0e12' },
     { name: 'author', content: 'animesao' }
   ],
   link: [
@@ -24,7 +24,7 @@ useHead({
 
 <template>
   <UApp>
-    <div class="min-h-screen flex flex-col bg-[#0a0b0e] text-zinc-100 selection:bg-sky-500/30 selection:text-white">
+    <div class="min-h-screen flex flex-col bg-[#0d0e12] text-zinc-100 selection:bg-amber-500/30 selection:text-amber-100">
       <AppHeader />
       <main
         id="main-content"
