@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -12,10 +12,25 @@ const props = withDefaults(
   }
 )
 
-const imageLoaded = ref(true)
+const avatarSources = [
+  '/custom/avatar.jpg',
+  '/custom/avatar.png',
+  '/custom/avatar.svg'
+]
+
+const currentSrcIndex = ref(0)
+const hasValidImage = ref(true)
+
+const currentSrc = computed(() => {
+  return avatarSources[currentSrcIndex.value] || ''
+})
 
 function onImageError() {
-  imageLoaded.value = false
+  if (currentSrcIndex.value < avatarSources.length - 1) {
+    currentSrcIndex.value++
+  } else {
+    hasValidImage.value = false
+  }
 }
 
 const sizeClasses = computed(() => {
@@ -40,10 +55,10 @@ const sizeClasses = computed(() => {
       class="relative overflow-hidden border border-white/[0.12] bg-[#14161f] card-sheen shadow-lg shadow-black/50 flex items-center justify-center p-0.5 transition-all duration-300 group-hover:border-amber-500/60 group-hover:shadow-amber-500/10"
       :class="sizeClasses"
     >
-      <!-- Try loading custom avatar (png / svg) -->
+      <!-- Custom avatar image -->
       <img
-        v-if="imageLoaded"
-        src="/custom/avatar.svg"
+        v-if="hasValidImage"
+        :src="currentSrc"
         alt="animesao avatar"
         class="w-full h-full object-cover rounded-[inherit] transition-transform duration-300 group-hover:scale-105"
         loading="eager"
