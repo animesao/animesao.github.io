@@ -64,18 +64,18 @@ useSeoMeta({
         <div class="flex flex-wrap items-center gap-4 pt-2">
           <NuxtLink
             :to="localePath('/projects')"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 text-black font-mono text-sm font-bold hover:bg-white transition-all duration-150 shadow-lg shadow-black/40 hover:-translate-y-0.5 cursor-pointer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 text-black font-mono text-sm font-bold hover:bg-white transition-all duration-200 shadow-lg shadow-black/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-white/5 active:scale-[0.98] cursor-pointer"
           >
             <span>{{ t('common.viewProjects') }}</span>
             <UIcon
               name="i-lucide-arrow-right"
-              class="w-4 h-4"
+              class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
             />
           </NuxtLink>
 
           <NuxtLink
             :to="localePath('/about')"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-white font-mono text-sm font-medium hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-white font-mono text-sm font-medium hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-200 hover:-translate-y-1 active:scale-[0.98] card-sheen cursor-pointer"
           >
             <UIcon
               name="i-lucide-user"
@@ -88,7 +88,7 @@ useSeoMeta({
             href="https://github.com/animesao"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-zinc-300 font-mono text-sm hover:text-white hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.1] bg-[#14161f] text-zinc-300 font-mono text-sm hover:text-white hover:bg-[#1b1e2a] hover:border-amber-500/40 transition-all duration-200 hover:-translate-y-1 active:scale-[0.98] card-sheen cursor-pointer"
           >
             <UIcon
               name="i-simple-icons-github"
@@ -101,7 +101,7 @@ useSeoMeta({
             href="https://dsc.gg/cardinal-organization"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#5865F2]/30 bg-[#5865F2]/10 text-[#99a2fe] font-mono text-sm hover:text-white hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all duration-150 hover:-translate-y-0.5 card-sheen cursor-pointer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#5865F2]/30 bg-[#5865F2]/10 text-[#99a2fe] font-mono text-sm hover:text-white hover:bg-[#5865F2]/20 hover:border-[#5865F2]/50 transition-all duration-200 hover:-translate-y-1 active:scale-[0.98] card-sheen cursor-pointer"
           >
             <UIcon
               name="i-simple-icons-discord"

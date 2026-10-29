@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { getConfirmedPublicLinks } from '~/data/links'
+import { useLicenseModal } from '~/composables/useLicenseModal'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const { openLicenseModal } = useLicenseModal()
 const confirmedLinks = computed(() => getConfirmedPublicLinks(locale.value as 'ru' | 'en'))
 const currentYear = new Date().getFullYear()
 
@@ -110,7 +112,18 @@ function scrollToTop() {
         <div class="flex items-center gap-3 text-zinc-500">
           <span>© {{ currentYear }} animesao</span>
           <span>·</span>
-          <span>MIT License</span>
+          <button
+            type="button"
+            class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-amber-400 transition-colors cursor-pointer group focus-visible:outline"
+            :title="locale === 'ru' ? 'Открыть условия лицензии MIT' : 'Open MIT License terms'"
+            @click="openLicenseModal('MIT')"
+          >
+            <UIcon
+              name="i-lucide-scale"
+              class="w-3.5 h-3.5 text-zinc-500 group-hover:text-amber-400 transition-colors"
+            />
+            <span class="underline decoration-zinc-700 group-hover:decoration-amber-400 underline-offset-4">MIT License</span>
+          </button>
         </div>
 
         <button

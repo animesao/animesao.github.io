@@ -33,7 +33,7 @@ useSeoMeta({
       <article
         v-for="note in notesData"
         :key="note.id"
-        class="flex flex-col rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 sm:p-8 hover:border-amber-500/40 hover:bg-[#181b25] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30 group"
+        class="flex flex-col rounded-2xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 sm:p-8 hover:border-amber-500/50 hover:bg-[#181b25] hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/5 transition-all duration-300 shadow-xl shadow-black/30 group"
       >
         <!-- Meta Row -->
         <header class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -96,7 +96,7 @@ useSeoMeta({
             <span>{{ locale === 'ru' ? 'Читать заметку' : 'Read article' }}</span>
             <UIcon
               name="i-lucide-arrow-right"
-              class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
+              class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1.5"
             />
           </NuxtLink>
         </footer>

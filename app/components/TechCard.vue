@@ -24,7 +24,7 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-5 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-md shadow-black/20 group">
+  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-5 hover:border-amber-500/50 hover:bg-[#1a1d28] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-250 group">
     <header class="flex items-center justify-between gap-3 mb-3">
       <div class="flex items-center gap-3">
         <div class="p-2 rounded-lg bg-[#1b1e2a] border border-white/[0.1] text-white group-hover:text-amber-400 transition-colors card-sheen">

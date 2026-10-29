@@ -64,20 +64,20 @@ useSeoMeta({
         >
           <UIcon
             name="i-lucide-arrow-left"
-            class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1"
+            class="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1.5"
           />
           <span>{{ locale === 'ru' ? 'Назад ко всем заметкам' : 'Back to all notes' }}</span>
         </NuxtLink>
 
         <button
           type="button"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.08] bg-[#14161f] text-zinc-400 hover:text-white text-xs font-mono transition-colors card-sheen cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.08] bg-[#14161f] text-zinc-400 hover:text-white text-xs font-mono transition-all duration-200 card-sheen cursor-pointer interactive-tap"
           @click="copyLink"
         >
           <UIcon
             :name="copiedArticleLink ? 'i-lucide-check' : 'i-lucide-share-2'"
-            class="w-3.5 h-3.5"
-            :class="copiedArticleLink ? 'text-emerald-400' : ''"
+            class="w-3.5 h-3.5 transition-transform duration-200"
+            :class="copiedArticleLink ? 'text-emerald-400 scale-125' : ''"
           />
           <span>{{ copiedArticleLink ? (locale === 'ru' ? 'Ссылка скопирована' : 'Link copied') : (locale === 'ru' ? 'Поделиться' : 'Share') }}</span>
         </button>
@@ -191,13 +191,13 @@ useSeoMeta({
                 <span>{{ section.code.language }}</span>
                 <button
                   type="button"
-                  class="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                  class="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-all duration-150 cursor-pointer interactive-tap"
                   @click="copyCode(section.code.snippet, `${sIdx}`)"
                 >
                   <UIcon
                     :name="copiedSnippet === `${sIdx}` ? 'i-lucide-check' : 'i-lucide-copy'"
-                    class="w-3.5 h-3.5"
-                    :class="copiedSnippet === `${sIdx}` ? 'text-emerald-400' : ''"
+                    class="w-3.5 h-3.5 transition-transform duration-200"
+                    :class="copiedSnippet === `${sIdx}` ? 'text-emerald-400 scale-125' : ''"
                   />
                   <span>{{ copiedSnippet === `${sIdx}` ? (locale === 'ru' ? 'Скопировано' : 'Copied') : (locale === 'ru' ? 'Копировать' : 'Copy') }}</span>
                 </button>

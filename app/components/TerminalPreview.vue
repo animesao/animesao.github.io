@@ -123,9 +123,9 @@ async function copyCommand() {
           v-for="tab in tabs"
           :key="tab.id"
           type="button"
-          class="px-3 py-1 rounded-lg text-[11px] transition-all duration-150 font-mono cursor-pointer"
+          class="px-3 py-1 rounded-lg text-[11px] transition-all duration-200 font-mono cursor-pointer interactive-tap"
           :class="activeTab === tab.id
-            ? 'bg-[#1b1e2a] text-amber-300 font-semibold card-sheen shadow-sm border border-amber-500/30'
+            ? 'bg-[#1b1e2a] text-amber-300 font-semibold card-sheen shadow-sm border border-amber-500/40 shadow-amber-500/10'
             : 'text-zinc-400 hover:text-zinc-200 border border-transparent'"
           @click="activeTab = tab.id"
         >
@@ -136,14 +136,14 @@ async function copyCommand() {
       <!-- Copy Action -->
       <button
         type="button"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1b1e2a] hover:bg-[#222635] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-amber-500/40 transition-colors card-sheen cursor-pointer"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1b1e2a] hover:bg-[#222635] text-zinc-300 hover:text-white border border-white/[0.1] hover:border-amber-500/40 transition-all duration-200 card-sheen cursor-pointer interactive-tap"
         :aria-label="locale === 'ru' ? 'Скопировать команду' : 'Copy command'"
         @click="copyCommand"
       >
         <UIcon
           :name="copied ? 'i-lucide-check' : 'i-lucide-copy'"
-          class="w-3.5 h-3.5"
-          :class="copied ? 'text-emerald-400' : 'text-amber-400'"
+          class="w-3.5 h-3.5 transition-transform duration-200"
+          :class="copied ? 'text-emerald-400 scale-125' : 'text-amber-400'"
         />
         <span class="text-[11px]">
           {{ copied

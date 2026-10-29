@@ -74,6 +74,85 @@ const { getVersion } = useProjectVersions()
       </p>
     </div>
 
+    <!-- Live Animated Data Flow Diagram (Browser -> Panel -> Wings -> Cardinal) -->
+    <div class="hidden lg:flex items-center justify-between px-6 py-3.5 mb-6 rounded-xl bg-[#0a0b0f] border border-white/[0.08] text-zinc-400 font-mono text-xs card-sheen">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+        <span class="text-zinc-200 font-semibold">Browser UI</span>
+      </div>
+      <div class="flex-1 max-w-[130px] mx-3 flex flex-col items-center">
+        <span class="text-[9px] text-zinc-500 uppercase tracking-wider mb-1">HTTPS / WSS</span>
+        <svg
+          class="w-full h-2 text-cyan-400/70"
+          viewBox="0 0 100 8"
+          fill="none"
+        >
+          <line
+            x1="0"
+            y1="4"
+            x2="100"
+            y2="4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-dasharray="4 4"
+            class="animate-flow-dash"
+          />
+        </svg>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+        <span class="text-amber-300 font-semibold">Cardinal Panel</span>
+        <span class="text-[10px] text-zinc-500">:3000</span>
+      </div>
+      <div class="flex-1 max-w-[130px] mx-3 flex flex-col items-center">
+        <span class="text-[9px] text-zinc-500 uppercase tracking-wider mb-1">REST / SSE</span>
+        <svg
+          class="w-full h-2 text-amber-400/70"
+          viewBox="0 0 100 8"
+          fill="none"
+        >
+          <line
+            x1="0"
+            y1="4"
+            x2="100"
+            y2="4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-dasharray="4 4"
+            class="animate-flow-dash"
+          />
+        </svg>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span class="text-emerald-300 font-semibold">Cardinal Wings</span>
+        <span class="text-[10px] text-zinc-500">:8080</span>
+      </div>
+      <div class="flex-1 max-w-[130px] mx-3 flex flex-col items-center">
+        <span class="text-[9px] text-zinc-500 uppercase tracking-wider mb-1">UNIX / CLI</span>
+        <svg
+          class="w-full h-2 text-emerald-400/70"
+          viewBox="0 0 100 8"
+          fill="none"
+        >
+          <line
+            x1="0"
+            y1="4"
+            x2="100"
+            y2="4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-dasharray="4 4"
+            class="animate-flow-dash"
+          />
+        </svg>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />
+        <span class="text-rose-300 font-semibold">Cardinal Runtime</span>
+      </div>
+    </div>
+
     <!-- Architecture Grid / Components Diagram -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
       <!-- 1. Cardinal Runtime -->

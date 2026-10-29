@@ -28,7 +28,7 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5 shadow-xl shadow-black/30 group">
+  <article class="flex flex-col rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen p-6 hover:border-amber-500/50 hover:bg-[#1a1d28] hover:shadow-2xl hover:shadow-amber-500/5 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/30 group">
     <!-- Top Meta Row -->
     <header class="flex items-start justify-between gap-3 mb-4">
       <div class="flex flex-wrap items-center gap-2">

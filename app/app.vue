@@ -37,6 +37,7 @@ useHead({
         <NuxtPage />
       </main>
       <AppFooter />
+      <AppLicenseModal />
     </div>
   </UApp>
 </template>

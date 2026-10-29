@@ -99,38 +99,40 @@ function closeMenu() {
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div
-      v-if="isMobileMenuOpen"
-      id="mobile-nav"
-      class="md:hidden border-b border-white/[0.08] bg-[#12141d] px-4 py-4 space-y-2 animate-reveal"
-    >
-      <NuxtLink
-        v-for="item in navItems"
-        :key="item.to"
-        :to="localePath(item.to)"
-        class="block px-3 py-2 rounded-lg text-zinc-300 hover:text-white hover:bg-white/[0.05] font-mono text-xs uppercase tracking-wider transition-colors"
-        active-class="!text-amber-400 !bg-[#1b1e2a] border border-amber-500/30"
-        @click="closeMenu"
+    <Transition name="drawer">
+      <div
+        v-if="isMobileMenuOpen"
+        id="mobile-nav"
+        class="md:hidden border-b border-white/[0.08] bg-[#12141d] px-4 py-4 space-y-2"
       >
-        {{ t(item.labelKey) }}
-      </NuxtLink>
-
-      <div class="pt-3 border-t border-white/[0.08] flex items-center justify-between">
-        <span class="text-xs font-mono text-zinc-500">github.com/animesao</span>
-        <a
-          v-if="publicContacts.github"
-          :href="publicContacts.github"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white"
+        <NuxtLink
+          v-for="item in navItems"
+          :key="item.to"
+          :to="localePath(item.to)"
+          class="block px-3 py-2 rounded-lg text-zinc-300 hover:text-white hover:bg-white/[0.05] font-mono text-xs uppercase tracking-wider transition-all duration-150 active:scale-[0.98]"
+          active-class="!text-amber-400 !bg-[#1b1e2a] border border-amber-500/30"
+          @click="closeMenu"
         >
-          <UIcon
-            name="i-simple-icons-github"
-            class="w-4 h-4"
-          />
-          <span>GitHub</span>
-        </a>
+          {{ t(item.labelKey) }}
+        </NuxtLink>
+
+        <div class="pt-3 border-t border-white/[0.08] flex items-center justify-between">
+          <span class="text-xs font-mono text-zinc-500">github.com/animesao</span>
+          <a
+            v-if="publicContacts.github"
+            :href="publicContacts.github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white transition-colors"
+          >
+            <UIcon
+              name="i-simple-icons-github"
+              class="w-4 h-4"
+            />
+            <span>GitHub</span>
+          </a>
+        </div>
       </div>
-    </div>
+    </Transition>
   </header>
 </template>

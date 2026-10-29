@@ -114,7 +114,7 @@ useSeoMeta({
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-amber-500/50 hover:bg-[#1a1d28] transition-all duration-250 hover:-translate-y-1">
           <div class="flex items-center gap-2 text-amber-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-code-2"
@@ -127,7 +127,7 @@ useSeoMeta({
           </p>
         </article>
 
-        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-emerald-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-emerald-500/50 hover:bg-[#1a1d28] transition-all duration-250 hover:-translate-y-1">
           <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold">
             <UIcon
               name="i-lucide-sparkles"
@@ -140,7 +140,7 @@ useSeoMeta({
           </p>
         </article>
 
-        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-amber-500/40 hover:bg-[#1a1d28] transition-all duration-200 hover:-translate-y-0.5">
+        <article class="p-5 rounded-xl border border-white/[0.08] bg-[#14161f] card-sheen space-y-2 shadow-lg shadow-black/20 hover:border-purple-500/50 hover:bg-[#1a1d28] transition-all duration-250 hover:-translate-y-1">
           <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-bold">
             <UIcon
               name="i-simple-icons-git"
@@ -223,7 +223,7 @@ useSeoMeta({
           </div>
           <UIcon
             name="i-lucide-arrow-up-right"
-            class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors"
+            class="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
           />
         </a>
       </div>

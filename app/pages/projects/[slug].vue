@@ -2,11 +2,13 @@
 import { ref, computed } from 'vue'
 import { projectsData } from '~/data/projects'
 import { useProjectVersions } from '~/composables/useProjectVersions'
+import { useLicenseModal } from '~/composables/useLicenseModal'
 
 const route = useRoute()
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const { getVersion } = useProjectVersions()
+const { openLicenseModal } = useLicenseModal()
 
 const slug = computed(() => route.params.slug as string)
 const project = computed(() => projectsData.find(p => p.slug === slug.value))
@@ -91,9 +93,18 @@ useSeoMeta({
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {{ liveVersion }}
           </span>
-          <span class="px-2.5 py-1 rounded text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/25 card-sheen">
-            {{ project.license }}
-          </span>
+          <button
+            type="button"
+            class="px-2.5 py-1 rounded text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/25 card-sheen hover:bg-amber-500/20 hover:border-amber-500/50 hover:text-amber-300 transition-all duration-150 inline-flex items-center gap-1.5 cursor-pointer focus-visible:outline"
+            :title="locale === 'ru' ? 'Посмотреть условия лицензии ' + project.license : 'View ' + project.license + ' license terms'"
+            @click="openLicenseModal(project.license)"
+          >
+            <UIcon
+              name="i-lucide-scale"
+              class="w-3.5 h-3.5 text-amber-400"
+            />
+            <span>{{ project.license }}</span>
+          </button>
         </div>
 
         <div class="space-y-2">

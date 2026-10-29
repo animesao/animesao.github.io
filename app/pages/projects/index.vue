@@ -48,7 +48,7 @@ useSeoMeta({
       <div class="flex flex-wrap items-center gap-2 pt-4">
         <button
           type="button"
-          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
+          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer interactive-tap"
           :class="selectedFilter === 'all'
             ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
             : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
@@ -59,7 +59,7 @@ useSeoMeta({
 
         <button
           type="button"
-          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
+          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer interactive-tap"
           :class="selectedFilter === 'systems'
             ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
             : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
@@ -70,7 +70,7 @@ useSeoMeta({
 
         <button
           type="button"
-          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
+          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer interactive-tap"
           :class="selectedFilter === 'web'
             ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
             : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
@@ -81,7 +81,7 @@ useSeoMeta({
 
         <button
           type="button"
-          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-150 cursor-pointer"
+          class="px-4 py-2 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer interactive-tap"
           :class="selectedFilter === 'blueprints'
             ? 'bg-amber-400 text-black font-semibold shadow-md shadow-amber-500/20'
             : 'bg-[#14161f] text-zinc-400 hover:text-white border border-white/[0.08] hover:bg-[#1a1d28] card-sheen'"
@@ -109,13 +109,17 @@ useSeoMeta({
         </span>
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <TransitionGroup
+        name="list"
+        tag="div"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         <ProjectCard
           v-for="project in filteredProjects"
           :key="project.id"
           :project="project"
         />
-      </div>
+      </TransitionGroup>
     </div>
   </div>
 </template>
