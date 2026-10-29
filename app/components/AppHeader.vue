@@ -37,7 +37,7 @@ function closeMenu() {
       <!-- Logo -->
       <NuxtLink
         :to="localePath('/')"
-        class="focus-visible:rounded-lg"
+        class="focus-visible:rounded-lg shrink-0 flex items-center"
         aria-label="ANIMESAO Home"
       >
         <AppLogo />
