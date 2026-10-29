@@ -1,5 +1,6 @@
 import { siteConfig } from '../../app/data/siteConfig'
 import { projectsData } from '../../app/data/projects'
+import { notesData } from '../../app/data/notes'
 
 export default defineEventHandler((event) => {
   const envUrl = typeof process !== 'undefined' ? process.env?.NUXT_PUBLIC_SITE_URL : undefined
@@ -14,7 +15,8 @@ export default defineEventHandler((event) => {
   ]
 
   const projectRoutes = projectsData.map(p => `/projects/${p.slug}`)
-  const allBaseRoutes = [...staticRoutes, ...projectRoutes]
+  const noteRoutes = notesData.map(n => `/notes/${n.slug}`)
+  const allBaseRoutes = [...staticRoutes, ...projectRoutes, ...noteRoutes]
 
   const urls: string[] = []
 

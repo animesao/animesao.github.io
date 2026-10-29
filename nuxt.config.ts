@@ -48,6 +48,10 @@ export default defineNuxtConfig({
         '/en/stack',
         '/notes',
         '/en/notes',
+        '/notes/panel-wings-architecture',
+        '/en/notes/panel-wings-architecture',
+        '/notes/daemonless-runtime-principles',
+        '/en/notes/daemonless-runtime-principles',
         '/sitemap.xml',
         '/api/versions'
       ]
