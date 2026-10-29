@@ -11,6 +11,7 @@ const copied = ref(false)
 
 interface LicenseInfo {
   key: string
+  tabLabel: string
   name: string
   project: {
     ru: string
@@ -111,13 +112,14 @@ you know you can do these things.`
 const licensesCatalog: Record<string, LicenseInfo> = {
   'website': {
     key: 'website',
-    name: 'MIT License — animesao.work.gd',
+    tabLabel: 'animesao.work.gd',
+    name: 'MIT License',
     project: {
-      ru: 'Этот сайт (animesao.work.gd)',
-      en: 'This Website (animesao.work.gd)'
+      ru: 'Сайт animesao.work.gd',
+      en: 'animesao.work.gd Website'
     },
     spdx: 'MIT',
-    badge: 'Permissive Open Source',
+    badge: 'Permissive',
     repoUrl: 'https://github.com/animesao/animesao.github.io/blob/main/LICENSE',
     summary: {
       ru: 'Исходный код сайта animesao.work.gd (Nuxt 4, Vue 3, Tailwind CSS 4), архитектурные схемы и инженерные заметки полностью открыты под лицензией MIT. Разрешено коммерческое и частное использование, модификация и адаптация при сохранении уведомления об авторстве.',
@@ -140,7 +142,8 @@ const licensesCatalog: Record<string, LicenseInfo> = {
   },
   'cardinal': {
     key: 'cardinal',
-    name: 'Apache License 2.0 — Cardinal Core',
+    tabLabel: 'Cardinal',
+    name: 'Apache License 2.0',
     project: {
       ru: 'Cardinal Runtime',
       en: 'Cardinal Runtime'
@@ -171,13 +174,14 @@ const licensesCatalog: Record<string, LicenseInfo> = {
   },
   'cardinal-wings': {
     key: 'cardinal-wings',
-    name: 'GNU AGPL v3 — Cardinal Wings',
+    tabLabel: 'Wings',
+    name: 'GNU AGPL v3',
     project: {
-      ru: 'Cardinal Wings Daemon',
-      en: 'Cardinal Wings Daemon'
+      ru: 'Cardinal Wings',
+      en: 'Cardinal Wings'
     },
     spdx: 'AGPL-3.0-or-later',
-    badge: 'Strong Copyleft (Network)',
+    badge: 'Copyleft (Network)',
     repoUrl: 'https://github.com/animesao/cardinal-wings',
     summary: {
       ru: 'Сетевой демон управления нодами на Go с REST API, SSE-стримингом и SFTP. Лицензия AGPL v3 гарантирует, что любые сетевые модификации демона остаются открытыми для сообщества.',
@@ -201,7 +205,8 @@ const licensesCatalog: Record<string, LicenseInfo> = {
   },
   'cardinal-panel': {
     key: 'cardinal-panel',
-    name: 'Apache License 2.0 — Cardinal Panel',
+    tabLabel: 'Panel',
+    name: 'Apache License 2.0',
     project: {
       ru: 'Cardinal Panel',
       en: 'Cardinal Panel'
@@ -232,13 +237,14 @@ const licensesCatalog: Record<string, LicenseInfo> = {
   },
   'cardinal-blueprints': {
     key: 'cardinal-blueprints',
-    name: 'MIT License — Cardinal Blueprints',
+    tabLabel: 'Blueprints',
+    name: 'MIT License',
     project: {
       ru: 'Cardinal Blueprints',
       en: 'Cardinal Blueprints'
     },
     spdx: 'MIT',
-    badge: 'Permissive Open Source',
+    badge: 'Permissive',
     repoUrl: 'https://github.com/cardinal-organization/cardinal-blueprints',
     summary: {
       ru: 'Официальный реестр проверенных шаблонов и конфигураций контейнеров экосистемы Cardinal под свободной лицензией MIT.',
@@ -281,6 +287,8 @@ function resolveLicenseKey(input: string): string {
   }
   return 'website'
 }
+
+const licenseEntries = computed(() => Object.values(licensesCatalog))
 
 const activeLicenseData = computed<LicenseInfo>(() => {
   const resolved = resolveLicenseKey(currentLicense.value)
@@ -341,13 +349,13 @@ onMounted(() => {
     <div class="flex flex-col max-h-[85vh]">
       <!-- Header Bar with Cybernetic Styling -->
       <header class="px-6 py-4 bg-[#151722] border-b border-white/[0.08] flex items-center justify-between gap-4 card-sheen">
-        <div class="space-y-0.5">
+        <div class="space-y-1">
           <div class="inline-flex items-center gap-2 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/25">
             <UIcon
               name="i-lucide-scale"
               class="w-3 h-3 text-amber-400"
             />
-            <span>{{ locale === 'ru' ? 'Открытая лицензия' : 'Open Source License' }}</span>
+            <span>{{ activeLicenseData.project[locale as 'ru' | 'en'] }} · {{ activeLicenseData.spdx }}</span>
           </div>
           <h2
             id="license-dialog-title"
@@ -360,11 +368,11 @@ onMounted(() => {
           </h2>
         </div>
 
-        <!-- Redesigned proportional square close button with hover rotation -->
+        <!-- Proportional square close button with hover rotation -->
         <button
           ref="closeButtonRef"
           type="button"
-          class="group flex items-center justify-center w-8 h-8 rounded-lg border border-white/[0.1] bg-[#1a1d28] hover:bg-[#252a3a] hover:border-amber-500/50 text-zinc-400 hover:text-white transition-all duration-200 card-sheen cursor-pointer shrink-0 focus-visible:outline active:scale-95"
+          class="group relative flex items-center justify-center w-8 h-8 min-w-8 min-h-8 max-w-8 max-h-8 aspect-square p-0 rounded-lg border border-white/[0.1] bg-[#1a1d28] hover:bg-[#252a3a] hover:border-amber-500/50 text-zinc-400 hover:text-white transition-all duration-200 card-sheen cursor-pointer shrink-0 focus-visible:outline active:scale-95"
           :aria-label="locale === 'ru' ? 'Закрыть окно лицензии' : 'Close license dialog'"
           @click="closeLicenseModal"
         >
@@ -375,24 +383,29 @@ onMounted(() => {
         </button>
       </header>
 
-      <!-- License Switcher Tabs with explicit Site License -->
-      <div class="px-6 py-2.5 bg-[#0d0e14] border-b border-white/[0.06] flex items-center gap-2 overflow-x-auto text-xs font-mono">
-        <span class="text-zinc-500 text-[11px] uppercase tracking-wider shrink-0 mr-1">
-          {{ locale === 'ru' ? 'Проект:' : 'Project:' }}
-        </span>
-
-        <button
-          v-for="entry in licensesCatalog"
-          :key="entry.key"
-          type="button"
-          class="px-3 py-1 rounded-lg border transition-all duration-150 cursor-pointer shrink-0 interactive-tap"
-          :class="activeLicenseData.key === entry.key
-            ? 'bg-amber-400/15 border-amber-500/50 text-amber-300 font-semibold shadow-sm shadow-amber-500/10'
-            : 'bg-[#14161f] border-white/[0.06] text-zinc-400 hover:text-white hover:bg-[#1a1d28]'"
-          @click="openLicenseModal(entry.key)"
-        >
-          {{ entry.project[locale as 'ru' | 'en'] }}
-        </button>
+      <!-- Segmented Control Tabs (Clean 5-segment layout, no horizontal scrollbar) -->
+      <div class="px-5 py-3 bg-[#0d0e14] border-b border-white/[0.06]">
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 p-1 rounded-xl bg-[#12141c] border border-white/[0.08] text-xs font-mono">
+          <button
+            v-for="(entry, idx) in licenseEntries"
+            :key="entry.key"
+            type="button"
+            class="px-2.5 py-1.5 rounded-lg text-center transition-all duration-200 cursor-pointer font-medium text-xs flex items-center justify-center gap-1.5 border"
+            :class="[
+              activeLicenseData.key === entry.key
+                ? 'bg-[#1b1e2a] text-white border-amber-500/50 card-sheen shadow-sm shadow-amber-500/10'
+                : 'bg-transparent text-zinc-400 hover:text-white hover:bg-white/[0.04] border-transparent',
+              idx === 4 ? 'col-span-2 sm:col-span-1' : ''
+            ]"
+            @click="openLicenseModal(entry.key)"
+          >
+            <span
+              v-if="activeLicenseData.key === entry.key"
+              class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"
+            />
+            <span class="truncate">{{ entry.tabLabel }}</span>
+          </button>
+        </div>
       </div>
 
       <!-- Scrollable Modal Body -->
