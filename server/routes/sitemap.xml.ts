@@ -3,7 +3,7 @@ import { projectsData } from '../../app/data/projects'
 
 export default defineEventHandler((event) => {
   const envUrl = typeof process !== 'undefined' ? process.env?.NUXT_PUBLIC_SITE_URL : undefined
-  const baseUrl = envUrl || siteConfig.siteUrl || 'https://animesao.dev'
+  const baseUrl = envUrl || siteConfig.siteUrl || 'https://animesao.work.gd'
 
   const staticRoutes = [
     '',

@@ -24,7 +24,7 @@ export const siteConfig: SiteConfig = {
     { code: 'ru', name: 'Русский', label: 'RU' },
     { code: 'en', name: 'English', label: 'EN' }
   ],
-  siteUrl: envSiteUrl || 'https://animesao.dev',
+  siteUrl: envSiteUrl || 'https://animesao.work.gd',
   socialLinks: {
     github: 'https://github.com/animesao',
     cardinalRepo: 'https://github.com/animesao/cardinal',

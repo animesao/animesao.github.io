@@ -74,8 +74,12 @@ async function sync() {
     } else {
       // Remote fallback via GitHub API
       try {
+        const headers = { 'User-Agent': 'animesao-sync-script' }
+        if (process.env.GITHUB_TOKEN) {
+          headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+        }
         const res = await fetch(`https://api.github.com/repos/${repos[key]}/releases/latest`, {
-          headers: { 'User-Agent': 'animesao-sync-script' }
+          headers
         })
         if (res.ok) {
           const data = await res.json()
