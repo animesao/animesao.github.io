@@ -1,149 +1,155 @@
-# ANIMESAO — Персональный сайт-портфолио
+# ANIMESAO — Personal Portfolio Website
 
-Современный, высокопроизводительный персональный сайт и инженерное портфолио для разработчика **animesao**, автора экосистемы контейнерных инструментов **Cardinal** (рантайм Cardinal, API-демон Cardinal Wings и веб-панель Cardinal Panel).
+[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.3-00DC82?logo=nuxt.js&logoColor=white)](https://nuxt.com)
+[![Vue 3](https://img.shields.io/badge/Vue-3.5-4FC08D?logo=vuedotjs&logoColor=white)](https://vuejs.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg)](LICENSE)
+[![Deploy to GitHub Pages](https://github.com/animesao/animesao.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/animesao/animesao.github.io/actions/workflows/deploy.yml)
 
-Сайт построен на архитектуре статической генерации (SSG), лишён серверных зависимостей и базы данных, полностью локализован на русском и английском языках и оформлен в сдержанной футуристической, монохромно-графитовой эстетике с акцентом на типографику и техническую строгость.
+> High-performance personal website and software engineering portfolio for **animesao**, author of the **Cardinal** container ecosystem. Built with Nuxt 4, Vue 3, Tailwind CSS 4, and Nuxt UI. Featuring an **Obsidian & Electric Amber** dark sci-fi aesthetic, complete bilingual support (RU / EN), and automated release tracking.
 
----
-
-## 1. Технологический стек
-
-- **Фреймворк:** [Nuxt 4.x](https://nuxt.com/) (Vue 3, TypeScript со строгой проверкой типов).
-- **Стилизация:** [Tailwind CSS 4.x](https://tailwindcss.com/) + CSS Design Tokens (`main.css`).
-- **Компоненты интерфейса:** [@nuxt/ui 4.x](https://ui.nuxt.com/) с набором иконок `@iconify-json/lucide` и `@iconify-json/simple-icons`.
-- **Интернационализация (i18n):** `@nuxtjs/i18n` (полная поддержка RU / EN, префиксная стратегия для английской версии, бесшовное переключение).
-- **Синхронизация версий:** автоматический модуль синхронизации версий напрямую из локальных репозиториев (`Desktop/cardinal`, `Desktop/cardinal-wings`, `Desktop/cardinal-panel`) и GitHub Releases API + клиентский реактивный composable `useProjectVersions()`.
-- **Архитектура сборки:** Static Site Generation (SSG, Nitro preset: `static`), генерация чистых HTML, JSON payload и статических ассетов в `.output/public`.
-- **SEO & Индексация:** динамически генерируемый `sitemap.xml`, `robots.txt`, Open Graph метатеги, семантическая верстка.
-- **Инструменты контроля качества:** ESLint (с Nuxt stylistic и Better Tailwind CSS), vue-tsc / `nuxt typecheck`.
+🌐 **Live Website:** [https://animesao.work.gd/](https://animesao.work.gd/)
 
 ---
 
-## 2. Требования к среде
+## Overview
 
-- **Node.js:** `>= 20.x` (рекомендуется `v24.x` LTS).
-- **Пакетный менеджер:** [pnpm](https://pnpm.io/) `>= 9.x` (в проекте зафиксирован `pnpm 12.x`).
-- **Операционная система:** Linux, macOS или Windows.
+- **Developer:** animesao
+- **Role:** Software Developer · AI-assisted Development
+- **Core Ecosystem:** [Cardinal](https://github.com/animesao/cardinal) (Daemonless container runtime in Go), [Cardinal Wings](https://github.com/animesao/cardinal-wings) (API Daemon & SFTP in Go), [Cardinal Panel](https://github.com/animesao/cardinal-panel) (Full-stack management UI with Nuxt 4, Drizzle ORM, Monaco Editor & WebSocket terminal).
+- **Core Tooling:** OpenCode, Gemini 3.8 Flash, Git, Linux containers.
+- **Design Philosophy:** Dark obsidian backdrop (`#0d0e12`), glowing electric amber accents (`#f59e0b`), monospace technical typography, subtle grid lines, and micro-interactions.
 
 ---
 
-## 3. Установка зависимостей
+## Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| **Framework** | [Nuxt 4.6.x](https://nuxt.com/) (Vue 3, TypeScript with strict typing) |
+| **Styling** | [Tailwind CSS 4.x](https://tailwindcss.com/) with `@theme` CSS tokens & utilities |
+| **UI Components** | [@nuxt/ui 4.x](https://ui.nuxt.com/) + `@iconify-json/lucide` & `@iconify-json/simple-icons` |
+| **Internationalization** | `@nuxtjs/i18n` (Dual-locale RU / EN with SEO canonicals and route prefixing) |
+| **Data Layer** | Centralized TypeScript state (`app/data/`) with fallback resilience |
+| **Version Tracking** | Automated script querying local repos and GitHub Releases API (`sync-versions.mjs`) |
+| **Build Architecture** | Static Site Generation (SSG, Nitro preset `static`) with prerendered payload |
+| **Quality & Linting** | ESLint (stylistic, Better Tailwind rules), vue-tsc (`nuxt typecheck`) |
+
+---
+
+## Project Structure
+
+```
+mysite/
+├── .github/workflows/
+│   └── deploy.yml              # GitHub Actions CI/CD pipeline for GitHub Pages
+├── app/
+│   ├── assets/css/main.css     # Tailwind CSS 4 tokens and dark theme utilities
+│   ├── components/             # Reusable Vue components
+│   │   ├── AppAvatar.vue       # Avatar component with fallback cascade
+│   │   ├── AppFooter.vue       # Footer with validated external links
+│   │   ├── AppHeader.vue       # Header navigation and LanguageSwitcher
+│   │   ├── AppLogo.vue         # Sci-fi emblem with SVG vector rendering
+│   │   ├── CardinalArchitecture.vue # Interactive Cardinal ecosystem diagram
+│   │   ├── LanguageSwitcher.vue# RU / EN seamless locale switcher
+│   │   ├── ProjectCard.vue     # Dynamic project showcase card
+│   │   └── TechCard.vue        # Technology card with status and context
+│   ├── composables/
+│   │   └── useProjectVersions.ts # Reactive baseline versions composable
+│   ├── data/                   # Centralized single source of truth
+│   │   ├── links.ts            # Public validated profiles and repos
+│   │   ├── profile.ts          # Positioning, biography, and engineering focuses
+│   │   ├── projects.ts         # Verified project registry (Cardinal, Wings, Panel)
+│   │   ├── siteConfig.ts       # Domain config, URLs, metadata
+│   │   ├── techStack.ts        # Categorized technology stack
+│   │   ├── versions.ts         # Verified project release baselines
+│   │   ├── versions.json       # Synced versions JSON store
+│   │   └── translations/       # i18n dictionaries (ru.ts, en.ts)
+│   ├── pages/                  # Nuxt 4 file-based routing
+│   │   ├── index.vue           # Hero, Cardinal deep dive, tech overview
+│   │   ├── about.vue           # Developer profile and AI methodology
+│   │   ├── projects/           # Project directory and individual project pages
+│   │   ├── stack.vue           # Categorized technology stack view
+│   │   └── notes.vue           # Technical notes section with neutral empty state
+│   ├── app.vue                 # Root layout with meta tags, favicons, dark theme
+│   └── error.vue               # Custom 404 / 500 error boundary
+├── public/
+│   ├── custom/                 # User customizable branding assets (avatar, logo)
+│   ├── CNAME                   # Custom domain pointer (animesao.work.gd)
+│   ├── .nojekyll               # Disables Jekyll processing on GitHub Pages
+│   ├── favicon.ico             # Multi-resolution ICO favicon suite
+│   ├── favicon.svg             # Sharp vector SVG favicon
+│   ├── robots.txt              # Search crawler directives
+│   └── sitemap.xml             # Generated sitemap for search engines
+├── scripts/
+│   └── sync-versions.mjs       # Version syncer across local folders and GitHub API
+├── nuxt.config.ts              # Nuxt 4, Nitro prerender, i18n, icons configuration
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js:** `>= 20.x` (LTS recommended)
+- **Package Manager:** [pnpm](https://pnpm.io/) `>= 9.x`
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/animesao/animesao.github.io.git
+cd animesao.github.io
+
+# Install dependencies
 pnpm install
 ```
 
----
-
-## 4. Локальный запуск (Development)
-
-При запуске автоматически выполняется скрипт синхронизации версий `scripts/sync-versions.mjs`:
+### Development
 
 ```bash
+# Start the local development server (automatically syncs versions)
 pnpm run dev
 ```
 
-Сайт будет доступен по адресу: `http://localhost:3000`. Поддерживается HMR для компонентов, данных и стилей.
+The site will be available at `http://localhost:3000`.
 
----
-
-## 5. Production-сборка и статическая генерация (SSG)
-
-### Генерация статического сайта (Основной режим)
-
-Скрипт автоматически обновляет версии проектов из локальных каталогов/GitHub и генерирует автономный статический сайт:
+### Type Checking & Linting
 
 ```bash
-pnpm run generate
-```
+# Run ESLint validation
+pnpm run lint
 
-Результат сборки помещается в директорию `.output/public`. Этот каталог полностью автономен и готов к развёртыванию на любом статическом хостинге.
-
-### Ручная синхронизация версий:
-
-```bash
-pnpm run sync:versions
-```
-
-### Серверная сборка (Node server, опционально):
-
-```bash
-pnpm run build
-```
-
----
-
-## 6. Проверка качества кода
-
-### Проверка типов TypeScript:
-```bash
+# Run strict TypeScript type checking
 pnpm run typecheck
 ```
 
-### Линтинг и проверка стиля:
+### Static Site Generation (Build)
+
 ```bash
-pnpm run lint
+# Generate the full static production build
+pnpm run generate
 ```
 
-### Автоматическое исправление стиля:
-```bash
-pnpm exec eslint . --fix
-```
+The compiled static site will be generated into `.output/public`, ready for deployment to any static hosting provider.
 
 ---
 
-## 7. Папка для аватара и логотипа (`public/custom/`)
+## Deployment & CI/CD
 
-Для загрузки персональных изображений создана директория:
+This repository is deployed to **GitHub Pages** with the custom domain **[animesao.work.gd](https://animesao.work.gd/)**.
 
-```
-mysite/public/custom/
-├── avatar.svg      # Базовый векторный аватар
-├── logo.svg        # Базовый векторный логотип
-└── README.md       # Инструкция по форматам
-```
-
-### Как добавить свой аватар:
-Поместите файл с именем `avatar.png` (или `avatar.svg` / `avatar.jpg`) в папку `public/custom/`.
-- Рекомендуемый размер: `256x256` или `512x512` px.
-- Аватар автоматически появится на главной странице (Hero-блок), странице «О себе» (About) и в профиле.
-
-### Как добавить свой логотип:
-Поместите файл с именем `logo.png` (или `logo.svg`) в папку `public/custom/`.
-- Рекомендуемый размер: квадратная иконка `32x32` или `48x48` px.
-- Логотип автоматически появится в шапке сайта.
-- Если файл не добавлен, сайт аккуратно показывает фирменный знак `ANIMESAO // DEV`.
+Deployment is fully automated using GitHub Actions (`.github/workflows/deploy.yml`):
+1. Runs code quality checks (`eslint` and `vue-tsc`).
+2. Runs static site generation (`pnpm run generate`) with release version synchronization.
+3. Automatically publishes the generated static assets to GitHub Pages with `CNAME` and `.nojekyll`.
 
 ---
 
-## 8. Проекты экосистемы Cardinal
+## License
 
-1. **Cardinal** (`v2.4.13`):
-   - Репозиторий: [https://github.com/animesao/cardinal](https://github.com/animesao/cardinal)
-   - У проекта **нет отдельного сайта**, только официальный репозиторий на GitHub.
-   - Легковесный daemonless container runtime на Go (~5 МБ статический бинарник).
-
-2. **Cardinal Wings** (`v0.5.20`):
-   - Репозиторий: [https://github.com/animesao/cardinal-wings](https://github.com/animesao/cardinal-wings)
-   - HTTP REST API демон управления рантаймом с SSE-стримингом и SFTP.
-
-3. **Cardinal Panel** (`v0.6.7`):
-   - Репозиторий: [https://github.com/animesao/cardinal-panel](https://github.com/animesao/cardinal-panel)
-   - Полнофункциональная веб-панель управления игровыми серверами на Nuxt 4 + Drizzle ORM (SQLite / MySQL) + WebSocket-терминал.
-
----
-
-## 9. Публикация на статическом хостинге
-
-Каталог `.output/public` не требует Node.js в продакшене. Его можно разместить на:
-
-- **Cloudflare Pages:**
-  - Build command: `pnpm run generate`
-  - Build output directory: `.output/public`
-- **GitHub Pages:**
-  - Настройте GitHub Action для выполнения `pnpm run generate` и выгрузки артефакта `.output/public` в Pages.
-- **Vercel:**
-  - Framework Preset: `Nuxt.js`
-  - Output Directory: `.output/public`
-- **Nginx / Caddy / Статический веб-сервер:**
-  - Скопируйте содержимое папки `.output/public` в директорию веб-сервера (например, `/var/www/html/`).
+This project is licensed under the **[MIT License](LICENSE)** — see the [LICENSE](LICENSE) file for details.

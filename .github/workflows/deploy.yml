@@ -3,14 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - source
+      - main
   pull_request:
     branches:
-      - source
+      - main
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -54,23 +54,18 @@ jobs:
           echo "animesao.work.gd" > .output/public/CNAME
           touch .output/public/.nojekyll
 
-      - name: Deploy compiled site to main branch
-        if: github.ref == 'refs/heads/source'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: main
-          publish_dir: .output/public
-          cname: animesao.work.gd
-          keep_files: false
-
       - name: Upload GitHub Pages artifact
-        if: github.ref == 'refs/heads/source'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
 
-      - name: Deploy to GitHub Pages (Actions environment)
-        if: github.ref == 'refs/heads/source'
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
